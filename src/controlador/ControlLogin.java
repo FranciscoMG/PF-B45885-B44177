@@ -12,6 +12,7 @@ import java.io.IOException;
 import modelo.RegistroUsuarios;
 import org.jdom2.JDOMException;
 import vista.GUILogin;
+import vista.GUIMenu;
 import vista.PanelLogin;
 
 /**
@@ -19,10 +20,12 @@ import vista.PanelLogin;
  * @author vini
  */
 public class ControlLogin implements ActionListener {
+    
     private RegistroUsuarios registroUsuarios;
     private GUILogin gUILogin;
     private PanelLogin panelLogin;
     private int contadorDeLogins = 0;
+    private GUIMenu gUIMenu;
 
     public ControlLogin(GUILogin aThis, PanelLogin panelLogin1) throws JDOMException, IOException {
          this.panelLogin = panelLogin1;
@@ -45,8 +48,11 @@ public class ControlLogin implements ActionListener {
                     System.err.println("entro");
                    
                     this.gUILogin.dispose();
+                    this.gUIMenu = new GUIMenu();
+                    this.gUIMenu.setVisible(true);
                 } else {
                     contadorDeLogins++;
+                    GUILogin.mensaje("     Incorrecto");
                     if (contadorDeLogins == 3) {
                         GUILogin.mensaje("Usted a ecxedido la cantidad de intentos");
                         System.exit(0);
