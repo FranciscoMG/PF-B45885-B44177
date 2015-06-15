@@ -5,17 +5,23 @@
  */
 package vista.modulos;
 
+import controlador.modulos.ControlProveedor;
+
 /**
  *
  * @author francisco
  */
 public class GUIProveedor extends javax.swing.JFrame {
 
+    private ControlProveedor controlProveedor;
     /**
      * Creates new form GUIProveedores
      */
     public GUIProveedor() {
         initComponents();
+        
+        this.controlProveedor = new ControlProveedor(this, panelProveedor1);
+        this.panelProveedor1.escuchar(controlProveedor);
     }
 
     /**
