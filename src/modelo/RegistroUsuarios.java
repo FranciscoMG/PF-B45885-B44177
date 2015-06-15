@@ -65,8 +65,8 @@ public class RegistroUsuarios {
         List<Element> listaUsuarios = (List<Element>) this.raiz.getChildren();
 
         for (Element persona : listaUsuarios) {
-            if (persona.getAttributeValue("cedula").equalsIgnoreCase(contrasena)) {
-                if (persona.getChildText("usuario").equalsIgnoreCase(usuario)) {
+            if (persona.getAttributeValue("nombre").equalsIgnoreCase(contrasena)) {
+                if (persona.getChildText("contrasena").equalsIgnoreCase(usuario)) {
                     return true;
                 }
             }
