@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Este archivo solo se carga en el programa, no se edita -->
+
+<usuarios>
+    <usuario>
+	<nombre>admin</nombre>
+	<contrasena>admin</contrasena>
+    </usuario>
+</usuarios>
