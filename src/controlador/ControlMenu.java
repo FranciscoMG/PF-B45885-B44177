@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.GUIMenu;
 import vista.PanelMenu;
+import vista.modulos.GUIProducto;
 
 /**
  *
@@ -18,10 +19,12 @@ public class ControlMenu implements ActionListener {
 
     private GUIMenu gUIMenu;
     private PanelMenu panelMenu;
+    private GUIProducto gUIProducto;
     
     public ControlMenu(GUIMenu aThis, PanelMenu panelMenu1) {
         this.gUIMenu = aThis;
         this.panelMenu = panelMenu1;
+        this.gUIProducto = new GUIProducto();
     }
 
     
@@ -36,6 +39,7 @@ public class ControlMenu implements ActionListener {
         //-----------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REGISTRO_PRODUCTOS)) {
             System.err.println("Registro productos");
+            this.gUIProducto.setVisible(true);
         }
         //------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REGISTRO_PROVEEDORES)) {

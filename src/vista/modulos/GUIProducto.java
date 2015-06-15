@@ -5,17 +5,24 @@
  */
 package vista.modulos;
 
+import controlador.modulos.ControlProducto;
+
 /**
  *
  * @author francisco
  */
 public class GUIProducto extends javax.swing.JFrame {
 
+    private ControlProducto controlProducto;
+    
     /**
      * Creates new form GUIProducto
      */
     public GUIProducto() {
         initComponents();
+        
+        this.controlProducto = new ControlProducto(this, panelProducto1);
+        panelProducto1.escuchar(controlProducto);
     }
 
     /**
@@ -29,7 +36,7 @@ public class GUIProducto extends javax.swing.JFrame {
 
         panelProducto1 = new vista.modulos.PanelProducto();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

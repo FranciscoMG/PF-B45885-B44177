@@ -5,6 +5,9 @@
  */
 package vista.modulos;
 
+import controlador.modulos.ControlProducto;
+import javax.swing.JTextField;
+
 /**
  *
  * @author francisco
@@ -29,20 +32,20 @@ public class PanelProducto extends javax.swing.JPanel {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
+        jtexField_Codigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtUsuario1 = new javax.swing.JTextField();
+        jtexField_Nombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtUsuario2 = new javax.swing.JTextField();
+        jtexField_Proveedor = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtUsuario3 = new javax.swing.JTextField();
+        jtexField_Precio = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtUsuario4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jtexField_Unidades_Invetarios = new javax.swing.JTextField();
+        jButton_Buscar = new javax.swing.JButton();
+        jButton_Modificar = new javax.swing.JButton();
+        jButton_Agregar = new javax.swing.JButton();
+        jButton_Eliminar = new javax.swing.JButton();
+        jButton_Cancelar = new javax.swing.JButton();
 
         setEnabled(false);
 
@@ -53,23 +56,29 @@ public class PanelProducto extends javax.swing.JPanel {
 
         jLabel5.setText("Nombre:");
 
+        jtexField_Nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtexField_NombreActionPerformed(evt);
+            }
+        });
+
         jLabel6.setText("Proveedor:");
 
         jLabel7.setText("Precio:");
 
         jLabel8.setText("Unidades en invertario:");
 
-        jButton1.setText("B");
+        jButton_Buscar.setText("B");
 
-        jButton2.setText("Modificar");
-        jButton2.setEnabled(false);
+        jButton_Modificar.setText("Modificar");
+        jButton_Modificar.setEnabled(false);
 
-        jButton3.setText("Agregar");
+        jButton_Agregar.setText("Agregar");
 
-        jButton4.setText("Eliminar");
-        jButton4.setEnabled(false);
+        jButton_Eliminar.setText("Eliminar");
+        jButton_Eliminar.setEnabled(false);
 
-        jButton5.setText("Cancelar");
+        jButton_Cancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,37 +96,37 @@ public class PanelProducto extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jtexField_Unidades_Invetarios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                 .addComponent(jLabel4)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jtexField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                 .addComponent(jLabel5)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jtexField_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel7)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(txtUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jtexField_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel6)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txtUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jtexField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton1)))))
+                                        .addComponent(jButton_Buscar)))))
                         .addGap(0, 8, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3)
+                        .addComponent(jButton_Agregar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
+                        .addComponent(jButton_Modificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)
+                        .addComponent(jButton_Eliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)))
+                        .addComponent(jButton_Cancelar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -128,52 +137,113 @@ public class PanelProducto extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jtexField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_Buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtexField_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtexField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtexField_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtexField_Unidades_Invetarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3)
-                        .addComponent(jButton2)
-                        .addComponent(jButton4))
-                    .addComponent(jButton5))
+                        .addComponent(jButton_Agregar)
+                        .addComponent(jButton_Modificar)
+                        .addComponent(jButton_Eliminar))
+                    .addComponent(jButton_Cancelar))
                 .addGap(8, 8, 8))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jtexField_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtexField_NombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtexField_NombreActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton_Agregar;
+    private javax.swing.JButton jButton_Buscar;
+    private javax.swing.JButton jButton_Cancelar;
+    private javax.swing.JButton jButton_Eliminar;
+    private javax.swing.JButton jButton_Modificar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField txtUsuario;
-    private javax.swing.JTextField txtUsuario1;
-    private javax.swing.JTextField txtUsuario2;
-    private javax.swing.JTextField txtUsuario3;
-    private javax.swing.JTextField txtUsuario4;
+    private javax.swing.JTextField jtexField_Codigo;
+    private javax.swing.JTextField jtexField_Nombre;
+    private javax.swing.JTextField jtexField_Precio;
+    private javax.swing.JTextField jtexField_Proveedor;
+    private javax.swing.JTextField jtexField_Unidades_Invetarios;
     // End of variables declaration//GEN-END:variables
+
+    public static final String BTN_BUSCAR = "";
+    public static final String BTN_AGREGAR = "Agregar";
+    public static final String BTN_CANCELAR = "Cancelar";
+    public static final String BTN_ELIMINAR = "Eliminar";
+    public static final String BTN_MODIFICAR = "Modificar";
+    
+    public void escuchar (ControlProducto cp) {
+        this.jButton_Agregar.addActionListener(cp);
+        this.jButton_Buscar.addActionListener(cp);
+        this.jButton_Cancelar.addActionListener(cp);
+        this.jButton_Eliminar.addActionListener(cp);
+        this.jButton_Modificar.addActionListener(cp);
+    }
+
+    public String getJtexField_Codigo() {
+        return jtexField_Codigo.getText().trim();
+    }
+
+    public void setJtexField_Codigo(String jtexField_Codigo) {
+        this.jtexField_Codigo.setText(jtexField_Codigo.trim());
+    }
+
+    public String getJtexField_Nombre() {
+        return jtexField_Nombre.getText();
+    }
+
+    public void setJtexField_Nombre(String jtexField_Nombre) {
+        this.jtexField_Nombre.setText(jtexField_Nombre);
+    }
+
+    public double getJtexField_Precio() {
+        return Double.parseDouble(jtexField_Precio.getText().trim());
+    }
+
+    public void setJtexField_Precio(double jtexField_Precio) {
+        this.jtexField_Precio.setText(String.valueOf(jtexField_Precio));
+    }
+
+    public String getJtexField_Proveedor() {
+        return jtexField_Proveedor.getText();
+    }
+
+    public void setJtexField_Proveedor(String jtexField_Proveedor) {
+        this.jtexField_Proveedor.setText(jtexField_Proveedor);
+    }
+
+    public int getJtexField_Unidades_Invetarios() {
+        return Integer.parseInt(jtexField_Unidades_Invetarios.getText().trim());
+    }
+
+    public void setJtexField_Unidades_Invetarios(int jtexField_Unidades_Invetarios) {
+        this.jtexField_Unidades_Invetarios.setText(String.valueOf(jtexField_Unidades_Invetarios));
+    }
+    
+    
+    
 }
