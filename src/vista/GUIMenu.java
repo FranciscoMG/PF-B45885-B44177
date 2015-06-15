@@ -5,17 +5,23 @@
  */
 package vista;
 
+import controlador.ControlMenu;
+
 /**
  *
  * @author francisco
  */
 public class GUIMenu extends javax.swing.JFrame {
 
+    private ControlMenu controlMenu;
     /**
      * Creates new form GUIMenu
      */
     public GUIMenu() {
         initComponents();
+        
+        this.controlMenu = new ControlMenu(this, panelMenu1);
+        this.panelMenu1.escuchar(controlMenu);
     }
 
     /**

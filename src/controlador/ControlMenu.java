@@ -5,10 +5,50 @@
  */
 package controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import vista.GUIMenu;
+import vista.PanelMenu;
+
 /**
  *
  * @author francisco
  */
-public class ControlMenu {
+public class ControlMenu implements ActionListener {
+
+    private GUIMenu gUIMenu;
+    private PanelMenu panelMenu;
+    
+    public ControlMenu(GUIMenu aThis, PanelMenu panelMenu1) {
+        this.gUIMenu = aThis;
+        this.panelMenu = panelMenu1;
+    }
+
+    
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_COMPRAS)) {
+            System.err.println("compra");
+        }
+        //------------------------------------------------------------------
+        if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_INVENTARIO)) {
+            System.err.println("Inventario");
+        }
+        //-----------------------------------------------------------------
+        if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REGISTRO_PRODUCTOS)) {
+            System.err.println("Registro productos");
+        }
+        //------------------------------------------------------------------
+        if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REGISTRO_PROVEEDORES)) {
+            System.err.println("Registro proveedores");
+        }
+        //-------------------------------------------------------------------
+        if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REPORTE_UTILIDADES)) {
+            System.err.println("Reporte utilidades");
+        }
+        //-------------------------------------------------------------------
+        if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_VENTAS)) {
+            System.err.println("Ventas");
+        }
+    }
     
 }

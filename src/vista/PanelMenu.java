@@ -5,6 +5,8 @@
  */
 package vista;
 
+import controlador.ControlMenu;
+
 /**
  *
  * @author francisco
@@ -27,24 +29,29 @@ public class PanelMenu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jButton_Registro_Productos = new javax.swing.JButton();
+        jButton_Registro_Proveedore = new javax.swing.JButton();
+        jButton_Compras = new javax.swing.JButton();
+        jButton_Ventas = new javax.swing.JButton();
+        jButton_Reporte_Utilidades = new javax.swing.JButton();
+        jButton_Inventario = new javax.swing.JButton();
 
-        jButton1.setText("Módulo de registro productos");
+        jButton_Registro_Productos.setText("Módulo de registro productos");
 
-        jButton2.setText("Módulo de registro proveedores");
+        jButton_Registro_Proveedore.setText("Módulo de registro proveedores");
 
-        jButton3.setText("Modulo de compra");
+        jButton_Compras.setText("Modulo de compra");
 
-        jButton4.setText("Módulo de ventas");
+        jButton_Ventas.setText("Módulo de ventas");
 
-        jButton5.setText("Reporte de utilidades");
+        jButton_Reporte_Utilidades.setText("Reporte de utilidades");
+        jButton_Reporte_Utilidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Reporte_UtilidadesActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Módulo de inventario");
+        jButton_Inventario.setText("Módulo de inventario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -53,40 +60,63 @@ public class PanelMenu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(jButton_Inventario)
+                    .addComponent(jButton_Reporte_Utilidades)
+                    .addComponent(jButton_Ventas)
+                    .addComponent(jButton_Compras)
+                    .addComponent(jButton_Registro_Proveedore)
+                    .addComponent(jButton_Registro_Productos))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jButton1)
+                .addComponent(jButton_Registro_Productos)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(jButton_Registro_Proveedore)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(jButton_Compras)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(jButton_Ventas)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(jButton_Reporte_Utilidades)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6)
+                .addComponent(jButton_Inventario)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_Reporte_UtilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Reporte_UtilidadesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_Reporte_UtilidadesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton_Compras;
+    private javax.swing.JButton jButton_Inventario;
+    private javax.swing.JButton jButton_Registro_Productos;
+    private javax.swing.JButton jButton_Registro_Proveedore;
+    private javax.swing.JButton jButton_Reporte_Utilidades;
+    private javax.swing.JButton jButton_Ventas;
     // End of variables declaration//GEN-END:variables
+
+    public static final String BTN_COMPRAS = "Modulo de compra";
+    public static final String BTN_INVENTARIO = "Módulo de inventario";
+    public static final String BTN_REGISTRO_PRODUCTOS = "Módulo de registro productos";
+    public static final String BTN_REGISTRO_PROVEEDORES = "Módulo de registro proveedores";
+    public static final String BTN_REPORTE_UTILIDADES = "Reporte de utilidades";
+    public static final String BTN_VENTAS = "Módulo de ventas";
+    
+    
+    public void escuchar (ControlMenu cm) {
+        this.jButton_Compras.addActionListener(cm);
+        this.jButton_Inventario.addActionListener(cm);
+        this.jButton_Registro_Productos.addActionListener(cm);
+        this.jButton_Registro_Proveedore.addActionListener(cm);
+        this.jButton_Reporte_Utilidades.addActionListener(cm);
+        this.jButton_Ventas.addActionListener(cm);
+    }
+
+
 }
