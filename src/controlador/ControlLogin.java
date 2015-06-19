@@ -52,7 +52,7 @@ public class ControlLogin implements ActionListener {
                     contadorDeLogins++;
                     GUILogin.mensaje("     Incorrecto");
                     if (contadorDeLogins == 3) {
-                        GUILogin.mensaje("Usted a excedido la cantidad de intentos permitidos");
+                        GUILogin.mensaje("Usted ha excedido la cantidad de intentos permitidos");
                         System.exit(0);
                     }
                 }
