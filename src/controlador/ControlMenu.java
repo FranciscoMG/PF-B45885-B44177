@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.RegistroBD;
 import vista.GUIMenu;
 import vista.PanelMenu;
 import vista.modulos.GUIProducto;
@@ -18,16 +19,16 @@ import vista.modulos.GUIProducto;
 public class ControlMenu implements ActionListener {
 
     private GUIMenu gUIMenu;
-    private PanelMenu panelMenu;
     private GUIProducto gUIProducto;
-    
+    private PanelMenu panelMenu;
+
     public ControlMenu(GUIMenu aThis, PanelMenu panelMenu1) {
+        RegistroBD registroBD = new RegistroBD();
         this.gUIMenu = aThis;
-        this.panelMenu = panelMenu1;
         this.gUIProducto = new GUIProducto();
+        this.panelMenu = panelMenu1;
     }
 
-    
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_COMPRAS)) {
             System.err.println("compra");
@@ -54,5 +55,5 @@ public class ControlMenu implements ActionListener {
             System.err.println("Ventas");
         }
     }
-    
+
 }

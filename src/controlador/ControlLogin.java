@@ -23,13 +23,13 @@ public class ControlLogin implements ActionListener {
 
     private RegistroUsuarios registroUsuarios;
     private GUILogin guiLogin;
+    private GUIMenu guiMenu;
     private PanelLogin panelLogin;
     private int contadorDeLogins = 0;
-    private GUIMenu guiMenu;
 
     public ControlLogin(GUILogin aThis, PanelLogin panelLogin1) throws JDOMException, IOException {
-        this.panelLogin = panelLogin1;
         this.guiLogin = aThis;
+        this.panelLogin = panelLogin1;
 
         File file = new File("usuarios.xml");
         if (file.exists()) {
@@ -50,9 +50,9 @@ public class ControlLogin implements ActionListener {
                     this.guiMenu.setVisible(true);
                 } else {
                     contadorDeLogins++;
-                    GUILogin.mensaje("     Incorrecto");
+                    GUILogin.mensaje("Usuario o contraseña incorrecta. Le quedan " + (3 - contadorDeLogins) + " intentos", 0);
                     if (contadorDeLogins == 3) {
-                        GUILogin.mensaje("Usted ha excedido la cantidad de intentos permitidos");
+                        GUILogin.mensaje("Usted ha excedido la cantidad de intentos permitidos", 1);
                         System.exit(0);
                     }
                 }

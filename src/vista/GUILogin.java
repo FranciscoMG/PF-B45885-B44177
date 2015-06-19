@@ -7,8 +7,6 @@ package vista;
 
 import controlador.ControlLogin;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.jdom2.JDOMException;
 
@@ -19,14 +17,17 @@ import org.jdom2.JDOMException;
 public class GUILogin extends javax.swing.JFrame {
 
     private ControlLogin controlLogin;
+
     /**
      * Creates new form GUILogin
      */
-    public GUILogin() throws JDOMException, IOException {
+    public GUILogin() {
         initComponents();
-        
-        controlLogin = new ControlLogin(this, panelLogin1);
-        panelLogin1.escuchar(controlLogin);
+        try {
+            controlLogin = new ControlLogin(this, panelLogin1);
+            panelLogin1.escuchar(controlLogin);
+        } catch (JDOMException | IOException ex) {
+        }
     }
 
     /**
@@ -88,13 +89,7 @@ public class GUILogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new GUILogin().setVisible(true);
-                } catch (JDOMException ex) {
-                    Logger.getLogger(GUILogin.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(GUILogin.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new GUILogin().setVisible(true);
             }
         });
     }
@@ -103,7 +98,7 @@ public class GUILogin extends javax.swing.JFrame {
     private vista.PanelLogin panelLogin1;
     // End of variables declaration//GEN-END:variables
 
-public static void mensaje (String mensaje) {
-        JOptionPane.showMessageDialog(null, mensaje);
+    public static void mensaje(String mensaje, int tipoMensaje) {
+        JOptionPane.showMessageDialog(null, mensaje, null, tipoMensaje);
     }
 }
