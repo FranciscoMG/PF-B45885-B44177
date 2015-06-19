@@ -20,16 +20,16 @@ import vista.PanelLogin;
  * @author vini
  */
 public class ControlLogin implements ActionListener {
-    
+
     private RegistroUsuarios registroUsuarios;
-    private GUILogin gUILogin;
+    private GUILogin guiLogin;
     private PanelLogin panelLogin;
     private int contadorDeLogins = 0;
-    private GUIMenu gUIMenu;
+    private GUIMenu guiMenu;
 
     public ControlLogin(GUILogin aThis, PanelLogin panelLogin1) throws JDOMException, IOException {
-         this.panelLogin = panelLogin1;
-        this.gUILogin = aThis;
+        this.panelLogin = panelLogin1;
+        this.guiLogin = aThis;
 
         File file = new File("usuarios.xml");
         if (file.exists()) {
@@ -39,22 +39,20 @@ public class ControlLogin implements ActionListener {
         }
     }
 
-    
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelLogin.BTN_ENTRAR)) {
             if (!panelLogin.getjPasswordField_contrasena().equalsIgnoreCase("")
                     && !panelLogin.getjTextField_Usuario().equalsIgnoreCase("")) {
                 if (registroUsuarios.login(panelLogin.getjTextField_Usuario(), panelLogin.getjPasswordField_contrasena())) {
                     System.err.println("entro");
-                   
-                    this.gUILogin.dispose();
-                    this.gUIMenu = new GUIMenu();
-                    this.gUIMenu.setVisible(true);
+                    this.guiLogin.dispose();
+                    this.guiMenu = new GUIMenu();
+                    this.guiMenu.setVisible(true);
                 } else {
                     contadorDeLogins++;
                     GUILogin.mensaje("     Incorrecto");
                     if (contadorDeLogins == 3) {
-                        GUILogin.mensaje("Usted a ecxedido la cantidad de intentos");
+                        GUILogin.mensaje("Usted a excedido la cantidad de intentos permitidos");
                         System.exit(0);
                     }
                 }
@@ -64,5 +62,5 @@ public class ControlLogin implements ActionListener {
             System.exit(0);
         }
     }
-    
+
 }
