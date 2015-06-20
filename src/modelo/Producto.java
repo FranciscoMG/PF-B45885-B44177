@@ -11,26 +11,27 @@ package modelo;
  */
 public class Producto {
 
-    private String codigo;
+    private String idProducto;
     private String nombre;
-    private double peso;
-    private Proveedor proveedor;
     private double precio;
+    private Proveedor proveedor;
 
-    public Producto(String codigo, String nombre, double peso, Proveedor proveedor, double precio) {
-        this.codigo = codigo;
+    public Producto() {
+    }
+
+    public Producto(String idProducto, String nombre, double precio, Proveedor proveedor) {
+        this.idProducto = idProducto;
         this.nombre = nombre;
-        this.peso = peso;
-        this.proveedor = proveedor;
         this.precio = precio;
+        this.proveedor = proveedor;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getIdProducto() {
+        return idProducto;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setIdProducto(String idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombre() {
@@ -41,12 +42,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public double getPeso() {
-        return peso;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     public Proveedor getProveedor() {
@@ -55,13 +56,5 @@ public class Producto {
 
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 }

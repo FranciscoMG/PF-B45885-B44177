@@ -38,7 +38,7 @@ public class RegistroBD {
         }
     }
 
-    public ResultSet consulta(String consultaSQL) {
+    public ResultSet realizarConsulta(String consultaSQL) {
         try {
             this.estado = conexionBD.createStatement();
             this.resultado = this.estado.executeQuery(consultaSQL);
@@ -47,13 +47,14 @@ public class RegistroBD {
         return this.resultado;
     }
 
-    public void proceso(String procedimientoSQL) {
+    public boolean realizarProcedimiento(String procedimientoSQL) {
         try {
             estado = conexionBD.createStatement();
             estado.executeUpdate(procedimientoSQL);
-            System.out.println("Realizado!");
+            return true;
         } catch (SQLException ex) {
         }
+        return false;
     }
 
     public void cerrarConexion() {

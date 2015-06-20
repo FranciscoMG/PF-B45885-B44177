@@ -8,6 +8,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.RegistroBD;
+import modelo.RegistroProductos;
+import modelo.RegistroProveedor;
 import vista.GUIMenu;
 import vista.PanelMenu;
 import vista.modulos.GUICompras;
@@ -23,8 +25,12 @@ import vista.modulos.GUIVentas;
  */
 public class ControlMenu implements ActionListener {
 
-    private GUIMenu gUIMenu;
-    private GUIProducto gUIProducto;
+    private RegistroBD registroBD;
+    private RegistroProveedor registroProveedor;
+    private RegistroProductos registroProductos;
+    private GUIMenu guiMenu;
+    private GUIProveedor guiProveedor;
+    private GUIProducto guiProducto;
     private PanelMenu panelMenu;
     private GUICompras gUICompras;
     private GUIInventario gUIInventario;
@@ -33,16 +39,12 @@ public class ControlMenu implements ActionListener {
     private GUIVentas gUIVentas;
     
 
-    public ControlMenu(GUIMenu aThis, PanelMenu panelMenu1) {
-        RegistroBD registroBD = new RegistroBD();
-        this.gUIMenu = aThis;
-        this.gUIProducto = new GUIProducto();
-        this.gUICompras = new GUICompras();
-        this.gUIInventario = new GUIInventario();
-        this.gUIProveedor = new GUIProveedor();
-        this.gUIUtilidades = new GUIUtilidades();
-        this.gUIVentas = new GUIVentas();
-        this.panelMenu = panelMenu1;
+    public ControlMenu(GUIMenu aThis, PanelMenu panelMenu) {
+        this.registroBD = new RegistroBD();
+        this.registroProveedor = new RegistroProveedor(registroBD);
+        this.registroProductos = new RegistroProductos(registroBD, registroProveedor);
+        this.guiMenu = aThis;
+        this.panelMenu = panelMenu;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -57,13 +59,19 @@ public class ControlMenu implements ActionListener {
         }
         //-----------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REGISTRO_PRODUCTOS)) {
-            System.err.println("Registro productos");
-            this.gUIProducto.setVisible(true);
+            if (guiProducto != null) {
+                guiProducto.dispose();
+            }
+            guiProducto = new GUIProducto(null, true, registroProveedor, registroProductos);
+            guiProducto.setVisible(true);
         }
         //------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REGISTRO_PROVEEDORES)) {
-            System.err.println("Registro proveedores");
-            this.gUIProveedor.setVisible(true);
+            if (guiProveedor != null) {
+                guiProveedor.dispose();
+            }
+            guiProveedor = new GUIProveedor(null, true, registroProveedor);
+            guiProveedor.setVisible(true);
         }
         //-------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REPORTE_UTILIDADES)) {

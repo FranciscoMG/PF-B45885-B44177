@@ -26,17 +26,17 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jtxtField_Codigo" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jTxtField_Codigo" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jtxtField_Nombre" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jTxtField_Nombre" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jtxtField_Telefono" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jTxtField_Telefono" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -66,18 +66,18 @@
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtxtField_Codigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtField_Codigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtxtField_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtField_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtxtField_Telefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtField_Telefono" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="101" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -107,11 +107,12 @@
         <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtxtField_Codigo">
+    <Component class="javax.swing.JTextField" name="jTxtField_Codigo">
     </Component>
     <Component class="javax.swing.JButton" name="jButton_Buscar">
       <Properties>
         <Property name="text" type="java.lang.String" value="B"/>
+        <Property name="actionCommand" type="java.lang.String" value="Buscar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -119,14 +120,14 @@
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtxtField_Nombre">
+    <Component class="javax.swing.JTextField" name="jTxtField_Nombre">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telef&#xf3;no:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtxtField_Telefono">
+    <Component class="javax.swing.JTextField" name="jTxtField_Telefono">
     </Component>
     <Component class="javax.swing.JButton" name="jButton_Agregar">
       <Properties>

@@ -6,22 +6,27 @@
 package vista.modulos;
 
 import controlador.modulos.ControlProducto;
+import javax.swing.JFrame;
+import modelo.RegistroProductos;
+import modelo.RegistroProveedor;
 
 /**
  *
  * @author francisco
  */
-public class GUIProducto extends javax.swing.JFrame {
+public class GUIProducto extends javax.swing.JDialog {
 
     private ControlProducto controlProducto;
-    
+
     /**
      * Creates new form GUIProducto
      */
-    public GUIProducto() {
+    public GUIProducto(JFrame parent, boolean modal, RegistroProveedor registroProveedor, RegistroProductos registroProductos) {
+        super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         this.controlProducto = new ControlProducto(this, panelProducto1);
+        this.controlProducto = new ControlProducto(this, panelProducto1, registroProveedor, registroProductos);
         panelProducto1.escuchar(controlProducto);
     }
 
@@ -37,6 +42,7 @@ public class GUIProducto extends javax.swing.JFrame {
         panelProducto1 = new vista.modulos.PanelProducto();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

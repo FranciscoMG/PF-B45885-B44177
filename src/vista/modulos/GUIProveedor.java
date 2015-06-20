@@ -6,21 +6,26 @@
 package vista.modulos;
 
 import controlador.modulos.ControlProveedor;
+import javax.swing.JFrame;
+import modelo.RegistroProveedor;
 
 /**
  *
  * @author francisco
  */
-public class GUIProveedor extends javax.swing.JFrame {
+public class GUIProveedor extends javax.swing.JDialog {
 
     private ControlProveedor controlProveedor;
+
     /**
      * Creates new form GUIProveedores
      */
-    public GUIProveedor() {
+    public GUIProveedor(JFrame parent, boolean modal, RegistroProveedor registroProveedor) {
+        super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         this.controlProveedor = new ControlProveedor(this, panelProveedor1);
+        this.controlProveedor = new ControlProveedor(this, panelProveedor1, registroProveedor);
         this.panelProveedor1.escuchar(controlProveedor);
     }
 
@@ -36,6 +41,7 @@ public class GUIProveedor extends javax.swing.JFrame {
         panelProveedor1 = new vista.modulos.PanelProveedor();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

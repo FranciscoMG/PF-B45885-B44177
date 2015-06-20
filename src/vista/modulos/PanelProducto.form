@@ -39,22 +39,22 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jtexField_Codigo" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="jTxtField_Codigo" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jtexField_Nombre" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="jTxtField_Nombre" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jtexField_Precio" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="jTxtField_Precio" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jtexField_Proveedor" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="jTxtField_Proveedor" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="38" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -88,23 +88,23 @@
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtexField_Codigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtField_Codigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtexField_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtField_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtexField_Proveedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtField_Proveedor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtexField_Precio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTxtField_Precio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -139,31 +139,28 @@
         <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtexField_Codigo">
+    <Component class="javax.swing.JTextField" name="jTxtField_Codigo">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtexField_Nombre">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtexField_NombreActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="jTxtField_Nombre">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Proveedor:"/>
+        <Property name="text" type="java.lang.String" value="Cod. Prov:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtexField_Proveedor">
+    <Component class="javax.swing.JTextField" name="jTxtField_Proveedor">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="Precio:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtexField_Precio">
+    <Component class="javax.swing.JTextField" name="jTxtField_Precio">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
@@ -173,6 +170,7 @@
     <Component class="javax.swing.JButton" name="jButton_Buscar">
       <Properties>
         <Property name="text" type="java.lang.String" value="B"/>
+        <Property name="actionCommand" type="java.lang.String" value="Buscar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton_Modificar">
