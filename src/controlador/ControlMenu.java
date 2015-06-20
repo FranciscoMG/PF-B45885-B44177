@@ -31,13 +31,11 @@ public class ControlMenu implements ActionListener {
     private GUIMenu guiMenu;
     private GUIProveedor guiProveedor;
     private GUIProducto guiProducto;
+    private GUIInventario guiInventario;
+    private GUICompras guiCompras;
+    private GUIVentas guiVentas;
+    private GUIUtilidades guiUtilidades;
     private PanelMenu panelMenu;
-    private GUICompras gUICompras;
-    private GUIInventario gUIInventario;
-    private GUIProveedor gUIProveedor;
-    private GUIUtilidades gUIUtilidades;
-    private GUIVentas gUIVentas;
-    
 
     public ControlMenu(GUIMenu aThis, PanelMenu panelMenu) {
         this.registroBD = new RegistroBD();
@@ -50,12 +48,12 @@ public class ControlMenu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_COMPRAS)) {
             System.err.println("compra");
-            this.gUICompras.setVisible(true);
+            this.guiCompras.setVisible(true);
         }
         //------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_INVENTARIO)) {
             System.err.println("Inventario");
-            this.gUIInventario.setVisible(true);
+            this.guiInventario.setVisible(true);
         }
         //-----------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REGISTRO_PRODUCTOS)) {
@@ -76,12 +74,12 @@ public class ControlMenu implements ActionListener {
         //-------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REPORTE_UTILIDADES)) {
             System.err.println("Reporte utilidades");
-            this.gUIUtilidades.setVisible(true);
+            this.guiUtilidades.setVisible(true);
         }
         //-------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_VENTAS)) {
             System.err.println("Ventas");
-            this.gUIVentas.setVisible(true);
+            this.guiVentas.setVisible(true);
         }
     }
 
