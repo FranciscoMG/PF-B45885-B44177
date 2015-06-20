@@ -5,6 +5,9 @@
  */
 package vista.modulos;
 
+import controlador.modulos.ControlUtilidades;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author francisco
@@ -29,26 +32,26 @@ public class PanelUtilidades extends javax.swing.JPanel {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        jComboBox_Mes = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextArea_Detalle = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton_Cerrar = new javax.swing.JButton();
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
         jLabel3.setText("Registro productos");
 
         jLabel4.setText("Mes:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox_Mes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextArea_Detalle.setColumns(20);
+        jTextArea_Detalle.setRows(5);
+        jScrollPane1.setViewportView(jTextArea_Detalle);
 
         jLabel1.setText("Detalle ventas mes:");
 
-        jButton1.setText("Cerrar");
+        jButton_Cerrar.setText("Cerrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -65,12 +68,12 @@ public class PanelUtilidades extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBox_Mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1))))
                 .addContainerGap(134, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jButton_Cerrar)
                 .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
@@ -81,25 +84,42 @@ public class PanelUtilidades extends javax.swing.JPanel {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_Mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jButton_Cerrar)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JButton jButton_Cerrar;
+    private javax.swing.JComboBox jComboBox_Mes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea_Detalle;
     // End of variables declaration//GEN-END:variables
+
+    public static final String BTN_CERRAR = "Cerrar";
+
+    public void escuchar (ControlUtilidades cu) {
+        this.jButton_Cerrar.addActionListener(cu);
+        this.jComboBox_Mes.addItemListener(cu);
+    }
+
+    public String getjTextArea_Detalle() {
+        return jTextArea_Detalle.getText();
+    }
+
+    public void setjTextArea_Detalle(String jTextArea_Detalle) {
+        this.jTextArea_Detalle.setText(jTextArea_Detalle);
+    }
+    
+    
 }

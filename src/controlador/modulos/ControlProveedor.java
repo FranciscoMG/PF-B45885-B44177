@@ -15,8 +15,13 @@ import vista.modulos.PanelProveedor;
  * @author francisco
  */
 public class ControlProveedor implements ActionListener {
+    
+    private GUIProveedor gUIProveedor;
+    private PanelProveedor panelProveedor;
 
     public ControlProveedor(GUIProveedor aThis, PanelProveedor panelProveedor1) {
+        this.gUIProveedor = aThis;
+        this.panelProveedor = panelProveedor1;
     }
 
 

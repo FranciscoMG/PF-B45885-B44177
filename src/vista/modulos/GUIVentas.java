@@ -5,17 +5,24 @@
  */
 package vista.modulos;
 
+import controlador.modulos.ControlVentas;
+
 /**
  *
  * @author francisco
  */
 public class GUIVentas extends javax.swing.JFrame {
 
+    private ControlVentas controlVentas;
+    
     /**
      * Creates new form GUIVentas
      */
     public GUIVentas() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.controlVentas = new ControlVentas(this, panelVentas1);
+        this.panelVentas1.escuchar(controlVentas);
     }
 
     /**

@@ -5,6 +5,11 @@
  */
 package vista.modulos;
 
+import controlador.modulos.ControlVentas;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author francisco
@@ -29,16 +34,16 @@ public class PanelVentas extends javax.swing.JPanel {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
+        jtextField_Codigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtUsuario1 = new javax.swing.JTextField();
+        jtextField_Cantidad = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jTable_Descripcion = new javax.swing.JTable();
+        jButton_Terminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        txtUsuario2 = new javax.swing.JTextField();
+        jLabel_Total = new javax.swing.JLabel();
+        jButton_Cancelar = new javax.swing.JButton();
+        jtextField_Producto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
@@ -48,7 +53,7 @@ public class PanelVentas extends javax.swing.JPanel {
 
         jLabel5.setText("Cantidad:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_Descripcion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -56,17 +61,17 @@ public class PanelVentas extends javax.swing.JPanel {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable_Descripcion);
 
-        jButton1.setText("Terminar");
+        jButton_Terminar.setText("Terminar");
 
         jLabel1.setText("Total:");
 
-        jLabel2.setText("0000");
+        jLabel_Total.setText("0000");
 
-        jButton2.setText("Cancelar");
+        jButton_Cancelar.setText("Cancelar");
 
-        txtUsuario2.setEnabled(false);
+        jtextField_Producto.setEnabled(false);
 
         jLabel6.setText("Producto:");
 
@@ -80,11 +85,11 @@ public class PanelVentas extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabel_Total)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(jButton_Terminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addComponent(jButton_Cancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -95,16 +100,16 @@ public class PanelVentas extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jtextField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel4)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jtextField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel6)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(jtextField_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(0, 13, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -116,41 +121,80 @@ public class PanelVentas extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtextField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtextField_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtextField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jButton_Terminar)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton2))
+                    .addComponent(jLabel_Total)
+                    .addComponent(jButton_Cancelar))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_Cancelar;
+    private javax.swing.JButton jButton_Terminar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel_Total;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtUsuario;
-    private javax.swing.JTextField txtUsuario1;
-    private javax.swing.JTextField txtUsuario2;
+    private javax.swing.JTable jTable_Descripcion;
+    private javax.swing.JTextField jtextField_Cantidad;
+    private javax.swing.JTextField jtextField_Codigo;
+    private javax.swing.JTextField jtextField_Producto;
     // End of variables declaration//GEN-END:variables
+
+    public static final String BTN_TERMINAR = "Terminar";
+    public static final String BTN_CANCELAR = "Cancelar";
+    
+    public void escuchar (ControlVentas cv) {
+        this.jButton_Cancelar.addActionListener(cv);
+        this.jButton_Terminar.addActionListener(cv);
+    }
+
+
+    public void setjTable_Descripcion(String [][] jTable_Descripcion) {
+        this.jTable_Descripcion.setModel(new DefaultTableModel(jTable_Descripcion, jTable_Descripcion));// agregar las etiquetas de las columnas
+    }
+
+    public int getJtextField_Cantidad() {
+        return Integer.parseInt(jtextField_Cantidad.getText());
+    }
+
+    public void setJtextField_Cantidad(int jtextField_Cantidad) {
+        this.jtextField_Cantidad.setText(String.valueOf(jtextField_Cantidad));
+    }
+
+    public String getJtextField_Codigo() {
+        return jtextField_Codigo.getText();
+    }
+
+    public void setJtextField_Codigo(String jtextField_Codigo) {
+        this.jtextField_Codigo.setText(jtextField_Codigo);
+    }
+
+    public String getJtextField_Producto() {
+        return jtextField_Producto.getText();
+    }
+
+    public void setJtextField_Producto(String jtextField_Producto) {
+        this.jtextField_Producto.setText(jtextField_Producto);
+    }
+    
+    
 }

@@ -5,17 +5,24 @@
  */
 package vista.modulos;
 
+import controlador.modulos.ControlUtilidades;
+
 /**
  *
  * @author francisco
  */
 public class GUIUtilidades extends javax.swing.JFrame {
 
+    private ControlUtilidades controlUtilidades;
+    
     /**
      * Creates new form GUIUtilidades
      */
     public GUIUtilidades() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.controlUtilidades = new ControlUtilidades(this, panelUtilidades1);
+        this.panelUtilidades1.escuchar(controlUtilidades);
     }
 
     /**
@@ -27,17 +34,24 @@ public class GUIUtilidades extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelUtilidades1 = new vista.modulos.PanelUtilidades();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelUtilidades1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelUtilidades1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +93,6 @@ public class GUIUtilidades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private vista.modulos.PanelUtilidades panelUtilidades1;
     // End of variables declaration//GEN-END:variables
 }
