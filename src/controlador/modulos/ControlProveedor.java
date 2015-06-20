@@ -19,9 +19,6 @@ import vista.modulos.PanelProveedor;
  */
 public class ControlProveedor implements ActionListener {
     
-    private GUIProveedor gUIProveedor;
-    private PanelProveedor panelProveedor;
-
     private RegistroProveedor registroProveedor;
     private GUIProveedor guiProveedor;
     private PanelProveedor panelProveedor;

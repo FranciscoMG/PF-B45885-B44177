@@ -25,7 +25,6 @@ public class GUIProducto extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.controlProducto = new ControlProducto(this, panelProducto1);
         this.controlProducto = new ControlProducto(this, panelProducto1, registroProveedor, registroProductos);
         panelProducto1.escuchar(controlProducto);
     }

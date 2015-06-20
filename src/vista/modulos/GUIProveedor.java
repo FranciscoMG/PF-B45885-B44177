@@ -24,7 +24,6 @@ public class GUIProveedor extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.controlProveedor = new ControlProveedor(this, panelProveedor1);
         this.controlProveedor = new ControlProveedor(this, panelProveedor1, registroProveedor);
         this.panelProveedor1.escuchar(controlProveedor);
     }
