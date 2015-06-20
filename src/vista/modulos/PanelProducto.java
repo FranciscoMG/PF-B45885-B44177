@@ -6,7 +6,6 @@
 package vista.modulos;
 
 import controlador.modulos.ControlProducto;
-import javax.swing.JTextField;
 
 /**
  *
@@ -40,12 +39,12 @@ public class PanelProducto extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jtexField_Precio = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jtexField_Unidades_Invetarios = new javax.swing.JTextField();
         jButton_Buscar = new javax.swing.JButton();
         jButton_Modificar = new javax.swing.JButton();
         jButton_Agregar = new javax.swing.JButton();
         jButton_Eliminar = new javax.swing.JButton();
         jButton_Cancelar = new javax.swing.JButton();
+        jSpinner_Cantidad = new javax.swing.JSpinner();
 
         setEnabled(false);
 
@@ -92,11 +91,12 @@ public class PanelProducto extends javax.swing.JPanel {
                             .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jtexField_Unidades_Invetarios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jSpinner_Cantidad)
+                                        .addGap(51, 51, 51))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -117,7 +117,7 @@ public class PanelProducto extends javax.swing.JPanel {
                                                 .addComponent(jtexField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jButton_Buscar)))))
-                        .addGap(0, 8, Short.MAX_VALUE))
+                        .addGap(0, 38, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton_Agregar)
@@ -154,8 +154,8 @@ public class PanelProducto extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jtexField_Unidades_Invetarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton_Agregar)
@@ -183,11 +183,11 @@ public class PanelProducto extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JSpinner jSpinner_Cantidad;
     private javax.swing.JTextField jtexField_Codigo;
     private javax.swing.JTextField jtexField_Nombre;
     private javax.swing.JTextField jtexField_Precio;
     private javax.swing.JTextField jtexField_Proveedor;
-    private javax.swing.JTextField jtexField_Unidades_Invetarios;
     // End of variables declaration//GEN-END:variables
 
     public static final String BTN_BUSCAR = "";
@@ -195,8 +195,8 @@ public class PanelProducto extends javax.swing.JPanel {
     public static final String BTN_CANCELAR = "Cancelar";
     public static final String BTN_ELIMINAR = "Eliminar";
     public static final String BTN_MODIFICAR = "Modificar";
-    
-    public void escuchar (ControlProducto cp) {
+
+    public void escuchar(ControlProducto cp) {
         this.jButton_Agregar.addActionListener(cp);
         this.jButton_Buscar.addActionListener(cp);
         this.jButton_Cancelar.addActionListener(cp);
@@ -236,14 +236,11 @@ public class PanelProducto extends javax.swing.JPanel {
         this.jtexField_Proveedor.setText(jtexField_Proveedor);
     }
 
-    public int getJtexField_Unidades_Invetarios() {
-        return Integer.parseInt(jtexField_Unidades_Invetarios.getText().trim());
+    public int getJSpinner_CantidadCantidad() {
+        return Integer.parseInt(jSpinner_Cantidad.getValue().toString().trim());
     }
 
-    public void setJtexField_Unidades_Invetarios(int jtexField_Unidades_Invetarios) {
-        this.jtexField_Unidades_Invetarios.setText(String.valueOf(jtexField_Unidades_Invetarios));
+    public void setJtexField_Unidades_Invetarios(int jSpinner_Cantidad) {
+        this.jSpinner_Cantidad.setValue(jSpinner_Cantidad);
     }
-    
-    
-    
 }

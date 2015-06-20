@@ -27,11 +27,12 @@
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jtexField_Unidades_Invetarios" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="jSpinner_Cantidad" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -62,7 +63,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="38" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -108,9 +109,9 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtexField_Unidades_Invetarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jSpinner_Cantidad" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="jButton_Agregar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -169,8 +170,6 @@
         <Property name="text" type="java.lang.String" value="Unidades en invertario:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtexField_Unidades_Invetarios">
-    </Component>
     <Component class="javax.swing.JButton" name="jButton_Buscar">
       <Properties>
         <Property name="text" type="java.lang.String" value="B"/>
@@ -197,6 +196,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="jSpinner_Cantidad">
     </Component>
   </SubComponents>
 </Form>
