@@ -35,7 +35,7 @@ public class GUIProveedor extends javax.swing.JFrame {
 
         panelProveedor1 = new vista.modulos.PanelProveedor();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
