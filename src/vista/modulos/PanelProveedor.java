@@ -148,47 +148,48 @@ public class PanelProveedor extends javax.swing.JPanel {
 
     public static final String BTN_BUSCAR = "Buscar";
     public static final String BTN_AGREGAR = "Agregar";
-    public static final String BTN_CANCELAR = "Cancelar";
-    public static final String BTN_ELIMINAR = "Eliminar";
     public static final String BTN_MODIFICAR = "Modificar";
-    
+    public static final String BTN_ELIMINAR = "Eliminar";
+    public static final String BTN_CANCELAR = "Cancelar";
+
     public void escuchar(ControlProveedor cp) {
-        this.jButton_Agregar.addActionListener(cp);
         this.jButton_Buscar.addActionListener(cp);
-        this.jButton_Cancelar.addActionListener(cp);
-        this.jButton_Eliminar.addActionListener(cp);
+        this.jButton_Agregar.addActionListener(cp);
         this.jButton_Modificar.addActionListener(cp);
+        this.jButton_Eliminar.addActionListener(cp);
+        this.jButton_Cancelar.addActionListener(cp);
     }
-    
+
     public String getJtxtField_Codigo() {
         return jTxtField_Codigo.getText().trim();
     }
-    
-    public void setJtxtField_Codigo(String jtxtField_Codigo) {
-        this.jTxtField_Codigo.setText(jtxtField_Codigo.trim());
+
+    public void setJtxtField_Codigo(String codigo) {
+        this.jTxtField_Codigo.setText(codigo.trim());
     }
-    
+
     public String getJtxtField_Nombre() {
         return jTxtField_Nombre.getText();
     }
-    
-    public void setJtxtField_Nombre(String jtxtField_Nombre) {
-        this.jTxtField_Nombre.setText(jtxtField_Nombre);
+
+    public void setJtxtField_Nombre(String nombre) {
+        this.jTxtField_Nombre.setText(nombre);
     }
-    
+
     public String getJtxtField_Telefono() {
         return jTxtField_Telefono.getText();
     }
-    
-    public void setJtxtField_Telefono(String jtxtField_Telefono) {
-        this.jTxtField_Telefono.setText(jtxtField_Telefono);
+
+    public void setJtxtField_Telefono(String numTelefono) {
+        this.jTxtField_Telefono.setText(numTelefono);
     }
-    
+
     public void activaBotones(boolean esActivo) {
+        this.jTxtField_Codigo.setEditable(!esActivo);
         this.jButton_Modificar.setEnabled(esActivo);
         this.jButton_Eliminar.setEnabled(esActivo);
     }
-    
+
     public void limpiaDatos() {
         this.jTxtField_Codigo.setText("");
         this.jTxtField_Nombre.setText("");

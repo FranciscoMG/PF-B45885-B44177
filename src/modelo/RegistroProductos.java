@@ -7,6 +7,7 @@ package modelo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import vista.GUILogin;
 
 /**
@@ -47,6 +48,34 @@ public class RegistroProductos {
         } catch (SQLException ex) {
         }
         return null;
+    }
+
+    public ArrayList<Producto> getProductos(int tipoFiltro, String filtro) {
+        String nombreFiltro = null;
+        ArrayList<Producto> productos = new ArrayList<>();
+        switch (tipoFiltro) {
+            case 0:
+                nombreFiltro = "nombre";
+                break;
+            case 1:
+                nombreFiltro = "fkProveedor";
+                break;
+        }
+        try {
+            ResultSet resultado = registroBD.realizarConsulta("SELECT * FROM Producto WHERE " + nombreFiltro + "='" + filtro + "';");
+            while (resultado.next()) {
+                Producto producto = new Producto();
+                producto.setIdProducto(resultado.getString("idProducto"));
+                producto.setNombre(resultado.getString("nombre"));
+                producto.setPrecio(Double.parseDouble(resultado.getString("precio")));
+                producto.setProveedor(registroProveedor.consultarProveedor(resultado.getString("fkProveedor")));
+            }
+            if (productos.isEmpty()) {
+                return null;
+            }
+        } catch (SQLException ex) {
+        }
+        return productos;
     }
 
     public void modificarProducto(Producto producto) {

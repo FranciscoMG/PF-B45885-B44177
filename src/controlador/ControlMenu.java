@@ -31,8 +31,8 @@ public class ControlMenu implements ActionListener {
     private GUIMenu guiMenu;
     private GUIProveedor guiProveedor;
     private GUIProducto guiProducto;
-    private GUIInventario guiInventario;
     private GUICompras guiCompras;
+    private GUIInventario guiInventario;
     private GUIVentas guiVentas;
     private GUIUtilidades guiUtilidades;
     private PanelMenu panelMenu;
@@ -47,8 +47,11 @@ public class ControlMenu implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_COMPRAS)) {
-            System.err.println("compra");
-            this.guiCompras.setVisible(true);
+            if (guiCompras != null) {
+                guiCompras.dispose();
+            }
+            guiCompras = new GUICompras(null, true, registroProveedor, registroProductos);
+            guiCompras.setVisible(true);
         }
         //------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_INVENTARIO)) {

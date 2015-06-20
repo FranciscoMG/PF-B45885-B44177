@@ -183,64 +183,65 @@ public class PanelProducto extends javax.swing.JPanel {
 
     public static final String BTN_BUSCAR = "Buscar";
     public static final String BTN_AGREGAR = "Agregar";
-    public static final String BTN_CANCELAR = "Cancelar";
-    public static final String BTN_ELIMINAR = "Eliminar";
     public static final String BTN_MODIFICAR = "Modificar";
-    
+    public static final String BTN_ELIMINAR = "Eliminar";
+    public static final String BTN_CANCELAR = "Cancelar";
+
     public void escuchar(ControlProducto cp) {
-        this.jButton_Agregar.addActionListener(cp);
         this.jButton_Buscar.addActionListener(cp);
-        this.jButton_Cancelar.addActionListener(cp);
-        this.jButton_Eliminar.addActionListener(cp);
+        this.jButton_Agregar.addActionListener(cp);
         this.jButton_Modificar.addActionListener(cp);
+        this.jButton_Eliminar.addActionListener(cp);
+        this.jButton_Cancelar.addActionListener(cp);
     }
-    
+
     public String getJtxtField_Codigo() {
         return jTxtField_Codigo.getText().trim();
     }
-    
-    public void setJtxtField_Codigo(String jtexField_Codigo) {
-        this.jTxtField_Codigo.setText(jtexField_Codigo.trim());
+
+    public void setJtxtField_Codigo(String codigo) {
+        this.jTxtField_Codigo.setText(codigo.trim());
     }
-    
+
     public String getJtxtField_Nombre() {
         return jTxtField_Nombre.getText();
     }
-    
-    public void setJtxtField_Nombre(String jtexField_Nombre) {
-        this.jTxtField_Nombre.setText(jtexField_Nombre);
+
+    public void setJtxtField_Nombre(String nombre) {
+        this.jTxtField_Nombre.setText(nombre);
     }
-    
+
     public double getJtxtField_Precio() {
         return Double.parseDouble(jTxtField_Precio.getText().trim());
     }
-    
-    public void setJtxtField_Precio(double jtexField_Precio) {
-        this.jTxtField_Precio.setText(String.valueOf(jtexField_Precio));
+
+    public void setJtxtField_Precio(double precio) {
+        this.jTxtField_Precio.setText(String.valueOf(precio));
     }
-    
+
     public String getJtxtField_Proveedor() {
         return jTxtField_Proveedor.getText();
     }
-    
-    public void setJtxtField_Proveedor(String jtexField_Proveedor) {
-        this.jTxtField_Proveedor.setText(jtexField_Proveedor);
+
+    public void setJtxtField_Proveedor(String proveedor) {
+        this.jTxtField_Proveedor.setText(proveedor);
     }
-    
+
     public int getJSpinner_Cantidad() {
         return Integer.parseInt(jSpinner_Cantidad.getValue().toString().trim());
     }
-    
-    public void setJSpinner_Cantidad(int jSpinner_Cantidad) {
-        this.jSpinner_Cantidad.setValue(jSpinner_Cantidad);
+
+    public void setJSpinner_Cantidad(int cantidad) {
+        this.jSpinner_Cantidad.setValue(cantidad);
     }
-    
+
     public void activaBotones(boolean esActivo) {
+        this.jTxtField_Codigo.setEditable(!esActivo);
         this.jSpinner_Cantidad.setEnabled(!esActivo);
         this.jButton_Modificar.setEnabled(esActivo);
         this.jButton_Eliminar.setEnabled(esActivo);
     }
-    
+
     public void limpiaDatos() {
         this.jTxtField_Codigo.setText("");
         this.jTxtField_Nombre.setText("");
