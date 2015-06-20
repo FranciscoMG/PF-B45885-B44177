@@ -63,7 +63,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -150,14 +150,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cod. Prov:"/>
+        <Property name="text" type="java.lang.String" value="Cod. Proveedor:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtField_Proveedor">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Precio:"/>
+        <Property name="text" type="java.lang.String" value="Precio unitario:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtField_Precio">

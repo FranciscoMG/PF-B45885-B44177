@@ -23,8 +23,8 @@ public class RegistroProductos {
         this.registroProveedor = registroProveedor;
     }
 
-    public void agregarProducto(Producto producto) {
-        if (registroBD.realizarProcedimiento("INSERT INTO Producto VALUES ('" + producto.getIdProducto() + "', '" + producto.getNombre() + "', " + producto.getPrecio() + ", '" + producto.getProveedor().getIdProveedor() + "');")) {
+    public void agregarProducto(Producto producto, int cantidad) {
+        if (registroBD.realizarProcedimiento("INSERT INTO Producto VALUES ('" + producto.getIdProducto() + "', '" + producto.getNombre() + "', " + producto.getPrecio() + ", '" + producto.getProveedor().getIdProveedor() + "');") && registroBD.realizarProcedimiento("INSERT INTO Inventario VALUES ('" + producto.getIdProducto() + "', " + cantidad + ", CURDATE());")) {
             GUILogin.mensaje("Producto guardado con éxito", 1);
         } else {
             GUILogin.mensaje("Error al guardar el producto", 0);

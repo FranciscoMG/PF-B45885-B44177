@@ -55,9 +55,9 @@ public class PanelProducto extends javax.swing.JPanel {
 
         jLabel5.setText("Nombre:");
 
-        jLabel6.setText("Cod. Prov:");
+        jLabel6.setText("Cod. Proveedor:");
 
-        jLabel7.setText("Precio:");
+        jLabel7.setText("Precio unitario:");
 
         jLabel8.setText("Unidades en invertario:");
 
@@ -112,7 +112,7 @@ public class PanelProducto extends javax.swing.JPanel {
                                                 .addComponent(jTxtField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jButton_Buscar)))))
-                        .addGap(0, 43, Short.MAX_VALUE))
+                        .addGap(0, 6, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton_Agregar)

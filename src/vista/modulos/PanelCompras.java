@@ -6,7 +6,9 @@
 package vista.modulos;
 
 import controlador.modulos.ControlCompras;
+import java.util.ArrayList;
 import javax.swing.JTextField;
+import modelo.Proveedor;
 
 /**
  *
@@ -32,7 +34,6 @@ public class PanelCompras extends javax.swing.JPanel {
 
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jtexField_Codigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jComboBox_Producto = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
@@ -41,6 +42,7 @@ public class PanelCompras extends javax.swing.JPanel {
         jtexfield_Precio = new javax.swing.JTextField();
         jButton_Eliminar = new javax.swing.JButton();
         jButton_Cancelar = new javax.swing.JButton();
+        jComboBox_Proveedor = new javax.swing.JComboBox();
 
         jLabel4.setText("Código:");
 
@@ -80,21 +82,23 @@ public class PanelCompras extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(27, 27, 27)
-                                .addComponent(jtexField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addComponent(jComboBox_Proveedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jtexField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jtexfield_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jComboBox_Producto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jtexField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jtexfield_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 2, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -104,10 +108,10 @@ public class PanelCompras extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jtexField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -120,7 +124,7 @@ public class PanelCompras extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(jtexfield_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 85, Short.MAX_VALUE))
+                        .addGap(17, 86, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -135,13 +139,13 @@ public class PanelCompras extends javax.swing.JPanel {
     private javax.swing.JButton jButton_Cancelar;
     private javax.swing.JButton jButton_Eliminar;
     private javax.swing.JComboBox jComboBox_Producto;
+    private javax.swing.JComboBox jComboBox_Proveedor;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jtexField_Cantidad;
-    private javax.swing.JTextField jtexField_Codigo;
     private javax.swing.JTextField jtexfield_Precio;
     // End of variables declaration//GEN-END:variables
 
@@ -163,12 +167,17 @@ public class PanelCompras extends javax.swing.JPanel {
         this.jtexField_Cantidad.setText(String.valueOf(jtexField_Cantidad));
     }
 
-    public String getJtexField_Codigo() {
-        return jtexField_Codigo.getText().trim();
+    public String getJComboBox_Proveedor() {
+        if (this.jComboBox_Proveedor.getSelectedIndex() == -1) {
+            return null;
+        }
+        return this.jComboBox_Proveedor.getSelectedItem().toString();
     }
-
-    public void setJtexField_Codigo(String jtexField_Codigo) {
-        this.jtexField_Codigo.setText(jtexField_Codigo);
+    
+    public void setJComboBox_Proveedor(ArrayList<Proveedor> proveedores) {
+        for (Proveedor proveedor : proveedores) {
+            this.jComboBox_Proveedor.addItem(proveedor.getNombre());
+        }
     }
 
     public double getJtexfield_Precio() {

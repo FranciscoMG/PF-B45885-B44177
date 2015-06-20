@@ -52,7 +52,7 @@ public class ControlProducto implements ActionListener {
             Proveedor proveedor = registroProveedor.consultarProveedor(panelProducto.getJtxtField_Proveedor());
             if (proveedor != null) {
                 Producto producto = new Producto(panelProducto.getJtxtField_Codigo(), panelProducto.getJtxtField_Nombre(), panelProducto.getJtxtField_Precio(), proveedor);
-                registroProductos.agregarProducto(producto);
+                registroProductos.agregarProducto(producto, panelProducto.getJSpinner_Cantidad());
             } else {
                 GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProducto.getJtxtField_Proveedor(), 2);
             }
