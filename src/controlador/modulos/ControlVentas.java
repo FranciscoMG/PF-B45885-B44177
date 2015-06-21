@@ -7,6 +7,7 @@ package controlador.modulos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.RegistroInventario;
 import vista.modulos.GUIVentas;
 import vista.modulos.PanelVentas;
 
@@ -15,16 +16,17 @@ import vista.modulos.PanelVentas;
  * @author francisco
  */
 public class ControlVentas implements ActionListener {
-    
-    private GUIVentas gUIVentas;
+
+    private RegistroInventario registroInventario;
+    private GUIVentas guiVentas;
     private PanelVentas panelVentas;
 
-    public ControlVentas(GUIVentas aThis, PanelVentas panelVentas1) {
-        this.gUIVentas = aThis;
+    public ControlVentas(GUIVentas aThis, PanelVentas panelVentas1, RegistroInventario registroInventario) {
+        this.registroInventario = registroInventario;
+        this.guiVentas = aThis;
         this.panelVentas = panelVentas1;
     }
 
-    
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelVentas.BTN_CANCELAR)) {
             System.err.println("Cancelar");
@@ -34,5 +36,5 @@ public class ControlVentas implements ActionListener {
             System.err.println("Terminar");
         }
     }
-    
+
 }

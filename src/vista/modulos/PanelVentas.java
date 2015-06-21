@@ -6,8 +6,6 @@
 package vista.modulos;
 
 import controlador.modulos.ControlVentas;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -45,6 +43,7 @@ public class PanelVentas extends javax.swing.JPanel {
         jButton_Cancelar = new javax.swing.JButton();
         jtextField_Producto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jButton_Buscar = new javax.swing.JButton();
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
         jLabel3.setText("Registro ventas");
@@ -75,6 +74,9 @@ public class PanelVentas extends javax.swing.JPanel {
 
         jLabel6.setText("Producto:");
 
+        jButton_Buscar.setText("B");
+        jButton_Buscar.setActionCommand("Buscar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,10 +99,6 @@ public class PanelVentas extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtextField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel4)
@@ -109,7 +107,13 @@ public class PanelVentas extends javax.swing.JPanel {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel6)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jtextField_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(jtextField_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jtextField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton_Buscar)))))
                         .addGap(0, 13, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -129,7 +133,8 @@ public class PanelVentas extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jtextField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtextField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_Buscar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
@@ -144,6 +149,7 @@ public class PanelVentas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_Buscar;
     private javax.swing.JButton jButton_Cancelar;
     private javax.swing.JButton jButton_Terminar;
     private javax.swing.JLabel jLabel1;
@@ -161,14 +167,13 @@ public class PanelVentas extends javax.swing.JPanel {
 
     public static final String BTN_TERMINAR = "Terminar";
     public static final String BTN_CANCELAR = "Cancelar";
-    
-    public void escuchar (ControlVentas cv) {
+
+    public void escuchar(ControlVentas cv) {
         this.jButton_Cancelar.addActionListener(cv);
         this.jButton_Terminar.addActionListener(cv);
     }
 
-
-    public void setjTable_Descripcion(String [][] jTable_Descripcion) {
+    public void setjTable_Descripcion(String[][] jTable_Descripcion) {
         this.jTable_Descripcion.setModel(new DefaultTableModel(jTable_Descripcion, jTable_Descripcion));// agregar las etiquetas de las columnas
     }
 
@@ -195,6 +200,5 @@ public class PanelVentas extends javax.swing.JPanel {
     public void setJtextField_Producto(String jtextField_Producto) {
         this.jtextField_Producto.setText(jtextField_Producto);
     }
-    
-    
+
 }

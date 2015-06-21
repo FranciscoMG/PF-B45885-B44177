@@ -90,8 +90,11 @@ public class ControlMenu implements ActionListener {
         }
         //-------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_VENTAS)) {
-            System.err.println("Ventas");
-            this.guiVentas.setVisible(true);
+            if (guiVentas != null) {
+                guiVentas.dispose();
+            }
+            guiVentas = new GUIVentas(null, true, registroInventario);
+            guiVentas.setVisible(true);
         }
     }
 
