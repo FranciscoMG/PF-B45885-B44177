@@ -6,8 +6,9 @@
 package vista.modulos;
 
 import controlador.modulos.ControlInventario;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -34,36 +35,32 @@ public class PanelInventario extends javax.swing.JPanel {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jtextField_codigo = new javax.swing.JTextField();
-        jButton_Buscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane_Tabla = new javax.swing.JScrollPane();
         jTable_Productos = new javax.swing.JTable();
         jButton_Cerrar = new javax.swing.JButton();
+        jComboBox_Filtro = new javax.swing.JComboBox();
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
-        jLabel3.setText("Registro productos");
+        jLabel3.setText("Inventario");
 
-        jLabel4.setText("Código:");
-
-        jButton_Buscar.setText("B");
+        jLabel4.setText("Filtrar por:");
 
         jLabel1.setText("<HTML>\nAqui va el mensaje\n<BR>\nde que los productos\n<BR>\nse agotaron!\n</HTML>");
 
         jTable_Productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable_Productos);
+        jScrollPane_Tabla.setViewportView(jTable_Productos);
 
         jButton_Cerrar.setText("Cerrar");
+
+        jComboBox_Filtro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todo", "Disponible", "Agotado" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,19 +74,17 @@ public class PanelInventario extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jtextField_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton_Buscar)))
-                .addGap(44, 44, 44))
+                        .addComponent(jComboBox_Filtro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane_Tabla, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_Cerrar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addContainerGap()
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -98,54 +93,59 @@ public class PanelInventario extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(33, 33, 33)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jtextField_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Buscar))
+                    .addComponent(jComboBox_Filtro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane_Tabla, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton_Cerrar)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Buscar;
     private javax.swing.JButton jButton_Cerrar;
+    private javax.swing.JComboBox jComboBox_Filtro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane_Tabla;
     private javax.swing.JTable jTable_Productos;
-    private javax.swing.JTextField jtextField_codigo;
     // End of variables declaration//GEN-END:variables
 
-
-    public static final String BTN_BUSCAR = ""; 
     public static final String BTN_CERRAR = "Cerrar";
-    
-    public void escuchar (ControlInventario ci) {
-        this.jButton_Buscar.addActionListener(ci);
+
+    public void escuchar(ControlInventario ci) {
         this.jButton_Cerrar.addActionListener(ci);
+        this.jComboBox_Filtro.addItemListener(ci);
     }
 
-    public String getJtextField_codigo() {
-        return jtextField_codigo.getText();
+    public String getJComboBox_Filtro() {
+        return jComboBox_Filtro.getSelectedItem().toString();
     }
 
-    public void setJtextField_codigo(String jtextField_codigo) {
-        this.jtextField_codigo.setText(jtextField_codigo);
+    public void setjTable_Productos(ResultSet rsTabla) {
+        DefaultTableModel tabla = new DefaultTableModel();
+        try {
+            ResultSetMetaData nombreColumnas = rsTabla.getMetaData();
+            for (int i = 1; i <= nombreColumnas.getColumnCount(); i++) {
+                tabla.addColumn(nombreColumnas.getColumnLabel(i));
+            }
+            while (rsTabla.next()) {
+                Object[] fila = new Object[nombreColumnas.getColumnCount()];
+                for (int i = 0; i < nombreColumnas.getColumnCount(); i++) {
+                    fila[i] = rsTabla.getObject(i + 1);
+                }
+                tabla.addRow(fila);
+            }
+        } catch (SQLException ex) {
+        }
+        this.jTable_Productos.setModel(tabla);
+        this.jScrollPane_Tabla.setViewportView(this.jTable_Productos);
     }
-
-    public void setjTable_Productos(String [][] jTable_Productos) {
-        this.jTable_Productos.setModel(new DefaultTableModel(jTable_Productos, jTable_Productos)); // se debe agregar las etiquetas de las columnas
-    }
-    
-    
-
 }

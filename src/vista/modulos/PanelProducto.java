@@ -195,35 +195,35 @@ public class PanelProducto extends javax.swing.JPanel {
         this.jButton_Cancelar.addActionListener(cp);
     }
 
-    public String getJtxtField_Codigo() {
+    public String getJTxtField_Codigo() {
         return jTxtField_Codigo.getText().trim();
     }
 
-    public void setJtxtField_Codigo(String codigo) {
+    public void setJTxtField_Codigo(String codigo) {
         this.jTxtField_Codigo.setText(codigo.trim());
     }
 
-    public String getJtxtField_Nombre() {
+    public String getJTxtField_Nombre() {
         return jTxtField_Nombre.getText();
     }
 
-    public void setJtxtField_Nombre(String nombre) {
+    public void setJTxtField_Nombre(String nombre) {
         this.jTxtField_Nombre.setText(nombre);
     }
 
-    public double getJtxtField_Precio() {
+    public double getJTxtField_Precio() {
         return Double.parseDouble(jTxtField_Precio.getText().trim());
     }
 
-    public void setJtxtField_Precio(double precio) {
+    public void setJTxtField_Precio(double precio) {
         this.jTxtField_Precio.setText(String.valueOf(precio));
     }
 
-    public String getJtxtField_Proveedor() {
+    public String getJTxtField_Proveedor() {
         return jTxtField_Proveedor.getText();
     }
 
-    public void setJtxtField_Proveedor(String proveedor) {
+    public void setJTxtField_Proveedor(String proveedor) {
         this.jTxtField_Proveedor.setText(proveedor);
     }
 

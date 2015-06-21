@@ -152,39 +152,46 @@ public class PanelCompras extends javax.swing.JPanel {
     public static final String BTN_BUSCAR = "Buscar";
     public static final String BTN_GUARDAR = "Guardar";
     public static final String BTN_CANCELAR = "Cancelar";
-
+    
     public void escuchar(ControlCompras cc) {
         this.jButton_Buscar.addActionListener(cc);
         this.jButton_Guardar.addActionListener(cc);
         this.jButton_Cancelar.addActionListener(cc);
     }
-
+    
     public String getJTxtField_Proveedor() {
         return jTxtField_Proveedor.getText().trim();
     }
-
+    
     public void setJTxtField_Proveedor(String codigo) {
         this.jTxtField_Proveedor.setText(codigo.trim());
     }
-
+    
     public int getJSpinner_Cantidad() {
         return Integer.parseInt(jSpinner_Cantidad.getValue().toString().trim());
     }
-
+    
     public String getJComboBox_Producto() {
         if (this.jComboBox_Producto.getSelectedIndex() == -1) {
             return null;
         }
         return this.jComboBox_Producto.getSelectedItem().toString();
     }
-
+    
     public void setJComboBox_Producto(ArrayList<Producto> productos) {
         for (Producto producto : productos) {
             this.jComboBox_Producto.addItem("(" + producto.getIdProducto() + ") " + producto.getNombre());
         }
     }
-
+    
     public double getJTxtField_Precio() {
         return Double.parseDouble(jTxtField_Precio.getText());
+    }
+    
+    public void limpiaDatos() {
+        this.jTxtField_Proveedor.setText("");
+        this.jComboBox_Producto.setSelectedIndex(-1);
+        this.jSpinner_Cantidad.setValue(0);
+        this.jTxtField_Precio.setText("");
     }
 }

@@ -16,16 +16,18 @@ import vista.GUILogin;
  */
 public class RegistroProductos {
 
-    public RegistroBD registroBD;
+    private RegistroBD registroBD;
     private RegistroProveedor registroProveedor;
+    private RegistroInventario registroInventario;
 
-    public RegistroProductos(RegistroBD registroBD, RegistroProveedor registroProveedor) {
+    public RegistroProductos(RegistroBD registroBD, RegistroProveedor registroProveedor, RegistroInventario registroInventario) {
         this.registroBD = registroBD;
         this.registroProveedor = registroProveedor;
+        this.registroInventario = registroInventario;
     }
 
     public void agregarProducto(Producto producto, int cantidad) {
-        if (registroBD.realizarProcedimiento("INSERT INTO Producto VALUES ('" + producto.getIdProducto() + "', '" + producto.getNombre() + "', " + producto.getPrecio() + ", '" + producto.getProveedor().getIdProveedor() + "');") && registroBD.realizarProcedimiento("INSERT INTO Inventario VALUES ('" + producto.getIdProducto() + "', " + cantidad + ", CURDATE());")) {
+        if (registroBD.realizarProcedimiento("INSERT INTO Producto VALUES ('" + producto.getIdProducto() + "', '" + producto.getNombre() + "', " + producto.getPrecio() + ", '" + producto.getProveedor().getIdProveedor() + "');") && registroInventario.agregarInventario(producto, cantidad)) {
             GUILogin.mensaje("Producto guardado con éxito", 1);
         } else {
             GUILogin.mensaje("Error al guardar el producto", 0);
@@ -69,6 +71,7 @@ public class RegistroProductos {
                 producto.setNombre(resultado.getString("nombre"));
                 producto.setPrecio(Double.parseDouble(resultado.getString("precio")));
                 producto.setProveedor(registroProveedor.consultarProveedor(resultado.getString("fkProveedor")));
+                productos.add(producto);
             }
             if (productos.isEmpty()) {
                 return null;
@@ -87,7 +90,7 @@ public class RegistroProductos {
     }
 
     public void eliminarProducto(Producto producto) {
-        if (registroBD.realizarProcedimiento("DELETE FROM Producto WHERE idProducto ='" + producto.getIdProducto() + "';")) {
+        if (registroInventario.eliminarInventario(producto) && registroBD.realizarProcedimiento("DELETE FROM Producto WHERE idProducto ='" + producto.getIdProducto() + "';")) {
             GUILogin.mensaje("Producto eliminado con éxito", 1);
         } else {
             GUILogin.mensaje("Error al eliminar el producto", 0);

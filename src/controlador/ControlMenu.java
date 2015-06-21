@@ -8,6 +8,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.RegistroBD;
+import modelo.RegistroCompras;
+import modelo.RegistroInventario;
 import modelo.RegistroProductos;
 import modelo.RegistroProveedor;
 import vista.GUIMenu;
@@ -27,7 +29,9 @@ public class ControlMenu implements ActionListener {
 
     private RegistroBD registroBD;
     private RegistroProveedor registroProveedor;
+    private RegistroInventario registroInventario;
     private RegistroProductos registroProductos;
+    private RegistroCompras registroCompras;
     private GUIMenu guiMenu;
     private GUIProveedor guiProveedor;
     private GUIProducto guiProducto;
@@ -40,7 +44,9 @@ public class ControlMenu implements ActionListener {
     public ControlMenu(GUIMenu aThis, PanelMenu panelMenu) {
         this.registroBD = new RegistroBD();
         this.registroProveedor = new RegistroProveedor(registroBD);
-        this.registroProductos = new RegistroProductos(registroBD, registroProveedor);
+        this.registroInventario = new RegistroInventario(registroBD);
+        this.registroProductos = new RegistroProductos(registroBD, registroProveedor, registroInventario);
+        this.registroCompras = new RegistroCompras(registroBD, registroInventario);
         this.guiMenu = aThis;
         this.panelMenu = panelMenu;
     }
@@ -50,13 +56,16 @@ public class ControlMenu implements ActionListener {
             if (guiCompras != null) {
                 guiCompras.dispose();
             }
-            guiCompras = new GUICompras(null, true, registroProveedor, registroProductos);
+            guiCompras = new GUICompras(null, true, registroProveedor, registroProductos, registroCompras);
             guiCompras.setVisible(true);
         }
         //------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_INVENTARIO)) {
-            System.err.println("Inventario");
-            this.guiInventario.setVisible(true);
+            if (guiInventario != null) {
+                guiInventario.dispose();
+            }
+            guiInventario = new GUIInventario(null, true, registroInventario);
+            guiInventario.setVisible(true);
         }
         //-----------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REGISTRO_PRODUCTOS)) {

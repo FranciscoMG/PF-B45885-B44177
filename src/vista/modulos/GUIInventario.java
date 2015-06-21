@@ -6,22 +6,25 @@
 package vista.modulos;
 
 import controlador.modulos.ControlInventario;
+import javax.swing.JFrame;
+import modelo.RegistroInventario;
 
 /**
  *
  * @author francisco
  */
-public class GUIInventario extends javax.swing.JFrame {
+public class GUIInventario extends javax.swing.JDialog {
 
     private ControlInventario controlInventario;
-    
+
     /**
      * Creates new form GUIInventario
      */
-    public GUIInventario() {
+    public GUIInventario(JFrame parent, boolean modal, RegistroInventario registroInventario) {
+        super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.controlInventario = new ControlInventario(this, panelInventario1);
+        this.controlInventario = new ControlInventario(this, panelInventario1, registroInventario);
         this.panelInventario1.escuchar(controlInventario);
     }
 
@@ -37,6 +40,7 @@ public class GUIInventario extends javax.swing.JFrame {
         panelInventario1 = new vista.modulos.PanelInventario();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

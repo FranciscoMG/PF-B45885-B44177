@@ -7,6 +7,7 @@ package vista.modulos;
 
 import controlador.modulos.ControlCompras;
 import javax.swing.JFrame;
+import modelo.RegistroCompras;
 import modelo.RegistroProductos;
 import modelo.RegistroProveedor;
 
@@ -21,11 +22,11 @@ public class GUICompras extends javax.swing.JDialog {
     /**
      * Creates new form GUICompras
      */
-    public GUICompras(JFrame parent, boolean modal, RegistroProveedor registroProveedor, RegistroProductos registroProductos) {
+    public GUICompras(JFrame parent, boolean modal, RegistroProveedor registroProveedor, RegistroProductos registroProductos, RegistroCompras registroCompras) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.controlCompras = new ControlCompras(this, panelCompras1, registroProveedor, registroProductos);
+        this.controlCompras = new ControlCompras(this, panelCompras1, registroProveedor, registroProductos, registroCompras);
         this.panelCompras1.escuchar(controlCompras);
     }
 
