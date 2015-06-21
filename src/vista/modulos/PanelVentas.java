@@ -165,12 +165,14 @@ public class PanelVentas extends javax.swing.JPanel {
     private javax.swing.JTextField jtextField_Producto;
     // End of variables declaration//GEN-END:variables
 
+    public static final String BTN_BUSCAR = "Buscar";
     public static final String BTN_TERMINAR = "Terminar";
     public static final String BTN_CANCELAR = "Cancelar";
 
     public void escuchar(ControlVentas cv) {
-        this.jButton_Cancelar.addActionListener(cv);
+        this.jButton_Buscar.addActionListener(cv);
         this.jButton_Terminar.addActionListener(cv);
+        this.jButton_Cancelar.addActionListener(cv);
     }
 
     public void setjTable_Descripcion(String[][] jTable_Descripcion) {
