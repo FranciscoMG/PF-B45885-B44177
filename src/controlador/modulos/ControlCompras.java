@@ -38,10 +38,10 @@ public class ControlCompras implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelCompras.BTN_BUSCAR)) {
-            Proveedor proveedor = registroProveedor.consultarProveedor(panelCompras.getJTxtField_Proveedor());
-            if (proveedor != null) {
-                GUILogin.mensaje("Proveedor encontrado: " + proveedor.getNombre(), 1);
-                panelCompras.setJComboBox_Producto(registroProductos.getProductos(1, proveedor.getIdProveedor()));
+            Proveedor resultado = registroProveedor.consultarProveedor(panelCompras.getJTxtField_Proveedor());
+            if (resultado != null) {
+                GUILogin.mensaje("Proveedor encontrado: " + resultado.getNombre(), 1);
+                panelCompras.setJComboBox_Producto(registroProductos.getProductos(1, resultado.getIdProveedor()));
             } else {
                 GUILogin.mensaje("No se encontraron proveedores para el código: " + panelCompras.getJTxtField_Proveedor(), 2);
                 panelCompras.limpiaDatos();
