@@ -8,6 +8,7 @@ package vista.modulos;
 import controlador.modulos.ControlVentas;
 import javax.swing.JFrame;
 import modelo.RegistroInventario;
+import modelo.RegistroProductos;
 
 /**
  *
@@ -20,10 +21,10 @@ public class GUIVentas extends javax.swing.JDialog {
     /**
      * Creates new form GUIVentas
      */
-    public GUIVentas(JFrame parent, boolean modal, RegistroInventario registroInventario) {
+    public GUIVentas(JFrame parent, boolean modal, RegistroProductos registroProductos, RegistroInventario registroInventario) {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.controlVentas = new ControlVentas(this, panelVentas1, registroInventario);
+        this.controlVentas = new ControlVentas(this, panelVentas1, registroProductos, registroInventario);
         this.panelVentas1.escuchar(controlVentas);
     }
 

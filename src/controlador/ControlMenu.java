@@ -93,7 +93,7 @@ public class ControlMenu implements ActionListener {
             if (guiVentas != null) {
                 guiVentas.dispose();
             }
-            guiVentas = new GUIVentas(null, true, registroInventario);
+            guiVentas = new GUIVentas(null, true, registroProductos, registroInventario);
             guiVentas.setVisible(true);
         }
     }
