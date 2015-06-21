@@ -60,7 +60,7 @@ public class PanelInventario extends javax.swing.JPanel {
 
         jButton_Cerrar.setText("Cerrar");
 
-        jComboBox_Filtro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todo", "Disponible", "Agotado" }));
+        jComboBox_Filtro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todo", "Disponibles", "Agotados" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -130,15 +130,12 @@ public class PanelInventario extends javax.swing.JPanel {
     }
 
     public void setjTable_Productos(ResultSet rsTabla) {
-        DefaultTableModel tabla = new DefaultTableModel();
+        DefaultTableModel tabla = new DefaultTableModel(new String[]{"Cod. producto", "Nombre producto", "Cod. proveedor", "Nombre proveedor", "Cantidad", "Última compra"}, 0);
         try {
-            ResultSetMetaData nombreColumnas = rsTabla.getMetaData();
-            for (int i = 1; i <= nombreColumnas.getColumnCount(); i++) {
-                tabla.addColumn(nombreColumnas.getColumnLabel(i));
-            }
+            ResultSetMetaData columnas = rsTabla.getMetaData();
             while (rsTabla.next()) {
-                Object[] fila = new Object[nombreColumnas.getColumnCount()];
-                for (int i = 0; i < nombreColumnas.getColumnCount(); i++) {
+                Object[] fila = new Object[columnas.getColumnCount()];
+                for (int i = 0; i < columnas.getColumnCount(); i++) {
                     fila[i] = rsTabla.getObject(i + 1);
                 }
                 tabla.addRow(fila);

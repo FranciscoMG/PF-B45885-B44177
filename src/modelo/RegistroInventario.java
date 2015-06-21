@@ -36,9 +36,9 @@ public class RegistroInventario {
             case 0:
                 return registroBD.realizarConsulta("SELECT p.idProducto, p.nombre, r.idProveedor, r.nombre, i.cantidad, i.fechaUltimaCompra FROM Producto p, Proveedor r, Inventario i WHERE p.idProducto = i.fkProducto AND p.fkProveedor = r.idProveedor;");
             case 1:
-                break;
+                return registroBD.realizarConsulta("SELECT p.idProducto, p.nombre, r.idProveedor, r.nombre, i.cantidad, i.fechaUltimaCompra FROM Producto p, Proveedor r, Inventario i WHERE p.idProducto = i.fkProducto AND p.fkProveedor = r.idProveedor AND i.cantidad > 1;");
             case 2:
-                break;
+                return registroBD.realizarConsulta("SELECT p.idProducto, p.nombre, r.idProveedor, r.nombre, i.cantidad, i.fechaUltimaCompra FROM Producto p, Proveedor r, Inventario i WHERE p.idProducto = i.fkProducto AND p.fkProveedor = r.idProveedor AND i.cantidad < 2;");
         }
         return null;
     }
