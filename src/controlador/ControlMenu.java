@@ -85,8 +85,11 @@ public class ControlMenu implements ActionListener {
         }
         //-------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_REPORTE_UTILIDADES)) {
-            System.err.println("Reporte utilidades");
-            this.guiUtilidades.setVisible(true);
+            if (guiUtilidades != null) {
+                guiUtilidades.dispose();
+            }
+            guiUtilidades = new GUIUtilidades();
+            guiUtilidades.setVisible(true);
         }
         //-------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_VENTAS)) {
