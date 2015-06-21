@@ -7,6 +7,7 @@ package vista.modulos;
 
 import controlador.modulos.ControlVentas;
 import javax.swing.table.DefaultTableModel;
+import modelo.Producto;
 
 /**
  *
@@ -32,18 +33,18 @@ public class PanelVentas extends javax.swing.JPanel {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jtextField_Codigo = new javax.swing.JTextField();
+        jTxtField_Codigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jtextField_Cantidad = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable_Descripcion = new javax.swing.JTable();
+        jTable_Detalle = new javax.swing.JTable();
         jButton_Terminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel_Total = new javax.swing.JLabel();
         jButton_Cancelar = new javax.swing.JButton();
-        jtextField_Producto = new javax.swing.JTextField();
+        jTxtField_Producto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton_Buscar = new javax.swing.JButton();
+        jSpinner_Cantidad = new javax.swing.JSpinner();
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
         jLabel3.setText("Registro ventas");
@@ -52,15 +53,30 @@ public class PanelVentas extends javax.swing.JPanel {
 
         jLabel5.setText("Cantidad:");
 
-        jTable_Descripcion.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_Detalle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-
+                "Num. linea", "Cod. producto", "Producto", "Cantidad", "Precio Unitario", "SubTotal"
             }
-        ));
-        jScrollPane1.setViewportView(jTable_Descripcion);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable_Detalle);
 
         jButton_Terminar.setText("Terminar");
 
@@ -70,21 +86,22 @@ public class PanelVentas extends javax.swing.JPanel {
 
         jButton_Cancelar.setText("Cancelar");
 
-        jtextField_Producto.setEnabled(false);
+        jTxtField_Producto.setEnabled(false);
 
         jLabel6.setText("Producto:");
 
-        jButton_Buscar.setText("B");
-        jButton_Buscar.setActionCommand("Buscar");
+        jButton_Buscar.setText("A");
+        jButton_Buscar.setActionCommand("Agregar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel_Total)
@@ -92,29 +109,27 @@ public class PanelVentas extends javax.swing.JPanel {
                         .addComponent(jButton_Terminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_Cancelar))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jtextField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel6)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jtextField_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTxtField_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtextField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton_Buscar)))))
-                        .addGap(0, 13, Short.MAX_VALUE)))
+                                        .addComponent(jSpinner_Cantidad)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton_Buscar)))
+                        .addGap(0, 51, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -125,16 +140,16 @@ public class PanelVentas extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jtextField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jtextField_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtField_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jtextField_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_Buscar))
+                    .addComponent(jButton_Buscar)
+                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
@@ -143,7 +158,7 @@ public class PanelVentas extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jLabel_Total)
                     .addComponent(jButton_Cancelar))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,13 +174,13 @@ public class PanelVentas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel_Total;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable_Descripcion;
-    private javax.swing.JTextField jtextField_Cantidad;
-    private javax.swing.JTextField jtextField_Codigo;
-    private javax.swing.JTextField jtextField_Producto;
+    private javax.swing.JSpinner jSpinner_Cantidad;
+    private javax.swing.JTable jTable_Detalle;
+    private javax.swing.JTextField jTxtField_Codigo;
+    private javax.swing.JTextField jTxtField_Producto;
     // End of variables declaration//GEN-END:variables
 
-    public static final String BTN_BUSCAR = "Buscar";
+    public static final String BTN_AGREGAR = "Agregar";
     public static final String BTN_TERMINAR = "Terminar";
     public static final String BTN_CANCELAR = "Cancelar";
 
@@ -175,32 +190,48 @@ public class PanelVentas extends javax.swing.JPanel {
         this.jButton_Cancelar.addActionListener(cv);
     }
 
-    public void setjTable_Descripcion(String[][] jTable_Descripcion) {
-        this.jTable_Descripcion.setModel(new DefaultTableModel(jTable_Descripcion, jTable_Descripcion));// agregar las etiquetas de las columnas
+    public String getJTxtField_Codigo() {
+        return jTxtField_Codigo.getText();
     }
 
-    public int getJtextField_Cantidad() {
-        return Integer.parseInt(jtextField_Cantidad.getText());
+    public void setJTxtField_Codigo(String codigo) {
+        this.jTxtField_Codigo.setText(codigo);
     }
 
-    public void setJtextField_Cantidad(int jtextField_Cantidad) {
-        this.jtextField_Cantidad.setText(String.valueOf(jtextField_Cantidad));
+    public String getJTxtField_Producto() {
+        return jTxtField_Producto.getText();
     }
 
-    public String getJtextField_Codigo() {
-        return jtextField_Codigo.getText();
+    public void setJTxtField_Producto(String producto) {
+        this.jTxtField_Producto.setText(producto);
     }
 
-    public void setJtextField_Codigo(String jtextField_Codigo) {
-        this.jtextField_Codigo.setText(jtextField_Codigo);
+    public int getJSpinner_Cantidad() {
+        return Integer.parseInt(jSpinner_Cantidad.getValue().toString().trim());
     }
 
-    public String getJtextField_Producto() {
-        return jtextField_Producto.getText();
+    public void setJSpinner_Cantidad(int cantidad) {
+        this.jSpinner_Cantidad.setValue(cantidad);
     }
 
-    public void setJtextField_Producto(String jtextField_Producto) {
-        this.jtextField_Producto.setText(jtextField_Producto);
+    public void setJLabel_Total() {
+        double totalPago = 0;
+        for (int f = 0; f < jTable_Detalle.getRowCount(); f++) {
+            totalPago += (double) jTable_Detalle.getValueAt(f, 5);
+        }
+        jLabel_Total.setText(String.valueOf(totalPago));
     }
 
+    public void setjTable_Detalle(Producto producto, int cantidad) {
+        DefaultTableModel tabla = (DefaultTableModel) jTable_Detalle.getModel();
+        jTable_Detalle.setModel(tabla);
+        Object[] fila = new Object[jTable_Detalle.getColumnCount()];
+        fila[0] = jTable_Detalle.getRowCount() + 1;
+        fila[1] = producto.getIdProducto();
+        fila[2] = producto.getNombre();
+        fila[3] = cantidad;
+        fila[4] = (producto.getPrecio() * 1.10) * 1.13;
+        fila[5] = ((producto.getPrecio() * 1.10) * 1.13) * cantidad;
+        tabla.addRow(fila);
+    }
 }

@@ -73,8 +73,8 @@ public class ControlProducto implements ActionListener {
         }
         //-------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelProducto.BTN_ELIMINAR)) {
-            Producto producto = registroProductos.consultarProducto(panelProducto.getJTxtField_Codigo());
-            registroProductos.eliminarProducto(producto);
+            Producto resultado = registroProductos.consultarProducto(panelProducto.getJTxtField_Codigo());
+            registroProductos.eliminarProducto(resultado);
             panelProducto.limpiaDatos();
             panelProducto.activaBotones(false);
         }
