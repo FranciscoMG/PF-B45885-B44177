@@ -23,8 +23,11 @@ public class RegistroInventario {
         return registroBD.realizarProcedimiento("INSERT INTO Inventario VALUES ('" + producto.getIdProducto() + "', " + cantidad + ", CURDATE());");
     }
 
-    public boolean modificarInventario(Producto producto, int cantidad) {
-        return registroBD.realizarProcedimiento("UPDATE Inventario AS i1, (SELECT cantidad FROM Inventario WHERE fkProducto='" + producto.getIdProducto() + "') AS i2 SET i1.cantidad = i2.cantidad + " + cantidad + ", i1.fechaUltimaCompra = CURDATE() WHERE fkProducto='" + producto.getIdProducto() + "';");
+    public boolean modificarInventario(boolean esSuma, Producto producto, int cantidad) {
+        if (esSuma) {
+            return registroBD.realizarProcedimiento("UPDATE Inventario AS i1, (SELECT cantidad FROM Inventario WHERE fkProducto='" + producto.getIdProducto() + "') AS i2 SET i1.cantidad = i2.cantidad + " + cantidad + ", i1.fechaUltimaCompra = CURDATE() WHERE fkProducto='" + producto.getIdProducto() + "';");
+        }
+        return registroBD.realizarProcedimiento("UPDATE Inventario AS i1, (SELECT cantidad FROM Inventario WHERE fkProducto='" + producto.getIdProducto() + "') AS i2 SET i1.cantidad = i2.cantidad + " + (-cantidad) + ", i1.fechaUltimaCompra = CURDATE() WHERE fkProducto='" + producto.getIdProducto() + "';");
     }
 
     public boolean eliminarInventario(Producto producto) {

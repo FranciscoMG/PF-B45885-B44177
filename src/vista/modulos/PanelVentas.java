@@ -6,6 +6,8 @@
 package vista.modulos;
 
 import controlador.modulos.ControlVentas;
+import java.math.BigDecimal;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import modelo.Producto;
 
@@ -37,14 +39,15 @@ public class PanelVentas extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Detalle = new javax.swing.JTable();
-        jButton_Terminar = new javax.swing.JButton();
+        jButton_Guardar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel_Total = new javax.swing.JLabel();
         jButton_Cancelar = new javax.swing.JButton();
         jTxtField_Producto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton_Buscar = new javax.swing.JButton();
+        jButton_Agregar = new javax.swing.JButton();
         jSpinner_Cantidad = new javax.swing.JSpinner();
+        jButton_Eliminar = new javax.swing.JButton();
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
         jLabel3.setText("Registro ventas");
@@ -58,14 +61,14 @@ public class PanelVentas extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Num. linea", "Cod. producto", "Producto", "Cantidad", "Precio Unitario", "SubTotal"
+                "Num. linea", "Cod. producto", "Producto", "Cantidad", "Precio Unitario", "SubTotal", "Utilidad"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -78,20 +81,24 @@ public class PanelVentas extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable_Detalle);
 
-        jButton_Terminar.setText("Terminar");
+        jButton_Guardar.setText("Guardar");
 
         jLabel1.setText("Total:");
 
         jLabel_Total.setText("0000");
 
-        jButton_Cancelar.setText("Cancelar");
+        jButton_Cancelar.setText("Terminar");
 
         jTxtField_Producto.setEnabled(false);
 
         jLabel6.setText("Producto:");
 
-        jButton_Buscar.setText("A");
-        jButton_Buscar.setActionCommand("Agregar");
+        jButton_Agregar.setText("A");
+        jButton_Agregar.setActionCommand("Agregar");
+
+        jButton_Eliminar.setText("E");
+        jButton_Eliminar.setActionCommand("Eliminar");
+        jButton_Eliminar.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -106,13 +113,13 @@ public class PanelVentas extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel_Total)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_Terminar)
+                        .addComponent(jButton_Guardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_Cancelar))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -128,8 +135,10 @@ public class PanelVentas extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jSpinner_Cantidad)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton_Buscar)))
-                        .addGap(0, 51, Short.MAX_VALUE)))
+                                .addComponent(jButton_Agregar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_Eliminar)))
+                        .addGap(0, 9, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -148,13 +157,14 @@ public class PanelVentas extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jButton_Buscar)
-                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_Agregar)
+                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_Eliminar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Terminar)
+                    .addComponent(jButton_Guardar)
                     .addComponent(jLabel1)
                     .addComponent(jLabel_Total)
                     .addComponent(jButton_Cancelar))
@@ -164,9 +174,10 @@ public class PanelVentas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Buscar;
+    private javax.swing.JButton jButton_Agregar;
     private javax.swing.JButton jButton_Cancelar;
-    private javax.swing.JButton jButton_Terminar;
+    private javax.swing.JButton jButton_Eliminar;
+    private javax.swing.JButton jButton_Guardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -181,12 +192,15 @@ public class PanelVentas extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     public static final String BTN_AGREGAR = "Agregar";
-    public static final String BTN_TERMINAR = "Terminar";
-    public static final String BTN_CANCELAR = "Cancelar";
+    public static final String BTN_ELIMINAR = "Eliminar";
+    public static final String BTN_GUARDAR = "Guardar";
+    public static final String BTN_CANCELAR = "Terminar";
 
     public void escuchar(ControlVentas cv) {
-        this.jButton_Buscar.addActionListener(cv);
-        this.jButton_Terminar.addActionListener(cv);
+        this.jButton_Agregar.addActionListener(cv);
+        this.jButton_Eliminar.addActionListener(cv);
+        this.jTable_Detalle.addMouseListener(cv);
+        this.jButton_Guardar.addActionListener(cv);
         this.jButton_Cancelar.addActionListener(cv);
     }
 
@@ -219,19 +233,65 @@ public class PanelVentas extends javax.swing.JPanel {
         for (int f = 0; f < jTable_Detalle.getRowCount(); f++) {
             totalPago += (double) jTable_Detalle.getValueAt(f, 5);
         }
-        jLabel_Total.setText(String.valueOf(totalPago));
+        this.jLabel_Total.setText(String.valueOf(totalPago));
     }
 
-    public void setjTable_Detalle(Producto producto, int cantidad) {
+    public String[] getJTable_Detalle() {
+        String seleccion[] = new String[jTable_Detalle.getColumnCount()];
+        for (int c = 0; c < seleccion.length; c++) {
+            seleccion[c] = jTable_Detalle.getValueAt(jTable_Detalle.getSelectedRow(), c).toString();
+        }
+        return seleccion;
+    }
+
+    public String[][] getJTable_Detalle_Multiple() {
+        int filas = jTable_Detalle.getRowCount();
+        String datos[][] = new String[filas][jTable_Detalle.getColumnCount()];
+        for (int f = 0; f < filas; f++) {
+            for (int c = 0; c < jTable_Detalle.getColumnCount(); c++) {
+                datos[f][c] = jTable_Detalle.getValueAt(f, c).toString().trim();
+            }
+        }
+        return datos;
+    }
+
+    public void setJTable_Detalle(Producto producto, int cantidad) {
+        BigDecimal redondeo;
         DefaultTableModel tabla = (DefaultTableModel) jTable_Detalle.getModel();
-        jTable_Detalle.setModel(tabla);
+        this.jTable_Detalle.setModel(tabla);
+        this.jTable_Detalle.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         Object[] fila = new Object[jTable_Detalle.getColumnCount()];
         fila[0] = jTable_Detalle.getRowCount() + 1;
         fila[1] = producto.getIdProducto();
         fila[2] = producto.getNombre();
         fila[3] = cantidad;
-        fila[4] = (producto.getPrecio() * 1.10) * 1.13;
-        fila[5] = ((producto.getPrecio() * 1.10) * 1.13) * cantidad;
+        redondeo = new BigDecimal((producto.getPrecio() * 1.10) * 1.13);
+        fila[4] = redondeo.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        double subTotal = (producto.getPrecio() * cantidad) * 1.13;
+        redondeo = new BigDecimal(subTotal * 1.10);
+        fila[5] = redondeo.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        redondeo = new BigDecimal(subTotal * 0.10);
+        fila[6] = redondeo.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         tabla.addRow(fila);
+    }
+
+    public void deleteRow_JTable_Detalle(int fila) {
+        DefaultTableModel tabla = (DefaultTableModel) jTable_Detalle.getModel();
+        this.jTable_Detalle.setModel(tabla);
+        tabla.removeRow(fila);
+        for (int f = 0; f < jTable_Detalle.getRowCount(); f++) {
+            jTable_Detalle.setValueAt(f + 1, f, 0);
+        }
+    }
+
+    public void activaBotones(boolean esActivo) {
+        this.jButton_Eliminar.setEnabled(esActivo);
+    }
+
+    public void limpiarDatos() {
+        this.jTxtField_Codigo.setText("");
+        this.jTxtField_Producto.setText("");
+        this.jSpinner_Cantidad.setValue(0);
+        this.jTable_Detalle.clearSelection();
     }
 }

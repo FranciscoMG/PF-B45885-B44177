@@ -12,6 +12,7 @@ import modelo.RegistroCompras;
 import modelo.RegistroInventario;
 import modelo.RegistroProductos;
 import modelo.RegistroProveedor;
+import modelo.RegistroVentas;
 import vista.GUIMenu;
 import vista.PanelMenu;
 import vista.modulos.GUICompras;
@@ -32,6 +33,7 @@ public class ControlMenu implements ActionListener {
     private RegistroInventario registroInventario;
     private RegistroProductos registroProductos;
     private RegistroCompras registroCompras;
+    private RegistroVentas registroVentas;
     private GUIMenu guiMenu;
     private GUIProveedor guiProveedor;
     private GUIProducto guiProducto;
@@ -47,6 +49,7 @@ public class ControlMenu implements ActionListener {
         this.registroInventario = new RegistroInventario(registroBD);
         this.registroProductos = new RegistroProductos(registroBD, registroProveedor, registroInventario);
         this.registroCompras = new RegistroCompras(registroBD, registroInventario);
+        this.registroVentas = new RegistroVentas(registroBD);
         this.guiMenu = aThis;
         this.panelMenu = panelMenu;
     }
@@ -93,7 +96,7 @@ public class ControlMenu implements ActionListener {
             if (guiVentas != null) {
                 guiVentas.dispose();
             }
-            guiVentas = new GUIVentas(null, true, registroProductos, registroInventario);
+            guiVentas = new GUIVentas(null, true, registroVentas, registroProductos, registroInventario);
             guiVentas.setVisible(true);
         }
     }
