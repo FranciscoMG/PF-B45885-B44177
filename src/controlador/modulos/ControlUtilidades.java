@@ -29,7 +29,7 @@ public class ControlUtilidades implements ActionListener, ItemListener{
     
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelUtilidades.BTN_CERRAR)) {
-            System.err.println("Cerrar");
+            gUIUtilidades.dispose();
         }
     }
 
