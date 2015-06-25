@@ -6,7 +6,6 @@
 package vista.modulos;
 
 import controlador.modulos.ControlUtilidades;
-import javax.swing.JTextArea;
 
 /**
  *
@@ -43,7 +42,7 @@ public class PanelUtilidades extends javax.swing.JPanel {
 
         jLabel4.setText("Mes:");
 
-        jComboBox_Mes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox_Mes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre" }));
 
         jTextArea_Detalle.setColumns(20);
         jTextArea_Detalle.setRows(5);
@@ -108,7 +107,7 @@ public class PanelUtilidades extends javax.swing.JPanel {
 
     public static final String BTN_CERRAR = "Cerrar";
 
-    public void escuchar (ControlUtilidades cu) {
+    public void escuchar(ControlUtilidades cu) {
         this.jButton_Cerrar.addActionListener(cu);
         this.jComboBox_Mes.addItemListener(cu);
     }
@@ -120,6 +119,5 @@ public class PanelUtilidades extends javax.swing.JPanel {
     public void setjTextArea_Detalle(String jTextArea_Detalle) {
         this.jTextArea_Detalle.setText(jTextArea_Detalle);
     }
-    
-    
+
 }
