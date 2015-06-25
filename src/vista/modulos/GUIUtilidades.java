@@ -6,20 +6,22 @@
 package vista.modulos;
 
 import controlador.modulos.ControlUtilidades;
+import javax.swing.JFrame;
 import modelo.RegistroVentas;
 
 /**
  *
  * @author francisco
  */
-public class GUIUtilidades extends javax.swing.JFrame {
+public class GUIUtilidades extends javax.swing.JDialog {
 
     private ControlUtilidades controlUtilidades;
     
     /**
      * Creates new form GUIUtilidades
      */
-    public GUIUtilidades(RegistroVentas registroVentas) {
+    public GUIUtilidades(JFrame parent, boolean modal, RegistroVentas registroVentas) {
+        super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         this.controlUtilidades = new ControlUtilidades(this, panelUtilidades1, registroVentas);

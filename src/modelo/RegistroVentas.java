@@ -60,7 +60,7 @@ public class RegistroVentas {
         informe += "MiniSuper el Alto\nInforme de ventas del mes\n";
         switch (mes) {
             case 0:
-                informe += "";
+                informe += "Mes: Enero\n";
                 break;
         }
         return informe;

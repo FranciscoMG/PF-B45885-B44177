@@ -23,6 +23,7 @@ public class GUIVentas extends javax.swing.JDialog {
      * Creates new form GUIVentas
      */
     public GUIVentas(JFrame parent, boolean modal, RegistroVentas registroVentas, RegistroProductos registroProductos, RegistroInventario registroInventario) {
+        super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         this.controlVentas = new ControlVentas(this, panelVentas1, registroVentas, registroProductos, registroInventario);
