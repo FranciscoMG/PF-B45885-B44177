@@ -36,8 +36,8 @@ public class ControlUtilidades implements ActionListener, ItemListener {
     }
 
     public void itemStateChanged(ItemEvent e) {
-        if (e.getStateChange() == 0) {
-
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            panelUtilidades.setJTxa_Detalle(registroVentas.informeVentas(panelUtilidades.getJComboBox_Mes() + 1, panelUtilidades.getJComboBox_Mes_String()));
         }
     }
 

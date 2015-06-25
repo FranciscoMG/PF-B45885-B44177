@@ -33,20 +33,20 @@ public class PanelUtilidades extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jComboBox_Mes = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea_Detalle = new javax.swing.JTextArea();
+        jTxa_Detalle = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jButton_Cerrar = new javax.swing.JButton();
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
-        jLabel3.setText("Registro productos");
+        jLabel3.setText("Registro utilidades");
 
         jLabel4.setText("Mes:");
 
         jComboBox_Mes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre" }));
 
-        jTextArea_Detalle.setColumns(20);
-        jTextArea_Detalle.setRows(5);
-        jScrollPane1.setViewportView(jTextArea_Detalle);
+        jTxa_Detalle.setColumns(20);
+        jTxa_Detalle.setRows(5);
+        jScrollPane1.setViewportView(jTxa_Detalle);
 
         jLabel1.setText("Detalle ventas mes:");
 
@@ -102,7 +102,7 @@ public class PanelUtilidades extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea_Detalle;
+    private javax.swing.JTextArea jTxa_Detalle;
     // End of variables declaration//GEN-END:variables
 
     public static final String BTN_CERRAR = "Cerrar";
@@ -112,12 +112,19 @@ public class PanelUtilidades extends javax.swing.JPanel {
         this.jComboBox_Mes.addItemListener(cu);
     }
 
-    public String getjTextArea_Detalle() {
-        return jTextArea_Detalle.getText();
+    public String getJComboBox_Mes_String() {
+        return jComboBox_Mes.getSelectedItem().toString();
     }
 
-    public void setjTextArea_Detalle(String jTextArea_Detalle) {
-        this.jTextArea_Detalle.setText(jTextArea_Detalle);
+    public int getJComboBox_Mes() {
+        return jComboBox_Mes.getSelectedIndex();
     }
 
+    public String getJTxa_Detalle() {
+        return jTxa_Detalle.getText();
+    }
+
+    public void setJTxa_Detalle(String detalle) {
+        this.jTxa_Detalle.setText(detalle);
+    }
 }

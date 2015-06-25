@@ -56,30 +56,46 @@ public class RegistroVentas {
     }
 
     public String[][] consultarVentas(int mes) {
+        int f = 0;
         String[][] retorno = null;
+        String mesCorregido;
         try {
-            ResultSet resultado = registroBD.realizarConsulta("SELECT idVenta, fechaVenta, ROUND(SUM(precioTotal), 2) AS TotalVenta, ROUND(SUM(utilidad), 2) AS TotalUtilidad FROM Ventas WHERE fechaVenta LIKE '%-" + mes + "-%' GROUP BY idVenta");
+            if (mes < 9) {
+                mesCorregido = "0" + mes;
+            } else {
+                mesCorregido = String.valueOf(mes);
+            }
+            ResultSet resultado = registroBD.realizarConsulta("SELECT idVenta, fechaVenta, ROUND(SUM(precioTotal), 2) AS totalVenta, ROUND(SUM(utilidad), 2) AS totalUtilidad FROM Ventas WHERE fechaVenta LIKE '%-" + mesCorregido + "-%' GROUP BY idVenta");
             resultado.last();
             retorno = new String[resultado.getRow()][resultado.getMetaData().getColumnCount()];
             resultado.beforeFirst();
             while (resultado.next()) {
-                retorno[0][0] = "";
+                retorno[f][0] = resultado.getString("idVenta");
+                retorno[f][1] = resultado.getString("fechaVenta");
+                retorno[f][2] = resultado.getString("totalVenta");
+                retorno[f][3] = resultado.getString("totalUtilidad");
+                f++;
             }
         } catch (SQLException ex) {
         }
         return retorno;
     }
 
-    public String informeVentas(int mes) {
-        String informe = "";
-        informe += "MiniSuper el Alto\nInforme de utilidades del mes\n\n";
-        switch (mes) {
-            case 0:
-                informe += "Mes: Enero\n";
-                informe += "-----------------------------\n\n";
-                informe += "TotalVentas: ";
-                break;
+    public String informeVentas(int mes, String mesString) {
+        double totalMes = 0;
+        double totalUtilidades = 0;
+        String[][] ventasMes = consultarVentas(mes);
+        String informe = "MiniSuper el Alto\nInforme de utilidades del mes\n\nMes: " + mesString;
+        informe += "\n--------------------------------------------------------------------------------------\n";
+        informe += "Fecha y hora\t\tMonto Venta\tUtilidad total\n";
+        informe += "--------------------------------------------------------------------------------------\n";
+        for (int f = 0; f < ventasMes.length; f++) {
+            informe += ventasMes[f][1] + "\t" + ventasMes[f][2] + "\t" + ventasMes[f][3] + "\n";
+            totalMes += Double.parseDouble(ventasMes[f][2]);
+            totalUtilidades += Double.parseDouble(ventasMes[f][3]);
         }
+        informe += "\nTotal Ventas: " + ventasMes.length + "\nTotal mes: " + totalMes + "\nTotal utilidades: " + totalUtilidades;
+
         return informe;
     }
 }

@@ -69,7 +69,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="DejaVu Sans" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Registro productos"/>
+        <Property name="text" type="java.lang.String" value="Registro utilidades"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -104,7 +104,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea_Detalle">
+        <Component class="javax.swing.JTextArea" name="jTxa_Detalle">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
