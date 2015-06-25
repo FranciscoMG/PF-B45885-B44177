@@ -44,22 +44,37 @@ public class PanelCompras extends javax.swing.JPanel {
         jButton_Buscar = new javax.swing.JButton();
         jSpinner_Cantidad = new javax.swing.JSpinner();
 
+        setBackground(new java.awt.Color(217, 254, 221));
+
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel4.setText("Cod. Proveedor:");
 
-        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setText("Registro compras");
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel5.setText("Producto:");
 
+        jComboBox_Producto.setBackground(new java.awt.Color(254, 254, 254));
+
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel6.setText("Cantidad:");
 
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel7.setText("Precio:");
 
+        jButton_Guardar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Guardar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435274529_document_add.png"))); // NOI18N
         jButton_Guardar.setText("Guardar");
 
+        jButton_Cancelar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Cancelar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435272330_notification_error.png"))); // NOI18N
         jButton_Cancelar.setText("Cancelar");
 
-        jButton_Buscar.setText("B");
+        jButton_Buscar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435270426_search.png"))); // NOI18N
         jButton_Buscar.setActionCommand("Buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -69,67 +84,67 @@ public class PanelCompras extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3))
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jButton_Guardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton_Cancelar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTxtField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(71, 71, 71)
+                                .addComponent(jLabel5))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTxtField_Proveedor)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton_Buscar))
+                            .addComponent(jComboBox_Producto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(45, 45, 45)
-                                .addComponent(jComboBox_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7))
-                                .addGap(46, 46, 46)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTxtField_Precio, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                    .addComponent(jSpinner_Cantidad))))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                                .addComponent(jButton_Guardar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+                            .addComponent(jSpinner_Cantidad)
+                            .addComponent(jTxtField_Precio, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(30, 30, 30)
                 .addComponent(jLabel3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTxtField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_Buscar))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jComboBox_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTxtField_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 84, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton_Cancelar)
-                            .addComponent(jButton_Guardar))
-                        .addContainerGap())))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jTxtField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_Buscar))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jComboBox_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtField_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Cancelar)
+                    .addComponent(jButton_Guardar))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

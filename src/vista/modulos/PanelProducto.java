@@ -46,33 +46,50 @@ public class PanelProducto extends javax.swing.JPanel {
         jButton_Cancelar = new javax.swing.JButton();
         jSpinner_Cantidad = new javax.swing.JSpinner();
 
-        setBackground(new java.awt.Color(254, 253, 242));
+        setBackground(new java.awt.Color(253, 252, 231));
         setEnabled(false);
 
-        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setText("Registro productos");
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel4.setText("Código:");
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel5.setText("Nombre:");
 
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel6.setText("Cod. Proveedor:");
 
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel7.setText("Precio unitario:");
 
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel8.setText("Unidades en invertario:");
 
         jButton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435270426_search.png"))); // NOI18N
         jButton_Buscar.setActionCommand("Buscar");
 
+        jButton_Modificar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Modificar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435272003_file_edit.png"))); // NOI18N
         jButton_Modificar.setText("Modificar");
         jButton_Modificar.setEnabled(false);
 
+        jButton_Agregar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Agregar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435271997_file_add.png"))); // NOI18N
         jButton_Agregar.setText("Agregar");
 
+        jButton_Eliminar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Eliminar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435272014_file_delete.png"))); // NOI18N
         jButton_Eliminar.setText("Eliminar");
         jButton_Eliminar.setEnabled(false);
 
+        jButton_Cancelar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Cancelar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435272330_notification_error.png"))); // NOI18N
         jButton_Cancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -80,60 +97,58 @@ public class PanelProducto extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTxtField_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTxtField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel8)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jSpinner_Cantidad))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jTxtField_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton_Buscar)))
-                        .addGap(0, 16, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton_Agregar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton_Modificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton_Eliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_Cancelar)))
-                .addContainerGap())
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTxtField_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTxtField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jSpinner_Cantidad))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jTxtField_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton_Agregar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton_Modificar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton_Eliminar)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_Buscar)
+                            .addComponent(jButton_Cancelar)))
+                    .addComponent(jLabel3))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton_Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel3)
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jButton_Buscar)))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -150,14 +165,13 @@ public class PanelProducto extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton_Agregar)
-                        .addComponent(jButton_Modificar)
-                        .addComponent(jButton_Eliminar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Agregar)
+                    .addComponent(jButton_Modificar)
+                    .addComponent(jButton_Eliminar)
                     .addComponent(jButton_Cancelar))
-                .addGap(23, 23, 23))
+                .addGap(60, 60, 60))
         );
     }// </editor-fold>//GEN-END:initComponents
 

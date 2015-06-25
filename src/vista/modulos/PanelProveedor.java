@@ -42,26 +42,49 @@ public class PanelProveedor extends javax.swing.JPanel {
         jButton_Eliminar = new javax.swing.JButton();
         jButton_Cancelar = new javax.swing.JButton();
 
-        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        setBackground(new java.awt.Color(255, 245, 245));
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setText("Registro proveedores");
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel4.setText("Código:");
 
-        jButton_Buscar.setText("B");
+        jButton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435270426_search.png"))); // NOI18N
         jButton_Buscar.setActionCommand("Buscar");
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel5.setText("Nombre:");
 
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel6.setText("Telefóno:");
 
+        jTxtField_Telefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtField_TelefonoActionPerformed(evt);
+            }
+        });
+
+        jButton_Agregar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Agregar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435273275_user_add.png"))); // NOI18N
         jButton_Agregar.setText("Agregar");
 
+        jButton_Modificar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Modificar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435273287_user_warning.png"))); // NOI18N
         jButton_Modificar.setText("Modificar");
         jButton_Modificar.setEnabled(false);
 
+        jButton_Eliminar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Eliminar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435273281_user_delete.png"))); // NOI18N
         jButton_Eliminar.setText("Eliminar");
         jButton_Eliminar.setEnabled(false);
 
+        jButton_Cancelar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Cancelar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir2.png"))); // NOI18N
         jButton_Cancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -69,49 +92,53 @@ public class PanelProveedor extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTxtField_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTxtField_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton_Buscar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton_Agregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton_Modificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton_Eliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_Cancelar)
-                .addContainerGap())
+                                .addGap(2, 2, 2)
+                                .addComponent(jButton_Agregar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton_Modificar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton_Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addGap(18, 18, 18))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel5)
+                                            .addGap(18, 18, 18)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(jLabel4)
+                                        .addGap(20, 20, 20)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTxtField_Codigo)
+                                    .addComponent(jTxtField_Nombre)
+                                    .addComponent(jTxtField_Telefono, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_Cancelar)
+                            .addComponent(jButton_Buscar))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(29, 29, 29)
                 .addComponent(jLabel3)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton_Buscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTxtField_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -119,16 +146,19 @@ public class PanelProveedor extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTxtField_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton_Agregar)
-                        .addComponent(jButton_Modificar)
-                        .addComponent(jButton_Eliminar))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Agregar)
+                    .addComponent(jButton_Modificar)
+                    .addComponent(jButton_Eliminar)
                     .addComponent(jButton_Cancelar))
-                .addContainerGap())
+                .addContainerGap(50, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTxtField_TelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtField_TelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtField_TelefonoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

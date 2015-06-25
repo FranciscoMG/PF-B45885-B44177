@@ -151,7 +151,7 @@
     <Component class="javax.swing.JButton" name="jButton_Reporte_Utilidades">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="fd" green="f8" red="ce" type="rgb"/>
+          <Color blue="ff" green="f5" red="a0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="13" style="0"/>
@@ -168,7 +168,7 @@
     <Component class="javax.swing.JButton" name="jButton_Inventario">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="fd" green="d4" red="d2" type="rgb"/>
+          <Color blue="fd" green="d4" red="c2" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="13" style="0"/>

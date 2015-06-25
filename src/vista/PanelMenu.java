@@ -62,7 +62,7 @@ public class PanelMenu extends javax.swing.JPanel {
         jButton_Ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265367_shoppingcart_checkout.png"))); // NOI18N
         jButton_Ventas.setText("Módulo de ventas");
 
-        jButton_Reporte_Utilidades.setBackground(new java.awt.Color(206, 248, 253));
+        jButton_Reporte_Utilidades.setBackground(new java.awt.Color(160, 245, 255));
         jButton_Reporte_Utilidades.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Reporte_Utilidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265358_calculator.png"))); // NOI18N
         jButton_Reporte_Utilidades.setText("Reporte de utilidades");
@@ -72,7 +72,7 @@ public class PanelMenu extends javax.swing.JPanel {
             }
         });
 
-        jButton_Inventario.setBackground(new java.awt.Color(210, 212, 253));
+        jButton_Inventario.setBackground(new java.awt.Color(194, 212, 253));
         jButton_Inventario.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265386_message.png"))); // NOI18N
         jButton_Inventario.setText("Módulo de inventario");
