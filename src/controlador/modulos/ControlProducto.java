@@ -7,6 +7,8 @@ package controlador.modulos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.management.GarbageCollectorMXBean;
+import modelo.HiloValidador;
 import modelo.Producto;
 import modelo.Proveedor;
 import modelo.RegistroProductos;
@@ -25,12 +27,18 @@ public class ControlProducto implements ActionListener {
     private RegistroProveedor registroProveedor;
     private GUIProducto gUIProducto;
     private PanelProducto panelProducto;
+    private HiloValidador hiloValidador;
 
     public ControlProducto(GUIProducto aThis, PanelProducto panelProducto, RegistroProveedor registroProveedor, RegistroProductos registroProductos) {
+        
+        System.gc();
         this.registroProveedor = registroProveedor;
         this.registroProductos = registroProductos;
         this.panelProducto = panelProducto;
         this.gUIProducto = aThis;
+        this.hiloValidador = new HiloValidador(panelProducto, registroProveedor, gUIProducto);
+        this.hiloValidador.start();
+       
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -49,9 +57,8 @@ public class ControlProducto implements ActionListener {
         }
         //-------------------------------------------------------------------  
         if (e.getActionCommand().equalsIgnoreCase(PanelProducto.BTN_AGREGAR)) {
-            Proveedor proveedor = registroProveedor.consultarProveedor(panelProducto.getJTxtField_Proveedor());
-            if (proveedor != null) {
-                Producto producto = new Producto(panelProducto.getJTxtField_Codigo(), panelProducto.getJTxtField_Nombre(), panelProducto.getJTxtField_Precio(), proveedor);
+            if (hiloValidador.isPanelProductosDatosCorrecto()) {
+                Producto producto = new Producto(panelProducto.getJTxtField_Codigo(), panelProducto.getJTxtField_Nombre(), Double.parseDouble(panelProducto.getJTxtField_Precio()), hiloValidador.getProveedor());
                 registroProductos.agregarProducto(producto, panelProducto.getJSpinner_Cantidad());
             } else {
                 GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProducto.getJTxtField_Proveedor(), 0, 2);
@@ -63,7 +70,7 @@ public class ControlProducto implements ActionListener {
         if (e.getActionCommand().equalsIgnoreCase(PanelProducto.BTN_MODIFICAR)) {
             Proveedor proveedor = registroProveedor.consultarProveedor(panelProducto.getJTxtField_Proveedor());
             if (proveedor != null) {
-                Producto producto = new Producto(panelProducto.getJTxtField_Codigo(), panelProducto.getJTxtField_Nombre(), panelProducto.getJTxtField_Precio(), proveedor);
+                Producto producto = new Producto(panelProducto.getJTxtField_Codigo(), panelProducto.getJTxtField_Nombre(), Double.parseDouble(panelProducto.getJTxtField_Precio()),proveedor);
                 registroProductos.modificarProducto(producto);
             } else {
                 GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProducto.getJTxtField_Proveedor(), 0, 2);
@@ -81,6 +88,7 @@ public class ControlProducto implements ActionListener {
         //-------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelProducto.BTN_CANCELAR)) {
             gUIProducto.dispose();
+            hiloValidador.stop();
         }
     }
 
