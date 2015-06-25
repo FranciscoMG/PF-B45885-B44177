@@ -55,12 +55,29 @@ public class RegistroVentas {
         return idVenta;
     }
 
+    public String[][] consultarVentas(int mes) {
+        String[][] retorno = null;
+        try {
+            ResultSet resultado = registroBD.realizarConsulta("SELECT idVenta, fechaVenta, ROUND(SUM(precioTotal), 2) AS TotalVenta, ROUND(SUM(utilidad), 2) AS TotalUtilidad FROM Ventas WHERE fechaVenta LIKE '%-" + mes + "-%' GROUP BY idVenta");
+            resultado.last();
+            retorno = new String[resultado.getRow()][resultado.getMetaData().getColumnCount()];
+            resultado.beforeFirst();
+            while (resultado.next()) {
+                retorno[0][0] = "";
+            }
+        } catch (SQLException ex) {
+        }
+        return retorno;
+    }
+
     public String informeVentas(int mes) {
         String informe = "";
-        informe += "MiniSuper el Alto\nInforme de ventas del mes\n";
+        informe += "MiniSuper el Alto\nInforme de utilidades del mes\n\n";
         switch (mes) {
             case 0:
                 informe += "Mes: Enero\n";
+                informe += "-----------------------------\n\n";
+                informe += "TotalVentas: ";
                 break;
         }
         return informe;
