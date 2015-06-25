@@ -18,7 +18,7 @@ import vista.modulos.PanelProveedor;
  * @author francisco
  */
 public class ControlProveedor implements ActionListener {
-    
+
     private RegistroProveedor registroProveedor;
     private GUIProveedor guiProveedor;
     private PanelProveedor panelProveedor;
@@ -38,7 +38,7 @@ public class ControlProveedor implements ActionListener {
                 panelProveedor.setJtxtField_Telefono(resultado.getTelefono());
                 panelProveedor.activaBotones(true);
             } else {
-                GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProveedor.getJtxtField_Codigo(), 2);
+                GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProveedor.getJtxtField_Codigo(), 0, 2);
                 panelProveedor.limpiaDatos();
             }
         }

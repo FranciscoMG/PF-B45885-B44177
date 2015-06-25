@@ -28,9 +28,9 @@ public class RegistroProductos {
 
     public void agregarProducto(Producto producto, int cantidad) {
         if (registroBD.realizarProcedimiento("INSERT INTO Producto VALUES ('" + producto.getIdProducto() + "', '" + producto.getNombre() + "', " + producto.getPrecio() + ", '" + producto.getProveedor().getIdProveedor() + "');") && registroInventario.agregarInventario(producto, cantidad)) {
-            GUILogin.mensaje("Producto guardado con éxito", 1);
+            GUILogin.mensaje("Producto guardado con éxito", 0, 1);
         } else {
-            GUILogin.mensaje("Error al guardar el producto", 0);
+            GUILogin.mensaje("Error al guardar el producto", 0, 0);
         }
     }
 
@@ -83,17 +83,17 @@ public class RegistroProductos {
 
     public void modificarProducto(Producto producto) {
         if (registroBD.realizarProcedimiento("UPDATE Producto SET nombre ='" + producto.getNombre() + "', precio=" + producto.getPrecio() + ", fkProveedor='" + producto.getProveedor().getIdProveedor() + "' WHERE idProducto ='" + producto.getIdProducto() + "';")) {
-            GUILogin.mensaje("Producto modificado con éxito", 1);
+            GUILogin.mensaje("Producto modificado con éxito", 0, 1);
         } else {
-            GUILogin.mensaje("Error al modificar el producto", 0);
+            GUILogin.mensaje("Error al modificar el producto", 0, 0);
         }
     }
 
     public void eliminarProducto(Producto producto) {
         if (registroInventario.eliminarInventario(producto) && registroBD.realizarProcedimiento("DELETE FROM Producto WHERE idProducto ='" + producto.getIdProducto() + "';")) {
-            GUILogin.mensaje("Producto eliminado con éxito", 1);
+            GUILogin.mensaje("Producto eliminado con éxito", 0, 1);
         } else {
-            GUILogin.mensaje("Error al eliminar el producto", 0);
+            GUILogin.mensaje("Error al eliminar el producto", 0, 0);
         }
     }
 }

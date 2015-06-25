@@ -23,9 +23,9 @@ public class RegistroProveedor {
 
     public void agregarProveedor(Proveedor proveedor) {
         if (registroBD.realizarProcedimiento("INSERT INTO Proveedor VALUES ('" + proveedor.getIdProveedor() + "', '" + proveedor.getNombre() + "', '" + proveedor.getTelefono() + "');")) {
-            GUILogin.mensaje("Proveedor guardado con éxito", 1);
+            GUILogin.mensaje("Proveedor guardado con éxito", 0, 1);
         } else {
-            GUILogin.mensaje("Error al guardar el proveedor", 0);
+            GUILogin.mensaje("Error al guardar el proveedor", 0, 0);
         }
     }
 
@@ -48,17 +48,17 @@ public class RegistroProveedor {
 
     public void modificarProveedor(Proveedor proveedor) {
         if (registroBD.realizarProcedimiento("UPDATE Proveedor SET nombre ='" + proveedor.getNombre() + "', numTelefono='" + proveedor.getTelefono() + "' WHERE idProveedor ='" + proveedor.getIdProveedor() + "';")) {
-            GUILogin.mensaje("Proveedor modificado con éxito", 1);
+            GUILogin.mensaje("Proveedor modificado con éxito", 0, 1);
         } else {
-            GUILogin.mensaje("Error al modificar el proveedor", 0);
+            GUILogin.mensaje("Error al modificar el proveedor", 0, 0);
         }
     }
 
     public void eliminarProveedor(Proveedor proveedor) {
         if (registroBD.realizarProcedimiento("DELETE FROM Proveedor WHERE idProveedor ='" + proveedor.getIdProveedor() + "';")) {
-            GUILogin.mensaje("Proveedor eliminado con éxito", 1);
+            GUILogin.mensaje("Proveedor eliminado con éxito", 0, 1);
         } else {
-            GUILogin.mensaje("Error al eliminar el proveedor", 0);
+            GUILogin.mensaje("Error al eliminar el proveedor", 0, 0);
         }
     }
 }

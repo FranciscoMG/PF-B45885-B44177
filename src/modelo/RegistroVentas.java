@@ -25,16 +25,18 @@ public class RegistroVentas {
         int idVenta = consultarIdVenta();
         int totalVentas = listaVenta.length;
         int ventaProcesadas = 0;
-        for (int i = 0; i < listaVenta.length; i++) {
-            if (registroBD.realizarProcedimiento("INSERT INTO Ventas VALUES (" + idVenta + ", " + (i + 1)
-                    + ", CURRENT_TIMESTAMP(), '" + listaVenta[i][1] + "', " + listaVenta[i][3] + ", " + listaVenta[i][5] + ", " + listaVenta[i][6] + ");")) {
-                ventaProcesadas++;
+        if (idVenta != -1) {
+            for (int i = 0; i < listaVenta.length; i++) {
+                if (registroBD.realizarProcedimiento("INSERT INTO Ventas VALUES (" + idVenta + ", " + (i + 1)
+                        + ", CURRENT_TIMESTAMP(), '" + listaVenta[i][1] + "', " + listaVenta[i][3] + ", " + listaVenta[i][5] + ", " + listaVenta[i][6] + ");")) {
+                    ventaProcesadas++;
+                }
             }
-        }
-        if (ventaProcesadas == totalVentas) {
-            GUILogin.mensaje("Venta guardada con éxito", 1);
-        } else {
-            GUILogin.mensaje("Error al guardar la venta", 0);
+            if (ventaProcesadas == totalVentas) {
+                GUILogin.mensaje("Venta guardada con éxito", 0, 1);
+            } else {
+                GUILogin.mensaje("Error al guardar la venta", 0, 0);
+            }
         }
     }
 
@@ -51,5 +53,16 @@ public class RegistroVentas {
         } catch (SQLException ex) {
         }
         return idVenta;
+    }
+
+    public String informeVentas(int mes) {
+        String informe = "";
+        informe += "MiniSuper el Alto\nInforme de ventas del mes\n";
+        switch (mes) {
+            case 0:
+                informe += "";
+                break;
+        }
+        return informe;
     }
 }

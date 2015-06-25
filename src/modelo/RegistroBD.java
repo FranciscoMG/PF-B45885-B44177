@@ -34,7 +34,7 @@ public class RegistroBD {
             conexionBD = DriverManager.getConnection(conexion.getDataBase(), conexion.getUser(), conexion.getPassword());
             System.out.println("Conexion a BD correcta!");
         } catch (ClassNotFoundException | SQLException ex) {
-            GUILogin.mensaje("Error de conexión con la base de datos. El programa puede que no funcione correctamente", 2);
+            GUILogin.mensaje("Error de conexión con la base de datos. El programa puede que no funcione correctamente", 0, 2);
         }
     }
 

@@ -23,9 +23,9 @@ public class RegistroCompras {
 
     public void agregarCompra(Producto producto, Proveedor proveedor, int cantidad, double precioCompra) {
         if (registroBD.realizarProcedimiento("INSERT INTO Compras VALUES (null, '" + producto.getIdProducto() + "', '" + proveedor.getIdProveedor() + "', " + precioCompra + ");") && registroInventario.modificarInventario(true, producto, cantidad)) {
-            GUILogin.mensaje("Compra guardada con éxito", 1);
+            GUILogin.mensaje("Compra guardada con éxito", 0, 1);
         } else {
-            GUILogin.mensaje("Error al guardar la compra", 0);
+            GUILogin.mensaje("Error al guardar la compra", 0, 0);
         }
     }
 }

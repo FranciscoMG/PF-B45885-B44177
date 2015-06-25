@@ -98,7 +98,14 @@ public class GUILogin extends javax.swing.JFrame {
     private vista.PanelLogin panelLogin1;
     // End of variables declaration//GEN-END:variables
 
-    public static void mensaje(String mensaje, int tipoMensaje) {
-        JOptionPane.showMessageDialog(null, mensaje, null, tipoMensaje);
+    public static int mensaje(String mensaje, int tipoMensaje, int iconoMensaje) {
+        switch (tipoMensaje) {
+            case 0:
+                JOptionPane.showMessageDialog(null, mensaje, null, iconoMensaje);
+                break;
+            case 1:
+                return JOptionPane.showConfirmDialog(null, mensaje, null, JOptionPane.YES_NO_OPTION);
+        }
+        return -1;
     }
 }

@@ -33,7 +33,7 @@ public class ControlLogin implements ActionListener {
 
         this.guiMenu = new GUIMenu();///////////////////eliminar
         this.guiMenu.setVisible(true); ////////////eliminar
-        
+
         File file = new File("usuarios.xml");
         if (file.exists()) {
             registroUsuarios = RegistroUsuarios.abrirDocumento("usuarios.xml");
@@ -53,9 +53,9 @@ public class ControlLogin implements ActionListener {
                     this.guiMenu.setVisible(true);
                 } else {
                     contadorDeLogins++;
-                    GUILogin.mensaje("Usuario o contraseña incorrecta. Le quedan " + (3 - contadorDeLogins) + " intentos", 0);
+                    GUILogin.mensaje("Usuario o contraseña incorrecta. Le quedan " + (3 - contadorDeLogins) + " intentos", 0, 0);
                     if (contadorDeLogins == 3) {
-                        GUILogin.mensaje("Usted ha excedido la cantidad de intentos permitidos", 1);
+                        GUILogin.mensaje("Usted ha excedido la cantidad de intentos permitidos", 0, 1);
                         System.exit(0);
                     }
                 }

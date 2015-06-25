@@ -43,7 +43,7 @@ public class ControlProducto implements ActionListener {
                 panelProducto.setJTxtField_Proveedor(resultado.getProveedor().getIdProveedor());
                 panelProducto.activaBotones(true);
             } else {
-                GUILogin.mensaje("No se encontraron productos para el código: " + panelProducto.getJTxtField_Codigo(), 2);
+                GUILogin.mensaje("No se encontraron productos para el código: " + panelProducto.getJTxtField_Codigo(), 0, 2);
                 panelProducto.limpiaDatos();
             }
         }
@@ -54,7 +54,7 @@ public class ControlProducto implements ActionListener {
                 Producto producto = new Producto(panelProducto.getJTxtField_Codigo(), panelProducto.getJTxtField_Nombre(), panelProducto.getJTxtField_Precio(), proveedor);
                 registroProductos.agregarProducto(producto, panelProducto.getJSpinner_Cantidad());
             } else {
-                GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProducto.getJTxtField_Proveedor(), 2);
+                GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProducto.getJTxtField_Proveedor(), 0, 2);
             }
             panelProducto.limpiaDatos();
             panelProducto.activaBotones(false);
@@ -66,7 +66,7 @@ public class ControlProducto implements ActionListener {
                 Producto producto = new Producto(panelProducto.getJTxtField_Codigo(), panelProducto.getJTxtField_Nombre(), panelProducto.getJTxtField_Precio(), proveedor);
                 registroProductos.modificarProducto(producto);
             } else {
-                GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProducto.getJTxtField_Proveedor(), 2);
+                GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProducto.getJTxtField_Proveedor(), 0, 2);
             }
             panelProducto.limpiaDatos();
             panelProducto.activaBotones(false);
