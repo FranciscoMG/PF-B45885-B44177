@@ -35,15 +35,31 @@ public class PanelMenu extends javax.swing.JPanel {
         jButton_Ventas = new javax.swing.JButton();
         jButton_Reporte_Utilidades = new javax.swing.JButton();
         jButton_Inventario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
+        setBackground(new java.awt.Color(214, 247, 222));
+
+        jButton_Registro_Productos.setBackground(new java.awt.Color(250, 222, 254));
+        jButton_Registro_Productos.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Registro_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265347_folder_add.png"))); // NOI18N
         jButton_Registro_Productos.setText("Módulo de registro productos");
 
+        jButton_Registro_Proveedore.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Registro_Proveedore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265338_user_add.png"))); // NOI18N
         jButton_Registro_Proveedore.setText("Módulo de registro proveedores");
 
+        jButton_Compras.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265379_shoppingcart_add.png"))); // NOI18N
         jButton_Compras.setText("Modulo de compra");
 
+        jButton_Ventas.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265367_shoppingcart_checkout.png"))); // NOI18N
         jButton_Ventas.setText("Módulo de ventas");
 
+        jButton_Reporte_Utilidades.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Reporte_Utilidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265358_calculator.png"))); // NOI18N
         jButton_Reporte_Utilidades.setText("Reporte de utilidades");
         jButton_Reporte_Utilidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,39 +67,68 @@ public class PanelMenu extends javax.swing.JPanel {
             }
         });
 
+        jButton_Inventario.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265386_message.png"))); // NOI18N
         jButton_Inventario.setText("Módulo de inventario");
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel1.setText("Minisuper el Alto");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton_Registro_Productos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_Registro_Proveedore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_Compras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton_Ventas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_Inventario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_Reporte_Utilidades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_Inventario)
-                    .addComponent(jButton_Reporte_Utilidades)
-                    .addComponent(jButton_Ventas)
-                    .addComponent(jButton_Compras)
-                    .addComponent(jButton_Registro_Proveedore)
-                    .addComponent(jButton_Registro_Productos))
-                .addContainerGap(112, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(252, 252, 252)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jButton_Registro_Productos)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jButton_Registro_Proveedore)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_Compras)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_Ventas)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_Reporte_Utilidades)
-                .addGap(18, 18, 18)
-                .addComponent(jButton_Inventario)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_Reporte_Utilidades)
+                            .addComponent(jButton_Registro_Productos))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_Registro_Proveedore)
+                            .addComponent(jButton_Inventario))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(39, 39, 39)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Compras)
+                    .addComponent(jButton_Ventas))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -99,6 +144,9 @@ public class PanelMenu extends javax.swing.JPanel {
     private javax.swing.JButton jButton_Registro_Proveedore;
     private javax.swing.JButton jButton_Reporte_Utilidades;
     private javax.swing.JButton jButton_Ventas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 
     public static final String BTN_COMPRAS = "Modulo de compra";
