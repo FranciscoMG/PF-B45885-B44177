@@ -102,6 +102,10 @@ public class ControlMenu implements ActionListener {
             guiVentas = new GUIVentas(null, true, registroVentas, registroProductos, registroInventario);
             guiVentas.setVisible(true);
         }
+        //--------------------------------------------------------------------
+        if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_SALIR)) {
+            
+        }
     }
 
 }

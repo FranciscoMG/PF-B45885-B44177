@@ -38,26 +38,31 @@ public class PanelMenu extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jButton_Salir = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 247, 222));
+        setBackground(new java.awt.Color(214, 247, 238));
 
-        jButton_Registro_Productos.setBackground(new java.awt.Color(250, 222, 254));
+        jButton_Registro_Productos.setBackground(new java.awt.Color(248, 245, 203));
         jButton_Registro_Productos.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Registro_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265347_folder_add.png"))); // NOI18N
         jButton_Registro_Productos.setText("Módulo de registro productos");
 
+        jButton_Registro_Proveedore.setBackground(new java.awt.Color(254, 221, 221));
         jButton_Registro_Proveedore.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Registro_Proveedore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265338_user_add.png"))); // NOI18N
         jButton_Registro_Proveedore.setText("Módulo de registro proveedores");
 
+        jButton_Compras.setBackground(new java.awt.Color(171, 239, 173));
         jButton_Compras.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265379_shoppingcart_add.png"))); // NOI18N
         jButton_Compras.setText("Modulo de compra");
 
+        jButton_Ventas.setBackground(new java.awt.Color(242, 185, 254));
         jButton_Ventas.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265367_shoppingcart_checkout.png"))); // NOI18N
         jButton_Ventas.setText("Módulo de ventas");
 
+        jButton_Reporte_Utilidades.setBackground(new java.awt.Color(206, 248, 253));
         jButton_Reporte_Utilidades.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Reporte_Utilidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265358_calculator.png"))); // NOI18N
         jButton_Reporte_Utilidades.setText("Reporte de utilidades");
@@ -67,6 +72,7 @@ public class PanelMenu extends javax.swing.JPanel {
             }
         });
 
+        jButton_Inventario.setBackground(new java.awt.Color(210, 212, 253));
         jButton_Inventario.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435265386_message.png"))); // NOI18N
         jButton_Inventario.setText("Módulo de inventario");
@@ -75,6 +81,11 @@ public class PanelMenu extends javax.swing.JPanel {
         jLabel1.setText("Minisuper el Alto");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
+
+        jButton_Salir.setBackground(new java.awt.Color(254, 230, 230));
+        jButton_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir2.png"))); // NOI18N
+        jButton_Salir.setText(" Salir ");
+        jButton_Salir.setActionCommand("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,9 +97,9 @@ public class PanelMenu extends javax.swing.JPanel {
                     .addComponent(jButton_Registro_Productos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton_Registro_Proveedore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton_Compras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(33, 33, 33)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton_Ventas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton_Inventario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -101,7 +112,10 @@ public class PanelMenu extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(252, 252, 252)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(371, 371, 371)
+                        .addComponent(jButton_Salir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -111,24 +125,24 @@ public class PanelMenu extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton_Reporte_Utilidades)
                             .addComponent(jButton_Registro_Productos))
-                        .addGap(18, 18, 18)
+                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton_Registro_Proveedore)
-                            .addComponent(jButton_Inventario))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(39, 39, 39)))
+                            .addComponent(jButton_Inventario)))
+                    .addComponent(jLabel2))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Compras)
                     .addComponent(jButton_Ventas))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jButton_Salir)
+                .addGap(40, 40, 40))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -143,6 +157,7 @@ public class PanelMenu extends javax.swing.JPanel {
     private javax.swing.JButton jButton_Registro_Productos;
     private javax.swing.JButton jButton_Registro_Proveedore;
     private javax.swing.JButton jButton_Reporte_Utilidades;
+    private javax.swing.JButton jButton_Salir;
     private javax.swing.JButton jButton_Ventas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -155,6 +170,7 @@ public class PanelMenu extends javax.swing.JPanel {
     public static final String BTN_REGISTRO_PROVEEDORES = "Módulo de registro proveedores";
     public static final String BTN_REPORTE_UTILIDADES = "Reporte de utilidades";
     public static final String BTN_VENTAS = "Módulo de ventas";
+    public static final String BTN_SALIR = "Salir";
     
     
     public void escuchar (ControlMenu cm) {
@@ -164,6 +180,7 @@ public class PanelMenu extends javax.swing.JPanel {
         this.jButton_Registro_Proveedore.addActionListener(cm);
         this.jButton_Reporte_Utilidades.addActionListener(cm);
         this.jButton_Ventas.addActionListener(cm);
+        this.jButton_Salir.addActionListener(cm);
     }
 
 

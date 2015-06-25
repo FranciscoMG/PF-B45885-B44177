@@ -47,8 +47,9 @@ public class PanelLogin extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("SansSerif", 3, 14)); // NOI18N
         jLabel2.setText("Contraseña:");
 
+        jButton_Entrar.setBackground(new java.awt.Color(247, 253, 248));
         jButton_Entrar.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jButton_Entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435264789_player_fastforward.png"))); // NOI18N
+        jButton_Entrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/entrar2.png"))); // NOI18N
         jButton_Entrar.setText("Entrar");
         jButton_Entrar.setMaximumSize(new java.awt.Dimension(70, 42));
         jButton_Entrar.setMinimumSize(new java.awt.Dimension(70, 42));
@@ -58,8 +59,9 @@ public class PanelLogin extends javax.swing.JPanel {
             }
         });
 
+        jButton_Salir.setBackground(new java.awt.Color(255, 245, 245));
         jButton_Salir.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jButton_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435264830_notification_remove.png"))); // NOI18N
+        jButton_Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir2.png"))); // NOI18N
         jButton_Salir.setText("Salir");
         jButton_Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +89,7 @@ public class PanelLogin extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                         .addComponent(jButton_Entrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addComponent(jButton_Salir)))
