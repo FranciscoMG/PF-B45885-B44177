@@ -27,7 +27,7 @@ public class RegistroVentas {
         int ventaProcesadas = 0;
         for (int i = 0; i < listaVenta.length; i++) {
             if (registroBD.realizarProcedimiento("INSERT INTO Ventas VALUES (" + idVenta + ", " + (i + 1)
-                    + ", CURRENT_TIMESTAMP(), '" + listaVenta[i][1] + "', " + listaVenta[i][3] + ", " + listaVenta[i][5] + ", null);")) {
+                    + ", CURRENT_TIMESTAMP(), '" + listaVenta[i][1] + "', " + listaVenta[i][3] + ", " + listaVenta[i][5] + ", " + listaVenta[i][6] + ");")) {
                 ventaProcesadas++;
             }
         }
