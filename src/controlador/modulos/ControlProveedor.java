@@ -7,6 +7,7 @@ package controlador.modulos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.HiloValidador;
 import modelo.Proveedor;
 import modelo.RegistroProveedor;
 import vista.GUILogin;
@@ -22,11 +23,16 @@ public class ControlProveedor implements ActionListener {
     private RegistroProveedor registroProveedor;
     private GUIProveedor guiProveedor;
     private PanelProveedor panelProveedor;
+    private HiloValidador hiloValidador;
 
     public ControlProveedor(GUIProveedor aThis, PanelProveedor panelProveedor, RegistroProveedor registroProveedor) {
+        
+        System.gc();
         this.registroProveedor = registroProveedor;
         this.guiProveedor = aThis;
         this.panelProveedor = panelProveedor;
+        this.hiloValidador = new HiloValidador(panelProveedor, guiProveedor);
+        this.hiloValidador.start();
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -44,6 +50,7 @@ public class ControlProveedor implements ActionListener {
         }
         //--------------------------------------------------------------------     
         if (e.getActionCommand().equalsIgnoreCase(PanelProveedor.BTN_AGREGAR)) {
+            
             registroProveedor.agregarProveedor(new Proveedor(panelProveedor.getJtxtField_Codigo(), panelProveedor.getJtxtField_Nombre(), panelProveedor.getJtxtField_Telefono()));
             panelProveedor.limpiaDatos();
             panelProveedor.activaBotones(false);
@@ -63,6 +70,7 @@ public class ControlProveedor implements ActionListener {
         //-------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelProveedor.BTN_CANCELAR)) {
             guiProveedor.dispose();
+            hiloValidador.stop();
         }
     }
 

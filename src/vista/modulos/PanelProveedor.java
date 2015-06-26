@@ -6,6 +6,7 @@
 package vista.modulos;
 
 import controlador.modulos.ControlProveedor;
+import javax.swing.JLabel;
 
 /**
  *
@@ -41,6 +42,9 @@ public class PanelProveedor extends javax.swing.JPanel {
         jButton_Modificar = new javax.swing.JButton();
         jButton_Eliminar = new javax.swing.JButton();
         jButton_Cancelar = new javax.swing.JButton();
+        jLabel_Alerta_Codigo = new javax.swing.JLabel();
+        jLabel_Alerta_Nombre = new javax.swing.JLabel();
+        jLabel_Alerta_Telefono = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 245, 245));
 
@@ -69,6 +73,7 @@ public class PanelProveedor extends javax.swing.JPanel {
         jButton_Agregar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435273275_user_add.png"))); // NOI18N
         jButton_Agregar.setText("Agregar");
+        jButton_Agregar.setEnabled(false);
 
         jButton_Modificar.setBackground(new java.awt.Color(254, 254, 254));
         jButton_Modificar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
@@ -86,6 +91,18 @@ public class PanelProveedor extends javax.swing.JPanel {
         jButton_Cancelar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir2.png"))); // NOI18N
         jButton_Cancelar.setText("Cancelar");
+
+        jLabel_Alerta_Codigo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel_Alerta_Codigo.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_Alerta_Codigo.setText("*");
+
+        jLabel_Alerta_Nombre.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel_Alerta_Nombre.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_Alerta_Nombre.setText("*");
+
+        jLabel_Alerta_Telefono.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel_Alerta_Telefono.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_Alerta_Telefono.setText("*");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -121,11 +138,17 @@ public class PanelProveedor extends javax.swing.JPanel {
                                     .addComponent(jTxtField_Codigo)
                                     .addComponent(jTxtField_Nombre)
                                     .addComponent(jTxtField_Telefono, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))))
-                        .addGap(18, 18, 18)
+                        .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton_Cancelar)
-                            .addComponent(jButton_Buscar))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel_Alerta_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_Alerta_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_Alerta_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(4, 4, 4)
+                                .addComponent(jButton_Buscar)))))
+                .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,15 +160,18 @@ public class PanelProveedor extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton_Buscar))
+                    .addComponent(jButton_Buscar)
+                    .addComponent(jLabel_Alerta_Codigo))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTxtField_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtField_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Alerta_Nombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTxtField_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtField_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Alerta_Telefono))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Agregar)
@@ -171,6 +197,9 @@ public class PanelProveedor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel_Alerta_Codigo;
+    private javax.swing.JLabel jLabel_Alerta_Nombre;
+    private javax.swing.JLabel jLabel_Alerta_Telefono;
     private javax.swing.JTextField jTxtField_Codigo;
     private javax.swing.JTextField jTxtField_Nombre;
     private javax.swing.JTextField jTxtField_Telefono;
@@ -219,10 +248,30 @@ public class PanelProveedor extends javax.swing.JPanel {
         this.jButton_Modificar.setEnabled(esActivo);
         this.jButton_Eliminar.setEnabled(esActivo);
     }
+    
+    public void activarBontonAgregar (boolean estado) {
+        this.jButton_Agregar.setEnabled(estado);
+    }
 
     public void limpiaDatos() {
         this.jTxtField_Codigo.setText("");
         this.jTxtField_Nombre.setText("");
         this.jTxtField_Telefono.setText("");
     }
+    
+    /////////////////////////////////////////////////////////////////////////////////
+
+    public void setjLabel_Alerta_Codigo(String jLabel_Alerta_Codigo) {
+        this.jLabel_Alerta_Codigo.setText(jLabel_Alerta_Codigo);
+    }
+
+    public void setjLabel_Alerta_Nombre(String jLabel_Alerta_Nombre) {
+        this.jLabel_Alerta_Nombre.setText(jLabel_Alerta_Nombre);
+    }
+
+    public void setjLabel_Alerta_Telefono(String jLabel_Alerta_Telefono) {
+        this.jLabel_Alerta_Telefono.setText(jLabel_Alerta_Telefono);
+    }
+    
+    
 }

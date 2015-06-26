@@ -7,6 +7,7 @@ package controlador.modulos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.HiloValidador;
 import modelo.Producto;
 import modelo.Proveedor;
 import modelo.RegistroCompras;
@@ -27,6 +28,7 @@ public class ControlCompras implements ActionListener {
     private RegistroProductos registroProductos;
     private GUICompras guiCompras;
     private PanelCompras panelCompras;
+    private HiloValidador hiloValidador;
 
     public ControlCompras(GUICompras aThis, PanelCompras panelCompras, RegistroProveedor registroProveedor, RegistroProductos registroProductos, RegistroCompras registroCompras) {
         this.registroProveedor = registroProveedor;
@@ -34,6 +36,8 @@ public class ControlCompras implements ActionListener {
         this.registroCompras = registroCompras;
         this.guiCompras = aThis;
         this.panelCompras = panelCompras;
+        this.hiloValidador = new HiloValidador(panelCompras, guiCompras);
+        this.hiloValidador.start();
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -54,7 +58,7 @@ public class ControlCompras implements ActionListener {
                 String extraeProducto = panelCompras.getJComboBox_Producto().split(" ")[0];
                 Producto producto = registroProductos.consultarProducto(extraeProducto.substring(1, extraeProducto.length() - 1));
                 if (producto != null) {
-                    registroCompras.agregarCompra(producto, proveedor, panelCompras.getJSpinner_Cantidad(), panelCompras.getJTxtField_Precio());
+                    registroCompras.agregarCompra(producto, proveedor, panelCompras.getJSpinner_Cantidad(), Double.parseDouble(panelCompras.getJTxtField_Precio()));
                     panelCompras.limpiaDatos();
                 }
             } else {

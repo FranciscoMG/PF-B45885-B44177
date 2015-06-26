@@ -7,6 +7,9 @@ package vista.modulos;
 
 import controlador.modulos.ControlCompras;
 import java.util.ArrayList;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
 import modelo.Producto;
 
 /**
@@ -43,6 +46,10 @@ public class PanelCompras extends javax.swing.JPanel {
         jTxtField_Proveedor = new javax.swing.JTextField();
         jButton_Buscar = new javax.swing.JButton();
         jSpinner_Cantidad = new javax.swing.JSpinner();
+        jLabel_Alerta_Codigo_Provedor = new javax.swing.JLabel();
+        jLabel_Alerta_Producto = new javax.swing.JLabel();
+        jLabel_Alerta_Cantidad = new javax.swing.JLabel();
+        jLabel_Alerta_Precio = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(217, 254, 221));
 
@@ -79,16 +86,28 @@ public class PanelCompras extends javax.swing.JPanel {
 
         jSpinner_Cantidad.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
+        jLabel_Alerta_Codigo_Provedor.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel_Alerta_Codigo_Provedor.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_Alerta_Codigo_Provedor.setText("*");
+
+        jLabel_Alerta_Producto.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel_Alerta_Producto.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_Alerta_Producto.setText("*");
+
+        jLabel_Alerta_Cantidad.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel_Alerta_Cantidad.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_Alerta_Cantidad.setText("*");
+
+        jLabel_Alerta_Precio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel_Alerta_Precio.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_Alerta_Precio.setText("*");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -101,7 +120,9 @@ public class PanelCompras extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTxtField_Proveedor)
-                                .addGap(18, 18, 18)
+                                .addGap(3, 3, 3)
+                                .addComponent(jLabel_Alerta_Codigo_Provedor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
                                 .addComponent(jButton_Buscar))
                             .addComponent(jComboBox_Producto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -117,7 +138,16 @@ public class PanelCompras extends javax.swing.JPanel {
                                 .addComponent(jButton_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
                             .addComponent(jSpinner_Cantidad)
                             .addComponent(jTxtField_Precio, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(50, 50, 50))
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_Alerta_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Alerta_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Alerta_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,20 +158,24 @@ public class PanelCompras extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
-                        .addComponent(jTxtField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTxtField_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel_Alerta_Codigo_Provedor))
                     .addComponent(jButton_Buscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Alerta_Producto))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Alerta_Cantidad))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTxtField_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel_Alerta_Precio))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Cancelar)
@@ -161,6 +195,10 @@ public class PanelCompras extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel_Alerta_Cantidad;
+    private javax.swing.JLabel jLabel_Alerta_Codigo_Provedor;
+    private javax.swing.JLabel jLabel_Alerta_Precio;
+    private javax.swing.JLabel jLabel_Alerta_Producto;
     private javax.swing.JSpinner jSpinner_Cantidad;
     private javax.swing.JTextField jTxtField_Precio;
     private javax.swing.JTextField jTxtField_Proveedor;
@@ -201,9 +239,17 @@ public class PanelCompras extends javax.swing.JPanel {
         }
     }
     
-    public double getJTxtField_Precio() {
-        return Double.parseDouble(jTxtField_Precio.getText());
+    public void activarBotonAgregar(boolean estado) {
+        this.jButton_Guardar.setEnabled(estado);
     }
+    
+    public String getjSpinerCantidad_String () {
+        return this.jSpinner_Cantidad.getValue().toString();
+    }
+    
+    public String getJTxtField_Precio() {
+        return (jTxtField_Precio.getText());
+    }    
     
     public void limpiaDatos() {
         this.jTxtField_Proveedor.setText("");
@@ -211,4 +257,24 @@ public class PanelCompras extends javax.swing.JPanel {
         this.jSpinner_Cantidad.setValue(0);
         this.jTxtField_Precio.setText("");
     }
+    
+    /////////////////////////////////////////////////////////////////////////////////////
+
+    public void setjLabel_Alerta_Cantidad(String jLabel_Alerta_Cantidad) {
+        this.jLabel_Alerta_Cantidad.setText(jLabel_Alerta_Cantidad);
+    }
+
+    public void setjLabel_Alerta_Codigo_Provedor(String jLabel_Alerta_Codigo_Provedor) {
+        this.jLabel_Alerta_Codigo_Provedor.setText(jLabel_Alerta_Codigo_Provedor);
+    }
+
+    public void setjLabel_Alerta_Precio(String jLabel_Alerta_Precio) {
+        this.jLabel_Alerta_Precio.setText(jLabel_Alerta_Precio);
+    }
+
+    public void setjLabel_Alerta_Producto(String jLabel_Alerta_Producto) {
+        this.jLabel_Alerta_Producto.setText(jLabel_Alerta_Producto);
+    }
+    
+    
 }

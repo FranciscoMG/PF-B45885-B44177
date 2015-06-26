@@ -46,7 +46,7 @@ public class Validador {
 
     //////////////////////////////////////////////////////////////////////////
     public static boolean validadorPrecioUnitario(String dato) {
-        patron = Pattern.compile("^\\d{1,29}$");
+        patron = Pattern.compile("^\\d{1,30}\\.{0,1}\\d{0,30}$");
         matcher = patron.matcher(dato);
         return matcher.find();
     }
@@ -60,13 +60,20 @@ public class Validador {
 
     ///////////////////////////////////////////////////////////////////////////
     public static boolean validarTelefono(String dato) {
-        patron = Pattern.compile("^\\d{29}$");
+        patron = Pattern.compile("^\\d{1,29}$");
         matcher = patron.matcher(dato);
         return matcher.find();
     }
 
     //////////////////////////////////////////////////////////////////////////
     public static boolean validadorPrecio (String dato) {
+        patron = Pattern.compile("^\\d{1,29}$");
+        matcher = patron.matcher(dato);
+        return matcher.find();
+    }
+    
+    //////////////////////////////////////////////////////////////////////////
+    public static boolean validadorCantidad (String dato) {
         patron = Pattern.compile("^\\d{1,29}$");
         matcher = patron.matcher(dato);
         return matcher.find();
