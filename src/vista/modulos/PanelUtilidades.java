@@ -43,6 +43,7 @@ public class PanelUtilidades extends javax.swing.JPanel {
         jLabel4.setText("Mes:");
 
         jComboBox_Mes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox_Mes.setSelectedIndex(-1);
 
         jTxa_Detalle.setColumns(20);
         jTxa_Detalle.setRows(5);

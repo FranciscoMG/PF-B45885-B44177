@@ -86,7 +86,7 @@ public class RegistroVentas {
         double totalUtilidades = 0;
         String[][] ventasMes = consultarVentas(mes);
         String informe = "MiniSuper el Alto\nInforme de utilidades del mes\n\nMes: " + mesString;
-        informe += "\n--------------------------------------------------------------------------------------\n";
+        informe += "\n\n--------------------------------------------------------------------------------------\n";
         informe += "Fecha y hora\t\tMonto Venta\tUtilidad total\n";
         informe += "--------------------------------------------------------------------------------------\n";
         for (int f = 0; f < ventasMes.length; f++) {
@@ -95,7 +95,6 @@ public class RegistroVentas {
             totalUtilidades += Double.parseDouble(ventasMes[f][3]);
         }
         informe += "\nTotal Ventas: " + ventasMes.length + "\nTotal mes: " + totalMes + "\nTotal utilidades: " + totalUtilidades;
-
         return informe;
     }
 }
