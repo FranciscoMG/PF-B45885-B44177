@@ -79,7 +79,7 @@ public class RegistroVentas {
                 listaVentas[f][3] = resultado.getString("totalUtilidad");
                 f++;
             }
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
         }
         return listaVentas;
     }
