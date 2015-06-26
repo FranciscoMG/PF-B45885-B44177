@@ -51,13 +51,18 @@ public class PanelVentas extends javax.swing.JPanel {
         jSpinner_Cantidad = new javax.swing.JSpinner();
         jButton_Eliminar = new javax.swing.JButton();
 
-        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        setBackground(new java.awt.Color(254, 229, 254));
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setText("Registro ventas");
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel4.setText("Código:");
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel5.setText("Cantidad:");
 
+        jTable_Detalle.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jTable_Detalle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -83,24 +88,36 @@ public class PanelVentas extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable_Detalle);
 
+        jButton_Guardar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Guardar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435314938_load_download.png"))); // NOI18N
         jButton_Guardar.setText("Guardar");
 
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         jLabel1.setText("Total:");
 
         jLabel_Total.setText("0");
 
+        jButton_Cancelar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Cancelar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir2.png"))); // NOI18N
         jButton_Cancelar.setText("Terminar");
 
         jTxtField_Producto.setEnabled(false);
 
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel6.setText("Producto:");
 
-        jButton_Agregar.setText("A");
+        jButton_Agregar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435274529_document_add.png"))); // NOI18N
+        jButton_Agregar.setText("Agregar");
         jButton_Agregar.setActionCommand("Agregar");
 
         jSpinner_Cantidad.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
-        jButton_Eliminar.setText("E");
+        jButton_Eliminar.setBackground(new java.awt.Color(254, 254, 254));
+        jButton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435272330_notification_error.png"))); // NOI18N
+        jButton_Eliminar.setText("Eliminar");
         jButton_Eliminar.setActionCommand("Eliminar");
         jButton_Eliminar.setEnabled(false);
 
@@ -109,20 +126,21 @@ public class PanelVentas extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel_Total)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton_Guardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton_Cancelar))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel_Total, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -138,17 +156,17 @@ public class PanelVentas extends javax.swing.JPanel {
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jSpinner_Cantidad)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton_Agregar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton_Eliminar)))
-                        .addGap(0, 9, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(29, 29, 29)
                 .addComponent(jLabel3)
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -164,15 +182,17 @@ public class PanelVentas extends javax.swing.JPanel {
                     .addComponent(jButton_Agregar)
                     .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_Eliminar))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel_Total))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Guardar)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel_Total)
                     .addComponent(jButton_Cancelar))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

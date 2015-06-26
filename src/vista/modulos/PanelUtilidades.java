@@ -37,12 +37,15 @@ public class PanelUtilidades extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton_Cerrar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(197, 250, 254));
+
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel3.setText("Registro utilidades");
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel4.setText("Mes:");
 
+        jComboBox_Mes.setBackground(new java.awt.Color(254, 254, 254));
         jComboBox_Mes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre" }));
         jComboBox_Mes.setSelectedIndex(-1);
 
@@ -53,7 +56,9 @@ public class PanelUtilidades extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel1.setText("Detalle ventas mes:");
 
+        jButton_Cerrar.setBackground(new java.awt.Color(254, 254, 254));
         jButton_Cerrar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jButton_Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir2.png"))); // NOI18N
         jButton_Cerrar.setText("Cerrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -64,13 +69,13 @@ public class PanelUtilidades extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton_Cerrar)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 34, Short.MAX_VALUE))
+                                .addGap(0, 28, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -95,10 +100,10 @@ public class PanelUtilidades extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(14, 14, 14)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(jButton_Cerrar)
-                .addGap(46, 46, 46))
+                .addGap(40, 40, 40))
         );
     }// </editor-fold>//GEN-END:initComponents
 

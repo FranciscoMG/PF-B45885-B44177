@@ -28,7 +28,7 @@ public class HiloValidador extends Thread {
     private PanelProveedor panelProveedor;
     private PanelCompras panelCompras;
     private GUICompras gUICompras;
-    //>>>>>>>>>>>
+    //>>>>>>>>>>>>>>>>>>>>>>>>
     private boolean panelProductosDatosCorrecto;
     private boolean panelProveedorDatosCorrectos;
     private boolean panelComprasDatosCorrectos;
@@ -66,12 +66,12 @@ public class HiloValidador extends Thread {
                 revisarPanelProveedor();
                 if (panelProveedor != null) {
                     activarAgregarPanelProveedor();
-               }
+                }
                 //-------------------------------------------------------
                 revisarPanelCompras();
                 if (panelCompras != null) {
                     activarAgregarPanelCompras();
-                }    
+                }
                 //-------------------------------------------------------
             } catch (InterruptedException ex) {
                 Logger.getLogger(HiloValidador.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,7 +99,7 @@ public class HiloValidador extends Thread {
             } else {
                 panelComprasDatosCorrectos = true;
                 panelCompras.setjLabel_Alerta_Producto("*");
-            } 
+            }
             if (Validador.validadorCantidad(panelCompras.getjSpinerCantidad_String())) {
                 panelComprasDatosCorrectos = true;
                 panelCompras.setjLabel_Alerta_Cantidad("");
@@ -117,20 +117,22 @@ public class HiloValidador extends Thread {
             comprobarGuiCompras();
         }
     }
-    
-    private void comprobarGuiCompras () {
+
+    private void comprobarGuiCompras() {
         if (gUICompras.isVisible() == false) {
             panelCompras = null;
             this.stop();
         }
     }
-    
-    public void activarAgregarPanelCompras () {
+
+    public void activarAgregarPanelCompras() {
         panelCompras.activarBotonAgregar(panelComprasDatosCorrectos);
     }
+
     //************************************************************************************************
     // Metodos para modulo proveedor
     ////////////////////////////////////////////////////////////////////////////////////
+
     private void revisarPanelProveedor() {
         if (panelProveedor != null) {
             System.err.println("PanelProvedor");
@@ -162,15 +164,15 @@ public class HiloValidador extends Thread {
     public boolean isPanelProveedorDatosCorrectos() {
         return panelProveedorDatosCorrectos;
     }
-    
-    private void comprobarGuiProveedor () {
+
+    private void comprobarGuiProveedor() {
         if (gUIProveedor.isVisible() == false) {
             panelProveedor = null;
             this.stop();
         }
     }
-    
-    private void activarAgregarPanelProveedor () {
+
+    private void activarAgregarPanelProveedor() {
         panelProveedor.activarBontonAgregar(panelProveedorDatosCorrectos);
     }
 
