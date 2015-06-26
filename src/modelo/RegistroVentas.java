@@ -30,8 +30,8 @@ public class RegistroVentas {
         if (idVenta != -1) {
             for (int i = 0; i < listaVenta.length; i++) {
                 if (registroBD.realizarProcedimiento("INSERT INTO Ventas VALUES (" + idVenta + ", " + (i + 1)
-                        + ", CURRENT_TIMESTAMP(), '" + listaVenta[i][1] + "', " + listaVenta[i][3] + ", " + listaVenta[i][5] + ", " + listaVenta[i][6] + ");") &&
-                        registroInventario.modificarInventario(false, null, i)) {
+                        + ", CURRENT_TIMESTAMP(), '" + listaVenta[i][1] + "', " + listaVenta[i][3] + ", " + listaVenta[i][5] + ", " + listaVenta[i][6] + ");")
+                        && registroInventario.modificarInventario(false, new Producto(listaVenta[i][1], null, 0, null), Integer.parseInt(listaVenta[i][3]))) {
                     ventaProcesadas++;
                 }
             }
