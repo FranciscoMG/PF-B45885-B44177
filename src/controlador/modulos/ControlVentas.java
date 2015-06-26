@@ -43,7 +43,7 @@ public class ControlVentas implements ActionListener, MouseListener {
             if (resultado != null) {
                 panelVentas.setJTable_Detalle(resultado, panelVentas.getJSpinner_Cantidad());
                 panelVentas.setJLabel_Total();
-                panelVentas.limpiarDatos();
+                panelVentas.limpiarDatos(false);
             }
         }
         //---------------------------------------------------------------------
@@ -61,7 +61,7 @@ public class ControlVentas implements ActionListener, MouseListener {
         //---------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelVentas.BTN_GUARDAR)) {
             registroVentas.agregarVenta(panelVentas.getJTable_Detalle_Multiple());
-            panelVentas.limpiarDatos();
+            panelVentas.limpiarDatos(true);
         }
     }
 

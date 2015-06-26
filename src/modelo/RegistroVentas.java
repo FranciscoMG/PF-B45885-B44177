@@ -16,9 +16,11 @@ import vista.GUILogin;
 public class RegistroVentas {
 
     private RegistroBD registroBD;
+    private RegistroInventario registroInventario;
 
-    public RegistroVentas(RegistroBD registroBD) {
+    public RegistroVentas(RegistroBD registroBD, RegistroInventario registroInventario) {
         this.registroBD = registroBD;
+        this.registroInventario = registroInventario;
     }
 
     public void agregarVenta(String[][] listaVenta) {
@@ -28,7 +30,8 @@ public class RegistroVentas {
         if (idVenta != -1) {
             for (int i = 0; i < listaVenta.length; i++) {
                 if (registroBD.realizarProcedimiento("INSERT INTO Ventas VALUES (" + idVenta + ", " + (i + 1)
-                        + ", CURRENT_TIMESTAMP(), '" + listaVenta[i][1] + "', " + listaVenta[i][3] + ", " + listaVenta[i][5] + ", " + listaVenta[i][6] + ");")) {
+                        + ", CURRENT_TIMESTAMP(), '" + listaVenta[i][1] + "', " + listaVenta[i][3] + ", " + listaVenta[i][5] + ", " + listaVenta[i][6] + ");") &&
+                        registroInventario.modificarInventario(false, null, i)) {
                     ventaProcesadas++;
                 }
             }
@@ -57,7 +60,7 @@ public class RegistroVentas {
 
     public String[][] consultarVentas(int mes) {
         int f = 0;
-        String[][] retorno = null;
+        String[][] listaVentas = null;
         String mesCorregido;
         try {
             if (mes < 9) {
@@ -67,18 +70,18 @@ public class RegistroVentas {
             }
             ResultSet resultado = registroBD.realizarConsulta("SELECT idVenta, fechaVenta, ROUND(SUM(precioTotal), 2) AS totalVenta, ROUND(SUM(utilidad), 2) AS totalUtilidad FROM Ventas WHERE fechaVenta LIKE '%-" + mesCorregido + "-%' GROUP BY idVenta");
             resultado.last();
-            retorno = new String[resultado.getRow()][resultado.getMetaData().getColumnCount()];
+            listaVentas = new String[resultado.getRow()][resultado.getMetaData().getColumnCount()];
             resultado.beforeFirst();
             while (resultado.next()) {
-                retorno[f][0] = resultado.getString("idVenta");
-                retorno[f][1] = resultado.getString("fechaVenta");
-                retorno[f][2] = resultado.getString("totalVenta");
-                retorno[f][3] = resultado.getString("totalUtilidad");
+                listaVentas[f][0] = resultado.getString("idVenta");
+                listaVentas[f][1] = resultado.getString("fechaVenta");
+                listaVentas[f][2] = resultado.getString("totalVenta");
+                listaVentas[f][3] = resultado.getString("totalUtilidad");
                 f++;
             }
         } catch (SQLException ex) {
         }
-        return retorno;
+        return listaVentas;
     }
 
     public String informeVentas(int mes, String mesString) {

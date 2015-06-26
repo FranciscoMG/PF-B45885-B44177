@@ -49,7 +49,7 @@ public class ControlMenu implements ActionListener {
         this.registroInventario = new RegistroInventario(registroBD);
         this.registroProductos = new RegistroProductos(registroBD, registroProveedor, registroInventario);
         this.registroCompras = new RegistroCompras(registroBD, registroInventario);
-        this.registroVentas = new RegistroVentas(registroBD);
+        this.registroVentas = new RegistroVentas(registroBD, registroInventario);
         this.guiMenu = aThis;
         this.panelMenu = panelMenu;
     }
@@ -104,7 +104,7 @@ public class ControlMenu implements ActionListener {
         }
         //--------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_SALIR)) {
-            
+
         }
     }
 

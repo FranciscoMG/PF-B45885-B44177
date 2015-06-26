@@ -20,6 +20,8 @@ public class PanelVentas extends javax.swing.JPanel {
     /**
      * Creates new form PanelVentas
      */
+    private BigDecimal redondeo;
+
     public PanelVentas() {
         initComponents();
     }
@@ -85,7 +87,7 @@ public class PanelVentas extends javax.swing.JPanel {
 
         jLabel1.setText("Total:");
 
-        jLabel_Total.setText("0000");
+        jLabel_Total.setText("0");
 
         jButton_Cancelar.setText("Terminar");
 
@@ -95,6 +97,8 @@ public class PanelVentas extends javax.swing.JPanel {
 
         jButton_Agregar.setText("A");
         jButton_Agregar.setActionCommand("Agregar");
+
+        jSpinner_Cantidad.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         jButton_Eliminar.setText("E");
         jButton_Eliminar.setActionCommand("Eliminar");
@@ -233,7 +237,8 @@ public class PanelVentas extends javax.swing.JPanel {
         for (int f = 0; f < jTable_Detalle.getRowCount(); f++) {
             totalPago += (double) jTable_Detalle.getValueAt(f, 5);
         }
-        this.jLabel_Total.setText(String.valueOf(totalPago));
+        redondeo = new BigDecimal(totalPago);
+        this.jLabel_Total.setText(String.valueOf(redondeo.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue()));
     }
 
     public String[] getJTable_Detalle() {
@@ -256,7 +261,6 @@ public class PanelVentas extends javax.swing.JPanel {
     }
 
     public void setJTable_Detalle(Producto producto, int cantidad) {
-        BigDecimal redondeo;
         DefaultTableModel tabla = (DefaultTableModel) jTable_Detalle.getModel();
         this.jTable_Detalle.setModel(tabla);
         this.jTable_Detalle.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -288,10 +292,15 @@ public class PanelVentas extends javax.swing.JPanel {
         this.jButton_Eliminar.setEnabled(esActivo);
     }
 
-    public void limpiarDatos() {
+    public void limpiarDatos(boolean borraTodo) {
+        DefaultTableModel tabla = (DefaultTableModel) jTable_Detalle.getModel();
         this.jTxtField_Codigo.setText("");
         this.jTxtField_Producto.setText("");
-        this.jSpinner_Cantidad.setValue(0);
-        this.jTable_Detalle.clearSelection();
+        this.jSpinner_Cantidad.setValue(1);
+        if (borraTodo) {
+            tabla.setRowCount(0);
+            this.jTable_Detalle.setModel(tabla);
+            this.jLabel_Total.setText("0");
+        }
     }
 }
