@@ -31,6 +31,8 @@ public class ControlCompras implements ActionListener {
     private HiloValidador hiloValidador;
 
     public ControlCompras(GUICompras aThis, PanelCompras panelCompras, RegistroProveedor registroProveedor, RegistroProductos registroProductos, RegistroCompras registroCompras) {
+        
+        System.gc();
         this.registroProveedor = registroProveedor;
         this.registroProductos = registroProductos;
         this.registroCompras = registroCompras;
