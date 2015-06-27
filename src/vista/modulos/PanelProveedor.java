@@ -272,6 +272,25 @@ public class PanelProveedor extends javax.swing.JPanel {
     public void setjLabel_Alerta_Telefono(String jLabel_Alerta_Telefono) {
         this.jLabel_Alerta_Telefono.setText(jLabel_Alerta_Telefono);
     }
+
+    public String getjLabel_Alerta_Codigo() {
+        return jLabel_Alerta_Codigo.getText();
+    }
+
+    public String getjLabel_Alerta_Nombre() {
+        return jLabel_Alerta_Nombre.getText();
+    }
+
+    public String getjLabel_Alerta_Telefono() {
+        return jLabel_Alerta_Telefono.getText();
+    }
     
+    public boolean getEstadoAgregar () {
+        return this.jButton_Agregar.isEnabled();
+    }
+    
+    public boolean getEstadoModificar () {
+        return this.jButton_Modificar.isEnabled();
+    }
     
 }

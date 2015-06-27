@@ -57,13 +57,13 @@ public class ControlProducto implements ActionListener {
         }
         //-------------------------------------------------------------------  
         if (e.getActionCommand().equalsIgnoreCase(PanelProducto.BTN_AGREGAR)) {
-            if (hiloValidador.isPanelProductosDatosCorrecto()) {
+            if (panelProducto.getEstadoAgregar()) {
                 Producto producto = new Producto(panelProducto.getJTxtField_Codigo(), panelProducto.getJTxtField_Nombre(), Double.parseDouble(panelProducto.getJTxtField_Precio()), hiloValidador.getProveedor());
                 registroProductos.agregarProducto(producto, panelProducto.getJSpinner_Cantidad());
             } else {
                 GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProducto.getJTxtField_Proveedor(), 0, 2);
             }
-            panelProducto.limpiaDatos();
+            panelProducto.setJTxtField_Proveedor("");
             panelProducto.activaBotones(false);
         }
         //-------------------------------------------------------------------

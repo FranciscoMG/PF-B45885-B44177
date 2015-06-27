@@ -275,6 +275,24 @@ public class PanelCompras extends javax.swing.JPanel {
     public void setjLabel_Alerta_Producto(String jLabel_Alerta_Producto) {
         this.jLabel_Alerta_Producto.setText(jLabel_Alerta_Producto);
     }
+
+    public String getjLabel_Alerta_Cantidad() {
+        return jLabel_Alerta_Cantidad.getText();
+    }
+
+    public String getjLabel_Alerta_Codigo_Provedor() {
+        return jLabel_Alerta_Codigo_Provedor.getText();
+    }
+
+    public String getjLabel_Alerta_Precio() {
+        return jLabel_Alerta_Precio.getText();
+    }
+
+    public String getjLabel_Alerta_Producto() {
+        return jLabel_Alerta_Producto.getText();
+    }
+    
+   
     
     
 }

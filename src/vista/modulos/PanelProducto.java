@@ -337,6 +337,30 @@ public class PanelProducto extends javax.swing.JPanel {
     public void setjLabel_Alerta_Precio_Unitario(String jLabel_Alerta_Precio_Unitario) {
         this.jLabel_Alerta_Precio_Unitario.setText(jLabel_Alerta_Precio_Unitario);
     }
+
+    public String getjLabel_Alerta_Codigo() {
+        return jLabel_Alerta_Codigo.getText();
+    }
+
+    public String getjLabel_Alerta_Codigo_Provedor() {
+        return jLabel_Alerta_Codigo_Provedor.getText();
+    }
+
+    public String getjLabel_Alerta_Nombre() {
+        return jLabel_Alerta_Nombre.getText();
+    }
+
+    public String getjLabel_Alerta_Precio_Unitario() {
+        return jLabel_Alerta_Precio_Unitario.getText();
+    }
+    
+    public boolean getEstadoAgregar () {
+        return this.jButton_Agregar.isEnabled();
+    }
+    
+    public boolean getEstadoModificar () {
+        return this.jButton_Modificar.isEnabled();
+    }
     
     
 }

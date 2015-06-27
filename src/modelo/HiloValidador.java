@@ -59,19 +59,10 @@ public class HiloValidador extends Thread {
                 sleep(250);
                 //------------------------------------------------------
                 revisarPanelProducto();
-                if (panelProducto != null) {
-                    activarAgregarPanelProductos();
-                }
                 //-------------------------------------------------------
                 revisarPanelProveedor();
-                if (panelProveedor != null) {
-                    activarAgregarPanelProveedor();
-                }
                 //-------------------------------------------------------
                 revisarPanelCompras();
-                if (panelCompras != null) {
-                    activarAgregarPanelCompras();
-                }
                 //-------------------------------------------------------
             } catch (InterruptedException ex) {
                 Logger.getLogger(HiloValidador.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,34 +78,44 @@ public class HiloValidador extends Thread {
         if (panelCompras != null) {
             System.err.println("panelCompras");
             if (Validador.validadorCodigoProvedor(panelCompras.getJTxtField_Proveedor())) {
-                panelComprasDatosCorrectos = true;
                 panelCompras.setjLabel_Alerta_Codigo_Provedor("");
             } else {
-                panelComprasDatosCorrectos = false;
                 panelCompras.setjLabel_Alerta_Codigo_Provedor("*");
             }
             if (panelCompras.getJComboBox_Producto() != null) {
-                panelComprasDatosCorrectos = true;
                 panelCompras.setjLabel_Alerta_Producto("");
             } else {
-                panelComprasDatosCorrectos = true;
                 panelCompras.setjLabel_Alerta_Producto("*");
             }
             if (Validador.validadorCantidad(panelCompras.getjSpinerCantidad_String())) {
-                panelComprasDatosCorrectos = true;
                 panelCompras.setjLabel_Alerta_Cantidad("");
             } else {
-                panelComprasDatosCorrectos = false;
                 panelCompras.setjLabel_Alerta_Cantidad("*");
             }
             if (Validador.validadorPrecio(panelCompras.getJTxtField_Precio())) {
-                panelComprasDatosCorrectos = true;
                 panelCompras.setjLabel_Alerta_Precio("");
             } else {
-                panelComprasDatosCorrectos = false;
                 panelCompras.setjLabel_Alerta_Precio("*");
             }
             comprobarGuiCompras();
+            comprobarDatosCorrectosPanelCompras();
+        }
+    }
+
+    private void comprobarDatosCorrectosPanelCompras() {
+        if (panelCompras.getjLabel_Alerta_Codigo_Provedor().equalsIgnoreCase("")) {
+            if (panelCompras.getjLabel_Alerta_Producto().equalsIgnoreCase("")) {
+                if (panelCompras.getjLabel_Alerta_Precio().equalsIgnoreCase("")) {
+
+                    panelCompras.activarBotonAgregar(true);
+                } else {
+                    panelCompras.activarBotonAgregar(false);
+                }
+            } else {
+                panelCompras.activarBotonAgregar(false);
+            }
+        } else {
+            panelCompras.activarBotonAgregar(false);
         }
     }
 
@@ -125,44 +126,51 @@ public class HiloValidador extends Thread {
         }
     }
 
-    public void activarAgregarPanelCompras() {
-        panelCompras.activarBotonAgregar(panelComprasDatosCorrectos);
-    }
-
     //************************************************************************************************
     // Metodos para modulo proveedor
     ////////////////////////////////////////////////////////////////////////////////////
-
     private void revisarPanelProveedor() {
         if (panelProveedor != null) {
             System.err.println("PanelProvedor");
             if (Validador.validadorCodigoProvedor(panelProveedor.getJtxtField_Codigo())) {
-                panelProveedorDatosCorrectos = true;
                 panelProveedor.setjLabel_Alerta_Codigo("");
             } else {
-                panelProveedorDatosCorrectos = false;
                 panelProveedor.setjLabel_Alerta_Codigo("*");
             }
             if (Validador.validadorNombreProvedor(panelProveedor.getJtxtField_Nombre())) {
-                panelProveedorDatosCorrectos = true;
                 panelProveedor.setjLabel_Alerta_Nombre("");
             } else {
-                panelProveedorDatosCorrectos = false;
                 panelProveedor.setjLabel_Alerta_Nombre("*");
             }
             if (Validador.validarTelefono(panelProveedor.getJtxtField_Telefono())) {
-                panelProveedorDatosCorrectos = true;
                 panelProveedor.setjLabel_Alerta_Telefono("");
             } else {
-                panelProveedorDatosCorrectos = false;
                 panelProveedor.setjLabel_Alerta_Telefono("*");
             }
             comprobarGuiProveedor();
+            comprobarDatosCorrectosPanelProveedor();
         }
     }
 
-    public boolean isPanelProveedorDatosCorrectos() {
-        return panelProveedorDatosCorrectos;
+    private void comprobarDatosCorrectosPanelProveedor() {
+        if (panelProveedor.getjLabel_Alerta_Codigo().equalsIgnoreCase("")) {
+            if (panelProveedor.getjLabel_Alerta_Nombre().equalsIgnoreCase("")) {
+                if (panelProveedor.getjLabel_Alerta_Telefono().equalsIgnoreCase("")) {
+
+                    if (panelProveedor.getEstadoModificar()) {
+                        panelProveedor.activarBontonAgregar(false);
+                    } else {
+                        panelProveedor.activarBontonAgregar(true);
+                    }
+                } else {
+                    panelProveedor.activarBontonAgregar(false);
+                }
+            } else {
+                panelProveedor.activarBontonAgregar(false);
+            }
+        } else {
+            panelProveedor.activarBontonAgregar(false);
+        }
     }
 
     private void comprobarGuiProveedor() {
@@ -172,61 +180,66 @@ public class HiloValidador extends Thread {
         }
     }
 
-    private void activarAgregarPanelProveedor() {
-        panelProveedor.activarBontonAgregar(panelProveedorDatosCorrectos);
-    }
-
     //************************************************************************************************
     // Metodos para el modulo producto
     ////////////////////////////////////////////////////////////////////////////////////
     private void revisarPanelProducto() {
         if (panelProducto != null) {
             System.err.println("panelProducto");
-            proveedor = registroProveedor.consultarProveedor(panelProducto.getJTxtField_Proveedor());
 
             if (Validador.validadorCodigoProducto(panelProducto.getJTxtField_Codigo())) {
                 panelProducto.setjLabel_Alerta_Codigo("");
-                panelProductosDatosCorrecto = true;
             } else {
                 panelProducto.setjLabel_Alerta_Codigo("*");
-                panelProductosDatosCorrecto = false;
             }
             if (Validador.validadorNombreProducto(panelProducto.getJTxtField_Nombre())) {
                 panelProducto.setjLabel_Alerta_Nombre("");
-                panelProductosDatosCorrecto = true;
             } else {
                 panelProducto.setjLabel_Alerta_Nombre("*");
-                panelProductosDatosCorrecto = false;
             }
             if (Validador.validadorCodigoProvedor(panelProducto.getJTxtField_Proveedor())) {
+                proveedor = registroProveedor.consultarProveedor(panelProducto.getJTxtField_Proveedor());
                 if (proveedor != null) {
                     panelProducto.setjLabel_Alerta_Codigo_Provedor("");
-                    panelProductosDatosCorrecto = true;
                 } else {
-                    panelProductosDatosCorrecto = false;
                     panelProducto.setjLabel_Alerta_Codigo_Provedor("*");
                 }
             } else {
                 panelProducto.setjLabel_Alerta_Codigo_Provedor("*");
-                panelProductosDatosCorrecto = false;
             }
             if (Validador.validadorPrecioUnitario(panelProducto.getJTxtField_Precio())) {
                 panelProducto.setjLabel_Alerta_Precio_Unitario("");
-                panelProductosDatosCorrecto = true;
             } else {
                 panelProducto.setjLabel_Alerta_Precio_Unitario("*");
-                panelProductosDatosCorrecto = false;
             }
             comprobarGuiProductos();
+            comprobarDatosCorrectosPanelProductos();
         } // fin de if principal
     }
 
-    private void activarAgregarPanelProductos() {
-        panelProducto.activarAgregar(panelProductosDatosCorrecto);
-    }
+    private void comprobarDatosCorrectosPanelProductos() {
+        if (panelProducto.getjLabel_Alerta_Codigo().equalsIgnoreCase("")) {
+            if (panelProducto.getjLabel_Alerta_Nombre().equalsIgnoreCase("")) {
+                if (panelProducto.getjLabel_Alerta_Codigo_Provedor().equalsIgnoreCase("")) {
+                    if (panelProducto.getjLabel_Alerta_Precio_Unitario().equalsIgnoreCase("")) {
 
-    public boolean isPanelProductosDatosCorrecto() {
-        return panelProductosDatosCorrecto;
+                        if (panelProducto.getEstadoModificar()) {
+                            panelProducto.activarAgregar(false);
+                        } else {
+                            panelProducto.activarAgregar(true);
+                        }
+                    } else {
+                        panelProducto.activarAgregar(false);
+                    }
+                } else {
+                    panelProducto.activarAgregar(false);
+                }
+            } else {
+                panelProducto.activarAgregar(false);
+            }
+        } else {
+            panelProducto.activarAgregar(false);
+        }
     }
 
     public Proveedor getProveedor() {
