@@ -74,6 +74,7 @@ public class PanelCompras extends javax.swing.JPanel {
         jButton_Guardar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jButton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435274529_document_add.png"))); // NOI18N
         jButton_Guardar.setText("Guardar");
+        jButton_Guardar.setEnabled(false);
 
         jButton_Cancelar.setBackground(new java.awt.Color(254, 254, 254));
         jButton_Cancelar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
@@ -254,7 +255,7 @@ public class PanelCompras extends javax.swing.JPanel {
     public void limpiaDatos() {
         this.jTxtField_Proveedor.setText("");
         this.jComboBox_Producto.setSelectedIndex(-1);
-        this.jSpinner_Cantidad.setValue(0);
+        this.jSpinner_Cantidad.setValue(1);
         this.jTxtField_Precio.setText("");
     }
     
@@ -292,6 +293,9 @@ public class PanelCompras extends javax.swing.JPanel {
         return jLabel_Alerta_Producto.getText();
     }
     
+    public void setEnableCodigoProvedor (boolean estado) {
+        this.jTxtField_Proveedor.setEnabled(estado);
+    }
    
     
     

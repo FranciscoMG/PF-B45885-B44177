@@ -5,14 +5,18 @@
  */
 package modelo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import vista.modulos.GUICompras;
 import vista.modulos.GUIProducto;
 import vista.modulos.GUIProveedor;
+import vista.modulos.GUIVentas;
 import vista.modulos.PanelCompras;
 import vista.modulos.PanelProducto;
 import vista.modulos.PanelProveedor;
+import vista.modulos.PanelVentas;
 
 /**
  *
@@ -28,6 +32,9 @@ public class HiloValidador extends Thread {
     private PanelProveedor panelProveedor;
     private PanelCompras panelCompras;
     private GUICompras gUICompras;
+    private PanelVentas panelVentas;
+    private GUIVentas gUIVentas;
+    private RegistroBD bD;
     //>>>>>>>>>>>>>>>>>>>>>>>>
     private boolean panelProductosDatosCorrecto;
     private boolean panelProveedorDatosCorrectos;
@@ -49,6 +56,12 @@ public class HiloValidador extends Thread {
         this.panelCompras = panelCompras;
     }
 
+    public HiloValidador(PanelVentas panelVentas, GUIVentas gUIVentas) {
+        this.panelVentas = panelVentas;
+        this.gUIVentas = gUIVentas;
+        this.bD = new RegistroBD();
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////
     public void run() {
         int c = 0;
@@ -64,7 +77,11 @@ public class HiloValidador extends Thread {
                 //-------------------------------------------------------
                 revisarPanelCompras();
                 //-------------------------------------------------------
+                revisarPanelVentas();
+                //-------------------------------------------------------
             } catch (InterruptedException ex) {
+                Logger.getLogger(HiloValidador.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
                 Logger.getLogger(HiloValidador.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -72,8 +89,44 @@ public class HiloValidador extends Thread {
     }
 
     //************************************************************************************************
-    // Metodos par modulo Compras
+    // Metodos para modulo Ventas
     ////////////////////////////////////////////////////////////////////////////////////
+    private void revisarPanelVentas() throws SQLException {
+        if (panelVentas != null) {
+            System.err.println("PanelVentas");
+            if (Validador.validadorCodigoProducto(panelVentas.getJTxtField_Codigo())) {
+
+                ResultSet resultado = this.bD.realizarConsulta("SELECT * FROM Producto where idProducto = '" + panelVentas.getJTxtField_Codigo() + "';");
+                Producto producto = new Producto();
+
+                while (resultado.next()) {
+                    producto.setIdProducto(resultado.getString("idProducto"));
+                }
+                if (producto.getIdProducto() != null) {
+                    panelVentas.setjLabel_Alerta_Codigo("");
+                    panelVentas.activarAgregar(true);
+                } else {
+                    panelVentas.setjLabel_Alerta_Codigo("*");
+                    panelVentas.activarAgregar(false);
+                }
+
+            } else {
+                panelVentas.setjLabel_Alerta_Codigo("*");
+                panelVentas.activarAgregar(false);
+            }
+            comprbarGuiVentas();
+        }
+    }
+    
+    private void comprbarGuiVentas () {
+        if (gUIVentas.isVisible() == false) {
+            this.stop();
+        }
+    }
+
+    //************************************************************************************************
+// Metodos par modulo Compras
+////////////////////////////////////////////////////////////////////////////////////
     private void revisarPanelCompras() {
         if (panelCompras != null) {
             System.err.println("panelCompras");
@@ -212,6 +265,11 @@ public class HiloValidador extends Thread {
             } else {
                 panelProducto.setjLabel_Alerta_Precio_Unitario("*");
             }
+            if (Validador.validadorCantidad(panelProducto.getSpinerString())) {
+                panelProducto.setjLabel_Alerta_Unidades("");
+            } else {
+                panelProducto.setjLabel_Alerta_Unidades("*");
+            }
             comprobarGuiProductos();
             comprobarDatosCorrectosPanelProductos();
         } // fin de if principal
@@ -225,6 +283,7 @@ public class HiloValidador extends Thread {
 
                         if (panelProducto.getEstadoModificar()) {
                             panelProducto.activarAgregar(false);
+                            panelProducto.setEditableCodigoProducto(false);
                         } else {
                             panelProducto.activarAgregar(true);
                         }

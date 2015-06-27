@@ -104,7 +104,7 @@ public class ControlMenu implements ActionListener {
         }
         //--------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelMenu.BTN_SALIR)) {
-
+            System.exit(0);
         }
     }
 

@@ -50,6 +50,7 @@ public class PanelProducto extends javax.swing.JPanel {
         jLabel_Alerta_Nombre = new javax.swing.JLabel();
         jLabel_Alerta_Codigo_Provedor = new javax.swing.JLabel();
         jLabel_Alerta_Precio_Unitario = new javax.swing.JLabel();
+        jLabel_Alerta_Unidades = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(253, 252, 231));
         setEnabled(false);
@@ -99,6 +100,7 @@ public class PanelProducto extends javax.swing.JPanel {
         jButton_Cancelar.setText("Cancelar");
 
         jSpinner_Cantidad.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        jSpinner_Cantidad.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinner_Cantidad, ""));
         jSpinner_Cantidad.setValue(1);
 
         jLabel_Alerta_Codigo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -116,6 +118,9 @@ public class PanelProducto extends javax.swing.JPanel {
         jLabel_Alerta_Precio_Unitario.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel_Alerta_Precio_Unitario.setForeground(new java.awt.Color(255, 0, 0));
         jLabel_Alerta_Precio_Unitario.setText("*");
+
+        jLabel_Alerta_Unidades.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel_Alerta_Unidades.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -158,20 +163,20 @@ public class PanelProducto extends javax.swing.JPanel {
                                 .addGap(19, 19, 19)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton_Cancelar)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jButton_Buscar))))
+                                    .addComponent(jButton_Buscar)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(jLabel_Alerta_Codigo_Provedor, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(jLabel_Alerta_Precio_Unitario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel_Alerta_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_Alerta_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_Alerta_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel_Alerta_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jLabel_Alerta_Unidades, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_Alerta_Precio_Unitario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel3))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -205,7 +210,8 @@ public class PanelProducto extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Alerta_Unidades, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Agregar)
@@ -235,6 +241,7 @@ public class PanelProducto extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel_Alerta_Codigo_Provedor;
     private javax.swing.JLabel jLabel_Alerta_Nombre;
     private javax.swing.JLabel jLabel_Alerta_Precio_Unitario;
+    private javax.swing.JLabel jLabel_Alerta_Unidades;
     private javax.swing.JSpinner jSpinner_Cantidad;
     private javax.swing.JTextField jTxtField_Codigo;
     private javax.swing.JTextField jTxtField_Nombre;
@@ -338,6 +345,10 @@ public class PanelProducto extends javax.swing.JPanel {
         this.jLabel_Alerta_Precio_Unitario.setText(jLabel_Alerta_Precio_Unitario);
     }
 
+    public void setjLabel_Alerta_Unidades(String jLabel_Alerta_Unidades) {
+        this.jLabel_Alerta_Unidades.setText(jLabel_Alerta_Unidades);
+    }    
+
     public String getjLabel_Alerta_Codigo() {
         return jLabel_Alerta_Codigo.getText();
     }
@@ -361,6 +372,15 @@ public class PanelProducto extends javax.swing.JPanel {
     public boolean getEstadoModificar () {
         return this.jButton_Modificar.isEnabled();
     }
+
+    public String getjLabel_Alerta_Unidades() {
+        return jLabel_Alerta_Unidades.getText();
+    }
+    
+    public void setEditableCodigoProducto (boolean estado) {
+        this.jLabel_Alerta_Codigo.setEnabled(estado);
+    }
+    
     
     
 }

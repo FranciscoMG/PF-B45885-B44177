@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import modelo.HiloValidador;
 import modelo.Producto;
 import modelo.RegistroInventario;
 import modelo.RegistroProductos;
@@ -28,13 +29,19 @@ public class ControlVentas implements ActionListener, MouseListener {
     private GUIVentas guiVentas;
     private PanelVentas panelVentas;
     private int seleccionFila = -1;
+    private HiloValidador hiloValidador;
 
     public ControlVentas(GUIVentas aThis, PanelVentas panelVentas, RegistroVentas registroVentas, RegistroProductos registroProductos, RegistroInventario registroInventario) {
+        
+        System.gc();
         this.registroVentas = registroVentas;
         this.registroProductos = registroProductos;
         this.registroInventario = registroInventario;
         this.guiVentas = aThis;
         this.panelVentas = panelVentas;
+        this.hiloValidador = new HiloValidador(panelVentas, guiVentas);
+        this.hiloValidador.start();
+        
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -57,6 +64,7 @@ public class ControlVentas implements ActionListener, MouseListener {
         //---------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelVentas.BTN_CANCELAR)) {
             guiVentas.dispose();
+            this.hiloValidador.stop();
         }
         //---------------------------------------------------------------------
         if (e.getActionCommand().equalsIgnoreCase(PanelVentas.BTN_GUARDAR)) {

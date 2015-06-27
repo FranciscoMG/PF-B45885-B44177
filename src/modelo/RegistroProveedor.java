@@ -58,7 +58,7 @@ public class RegistroProveedor {
         if (registroBD.realizarProcedimiento("DELETE FROM Proveedor WHERE idProveedor ='" + proveedor.getIdProveedor() + "';")) {
             GUILogin.mensaje("Proveedor eliminado con éxito", 0, 1);
         } else {
-            GUILogin.mensaje("Error al eliminar el proveedor", 0, 0);
+            GUILogin.mensaje("Error al eliminar el proveedor\nNo es posible eliminarlo si este proveedor contiene productos en inventario.", 0, 0);
         }
     }
 }

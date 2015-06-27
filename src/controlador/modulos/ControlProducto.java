@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -62,8 +63,9 @@ public class ControlProducto implements ActionListener {
                 registroProductos.agregarProducto(producto, panelProducto.getJSpinner_Cantidad());
             } else {
                 GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProducto.getJTxtField_Proveedor(), 0, 2);
-            }
             panelProducto.setJTxtField_Proveedor("");
+            }
+            panelProducto.limpiaDatos();
             panelProducto.activaBotones(false);
         }
         //-------------------------------------------------------------------

@@ -7,6 +7,7 @@ package vista.modulos;
 
 import controlador.modulos.ControlVentas;
 import java.math.BigDecimal;
+import javax.swing.JLabel;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import modelo.Producto;
@@ -50,6 +51,7 @@ public class PanelVentas extends javax.swing.JPanel {
         jButton_Agregar = new javax.swing.JButton();
         jSpinner_Cantidad = new javax.swing.JSpinner();
         jButton_Eliminar = new javax.swing.JButton();
+        jLabel_Alerta_Codigo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(254, 229, 254));
 
@@ -111,15 +113,17 @@ public class PanelVentas extends javax.swing.JPanel {
         jButton_Agregar.setBackground(new java.awt.Color(254, 254, 254));
         jButton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435274529_document_add.png"))); // NOI18N
         jButton_Agregar.setText("Agregar");
-        jButton_Agregar.setActionCommand("Agregar");
 
         jSpinner_Cantidad.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         jButton_Eliminar.setBackground(new java.awt.Color(254, 254, 254));
         jButton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435272330_notification_error.png"))); // NOI18N
         jButton_Eliminar.setText("Eliminar");
-        jButton_Eliminar.setActionCommand("Eliminar");
         jButton_Eliminar.setEnabled(false);
+
+        jLabel_Alerta_Codigo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel_Alerta_Codigo.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_Alerta_Codigo.setText("*");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -156,10 +160,15 @@ public class PanelVentas extends javax.swing.JPanel {
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jSpinner_Cantidad)))
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton_Agregar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton_Eliminar)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton_Agregar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton_Eliminar))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel_Alerta_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
         );
@@ -171,7 +180,8 @@ public class PanelVentas extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtField_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_Alerta_Codigo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -207,6 +217,7 @@ public class PanelVentas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel_Alerta_Codigo;
     private javax.swing.JLabel jLabel_Total;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner_Cantidad;
@@ -323,4 +334,19 @@ public class PanelVentas extends javax.swing.JPanel {
             this.jLabel_Total.setText("0");
         }
     }
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+
+    public String getjLabel_Alerta_Codigo() {
+        return jLabel_Alerta_Codigo.getText();
+    }
+
+    public void setjLabel_Alerta_Codigo(String jLabel_Alerta_Codigo) {
+        this.jLabel_Alerta_Codigo.setText(jLabel_Alerta_Codigo);
+    }
+    
+    public void activarAgregar (boolean estado) {
+        this.jButton_Agregar.setEnabled(estado);
+    }
+    
 }

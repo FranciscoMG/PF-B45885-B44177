@@ -26,7 +26,7 @@ public class ControlProveedor implements ActionListener {
     private HiloValidador hiloValidador;
 
     public ControlProveedor(GUIProveedor aThis, PanelProveedor panelProveedor, RegistroProveedor registroProveedor) {
-        
+
         System.gc();
         this.registroProveedor = registroProveedor;
         this.guiProveedor = aThis;
@@ -37,20 +37,22 @@ public class ControlProveedor implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelProveedor.BTN_BUSCAR)) {
-            Proveedor resultado = registroProveedor.consultarProveedor(panelProveedor.getJtxtField_Codigo());
-            if (resultado != null) {
-                panelProveedor.setJtxtField_Codigo(resultado.getIdProveedor());
-                panelProveedor.setJtxtField_Nombre(resultado.getNombre());
-                panelProveedor.setJtxtField_Telefono(resultado.getTelefono());
-                panelProveedor.activaBotones(true);
-            } else {
-                GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProveedor.getJtxtField_Codigo(), 0, 2);
-                panelProveedor.limpiaDatos();
+            if (!panelProveedor.getJtxtField_Codigo().equalsIgnoreCase("")) {
+                Proveedor resultado = registroProveedor.consultarProveedor(panelProveedor.getJtxtField_Codigo());
+                if (resultado != null) {
+                    panelProveedor.setJtxtField_Codigo(resultado.getIdProveedor());
+                    panelProveedor.setJtxtField_Nombre(resultado.getNombre());
+                    panelProveedor.setJtxtField_Telefono(resultado.getTelefono());
+                    panelProveedor.activaBotones(true);
+                } else {
+                    GUILogin.mensaje("No se encontraron proveedores para el código: " + panelProveedor.getJtxtField_Codigo(), 0, 2);
+                    panelProveedor.limpiaDatos();
+                }
             }
         }
         //--------------------------------------------------------------------     
         if (e.getActionCommand().equalsIgnoreCase(PanelProveedor.BTN_AGREGAR)) {
-            
+
             registroProveedor.agregarProveedor(new Proveedor(panelProveedor.getJtxtField_Codigo(), panelProveedor.getJtxtField_Nombre(), panelProveedor.getJtxtField_Telefono()));
             panelProveedor.limpiaDatos();
             panelProveedor.activaBotones(false);
