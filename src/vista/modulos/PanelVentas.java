@@ -6,9 +6,13 @@
 package vista.modulos;
 
 import controlador.modulos.ControlVentas;
+import java.awt.Dimension;
 import java.math.BigDecimal;
 import javax.swing.JLabel;
+import javax.swing.JSpinner;
 import javax.swing.ListSelectionModel;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 import modelo.Producto;
 
@@ -114,7 +118,7 @@ public class PanelVentas extends javax.swing.JPanel {
         jButton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435274529_document_add.png"))); // NOI18N
         jButton_Agregar.setText("Agregar");
 
-        jSpinner_Cantidad.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        jSpinner_Cantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 1000, 1));
 
         jButton_Eliminar.setBackground(new java.awt.Color(254, 254, 254));
         jButton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1435272330_notification_error.png"))); // NOI18N
@@ -349,4 +353,13 @@ public class PanelVentas extends javax.swing.JPanel {
         this.jButton_Agregar.setEnabled(estado);
     }
     
+    public void setMaximiunJSpinner (int max) {
+        SpinnerModel newS = new SpinnerNumberModel(1, 1, max, 1);
+       this.jSpinner_Cantidad.setModel(newS);
+        
+    }
+    
+    public void setActivarJSpiner (boolean estado) {
+        this.jSpinner_Cantidad.setEnabled(estado);
+    }
 }

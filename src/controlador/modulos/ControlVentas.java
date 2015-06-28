@@ -9,11 +9,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.HiloValidador;
 import modelo.Producto;
 import modelo.RegistroInventario;
 import modelo.RegistroProductos;
 import modelo.RegistroVentas;
+import vista.GUILogin;
 import vista.modulos.GUIVentas;
 import vista.modulos.PanelVentas;
 
@@ -39,6 +44,7 @@ public class ControlVentas implements ActionListener, MouseListener {
         this.registroInventario = registroInventario;
         this.guiVentas = aThis;
         this.panelVentas = panelVentas;
+        this.registroInventario = new RegistroInventario();
         this.hiloValidador = new HiloValidador(panelVentas, guiVentas);
         this.hiloValidador.start();
         
@@ -46,11 +52,24 @@ public class ControlVentas implements ActionListener, MouseListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelVentas.BTN_AGREGAR)) {
+            int cantidadRestante = 0;
             Producto resultado = registroProductos.consultarProducto(panelVentas.getJTxtField_Codigo());
-            if (resultado != null) {
+            
+            ResultSet resultadoConsulta = registroInventario.consultarExistencia(resultado.getIdProducto());
+            try {
+                while (resultadoConsulta.next()) {
+                    cantidadRestante = Integer.parseInt(resultadoConsulta.getString("cantidad"));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ControlVentas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         
+            if (resultado != null && cantidadRestante > 0) {
                 panelVentas.setJTable_Detalle(resultado, panelVentas.getJSpinner_Cantidad());
                 panelVentas.setJLabel_Total();
                 panelVentas.limpiarDatos(false);
+            } else {
+                GUILogin.mensaje("El producto esta agotado", 0, 0);
             }
         }
         //---------------------------------------------------------------------

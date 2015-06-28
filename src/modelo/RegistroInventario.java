@@ -19,6 +19,10 @@ public class RegistroInventario {
         this.registroBD = registroBD;
     }
 
+    public RegistroInventario() {
+        this.registroBD = new RegistroBD();
+    }
+
     public boolean agregarInventario(Producto producto, int cantidad) {
         return registroBD.realizarProcedimiento("INSERT INTO Inventario VALUES ('" + producto.getIdProducto() + "', " + cantidad + ", CURDATE());");
     }
@@ -45,4 +49,8 @@ public class RegistroInventario {
         }
         return null;
     }
+    
+    public ResultSet consultarExistencia (String codigoProducto){
+        return registroBD.realizarConsulta("SELECT * FROM Inventario where fkProducto = '"+codigoProducto+"';");
+    } 
 }

@@ -35,7 +35,9 @@ public class HiloValidador extends Thread {
     private PanelVentas panelVentas;
     private GUIVentas gUIVentas;
     private RegistroBD bD;
+    private RegistroInventario registroInventario;
     //>>>>>>>>>>>>>>>>>>>>>>>>
+    private int valor = 0;
     private boolean panelProductosDatosCorrecto;
     private boolean panelProveedorDatosCorrectos;
     private boolean panelComprasDatosCorrectos;
@@ -60,6 +62,8 @@ public class HiloValidador extends Thread {
         this.panelVentas = panelVentas;
         this.gUIVentas = gUIVentas;
         this.bD = new RegistroBD();
+        this.registroInventario = new RegistroInventario();
+        this.valor = 0;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
@@ -69,7 +73,7 @@ public class HiloValidador extends Thread {
             System.err.println(c++);
             try {
 
-                sleep(250);
+                sleep(100);
                 //------------------------------------------------------
                 revisarPanelProducto();
                 //-------------------------------------------------------
@@ -102,7 +106,11 @@ public class HiloValidador extends Thread {
                 while (resultado.next()) {
                     producto.setIdProducto(resultado.getString("idProducto"));
                 }
+
                 if (producto.getIdProducto() != null) {
+
+                    setModelSpinerPanelVentas(producto);
+                    
                     panelVentas.setjLabel_Alerta_Codigo("");
                     panelVentas.activarAgregar(true);
                 } else {
@@ -117,10 +125,23 @@ public class HiloValidador extends Thread {
             comprbarGuiVentas();
         }
     }
-    
-    private void comprbarGuiVentas () {
+
+    private void comprbarGuiVentas() {
         if (gUIVentas.isVisible() == false) {
             this.stop();
+        }
+    }
+
+    private void setModelSpinerPanelVentas(Producto producto) throws SQLException {
+        int cantidadRestante = 0;
+        ResultSet resultadoConsulta = registroInventario.consultarExistencia(producto.getIdProducto());
+        
+        while (resultadoConsulta.next()) {
+            cantidadRestante = Integer.parseInt(resultadoConsulta.getString("cantidad"));
+        }
+        if (cantidadRestante > 0 && valor != cantidadRestante){
+            this.valor = cantidadRestante;
+        panelVentas.setMaximiunJSpinner(cantidadRestante);
         }
     }
 
