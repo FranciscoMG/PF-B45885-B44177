@@ -32,7 +32,7 @@ public class Validador {
 
     //////////////////////////////////////////////////////////////////////////
     public static boolean validadorNombreProducto(String dato) {
-        patron = Pattern.compile("^\\w{1,29}$");
+        patron = Pattern.compile("^[a-zA-Z]{1,15}\\s{0,2}[a-zA-Z]{0,12}$");
         matcher = patron.matcher(dato);
         return matcher.find();
     }
@@ -53,7 +53,7 @@ public class Validador {
 
     ////////////////////////////////////////////////////////////////////////////
     public static boolean validadorNombreProvedor(String dato) {
-        patron = Pattern.compile("^\\w{1,15}\\s{0,2}\\w{0,12}$");
+        patron = Pattern.compile("^[a-zA-Z]{1,15}\\s{0,2}[a-zA-Z]{0,12}$");
         matcher = patron.matcher(dato);
         return matcher.find();
     }
