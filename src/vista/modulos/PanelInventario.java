@@ -104,10 +104,10 @@ public class PanelInventario extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel_Agotados)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane_Tabla, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane_Tabla, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
                 .addGap(31, 31, 31)
                 .addComponent(jButton_Cerrar)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(77, 77, 77))
         );
     }// </editor-fold>//GEN-END:initComponents
 
