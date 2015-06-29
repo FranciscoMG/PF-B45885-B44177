@@ -66,7 +66,7 @@
               <Component id="jScrollPane_Tabla" min="-2" pref="275" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="jButton_Cerrar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,7 +93,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="13" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;HTML&gt;&#xa;Aqui va el mensaje&#xa;&lt;BR&gt;&#xa;de que los productos&#xa;&lt;BR&gt;&#xa;se agotaron!&#xa;&lt;/HTML&gt;"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane_Tabla">

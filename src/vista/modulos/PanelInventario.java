@@ -50,7 +50,6 @@ public class PanelInventario extends javax.swing.JPanel {
         jLabel4.setText("Filtrar por:");
 
         jLabel_Agotados.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jLabel_Agotados.setText("<HTML>\nAqui va el mensaje\n<BR>\nde que los productos\n<BR>\nse agotaron!\n</HTML>");
 
         jTable_Productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,7 +83,7 @@ public class PanelInventario extends javax.swing.JPanel {
                             .addComponent(jScrollPane_Tabla, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_Agotados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_Agotados)
                                     .addComponent(jLabel3)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
@@ -103,12 +102,12 @@ public class PanelInventario extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(jComboBox_Filtro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel_Agotados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_Agotados)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane_Tabla, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jButton_Cerrar)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
