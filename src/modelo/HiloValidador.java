@@ -38,9 +38,7 @@ public class HiloValidador extends Thread {
     private RegistroInventario registroInventario;
     //>>>>>>>>>>>>>>>>>>>>>>>>
     private int valor = 0;
-    private boolean panelProductosDatosCorrecto;
-    private boolean panelProveedorDatosCorrectos;
-    private boolean panelComprasDatosCorrectos;
+
 
     public HiloValidador(PanelProducto panelProducto, RegistroProveedor registroProveedor, GUIProducto gUIProducto) {
         this.panelProducto = panelProducto;
@@ -73,7 +71,7 @@ public class HiloValidador extends Thread {
             System.err.println(c++);
             try {
 
-                sleep(100);
+                sleep(200);
                 //------------------------------------------------------
                 revisarPanelProducto();
                 //-------------------------------------------------------

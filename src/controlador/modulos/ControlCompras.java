@@ -45,13 +45,15 @@ public class ControlCompras implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase(PanelCompras.BTN_BUSCAR)) {
             Proveedor resultado = registroProveedor.consultarProveedor(panelCompras.getJTxtField_Proveedor());
-            if (resultado != null) {
+            if (resultado != null ) {
                 GUILogin.mensaje("Proveedor encontrado: " + resultado.getNombre(), 0, 1);
                 panelCompras.setJComboBox_Producto(registroProductos.getProductos(1, resultado.getIdProveedor()));
                 panelCompras.setEnableCodigoProvedor(false);
             } else {
+                if (!panelCompras.getJTxtField_Proveedor().equalsIgnoreCase("")) {
                 GUILogin.mensaje("No se encontraron proveedores para el código: " + panelCompras.getJTxtField_Proveedor(), 0, 2);
                 panelCompras.limpiaDatos();
+                }
             }
         }
         //--------------------------------------------------------------------

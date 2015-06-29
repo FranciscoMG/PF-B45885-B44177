@@ -25,7 +25,7 @@ public class RegistroProveedor {
         if (registroBD.realizarProcedimiento("INSERT INTO Proveedor VALUES ('" + proveedor.getIdProveedor() + "', '" + proveedor.getNombre() + "', '" + proveedor.getTelefono() + "');")) {
             GUILogin.mensaje("Proveedor guardado con éxito", 0, 1);
         } else {
-            GUILogin.mensaje("Error al guardar el proveedor", 0, 0);
+            GUILogin.mensaje("Este codigo ya esta asignado a un proveedor", 0, 0);
         }
     }
 
