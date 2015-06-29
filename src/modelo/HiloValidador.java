@@ -163,11 +163,6 @@ public class HiloValidador extends Thread {
             } else {
                 panelCompras.setjLabel_Alerta_Producto("*");
             }
-            if (Validador.validadorCantidad(panelCompras.getjSpinerCantidad_String())) {
-                panelCompras.setjLabel_Alerta_Cantidad("");
-            } else {
-                panelCompras.setjLabel_Alerta_Cantidad("*");
-            }
             if (Validador.validadorPrecio(panelCompras.getJTxtField_Precio())) {
                 panelCompras.setjLabel_Alerta_Precio("");
             } else {
@@ -288,11 +283,7 @@ public class HiloValidador extends Thread {
             } else {
                 panelProducto.setjLabel_Alerta_Precio_Unitario("*");
             }
-            if (Validador.validadorCantidad(panelProducto.getSpinerString())) {
-                panelProducto.setjLabel_Alerta_Unidades("");
-            } else {
-                panelProducto.setjLabel_Alerta_Unidades("*");
-            }
+           
             comprobarGuiProductos();
             comprobarDatosCorrectosPanelProductos();
         } // fin de if principal

@@ -49,7 +49,6 @@ public class PanelCompras extends javax.swing.JPanel {
         jSpinner_Cantidad = new javax.swing.JSpinner();
         jLabel_Alerta_Codigo_Provedor = new javax.swing.JLabel();
         jLabel_Alerta_Producto = new javax.swing.JLabel();
-        jLabel_Alerta_Cantidad = new javax.swing.JLabel();
         jLabel_Alerta_Precio = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(217, 254, 221));
@@ -96,10 +95,6 @@ public class PanelCompras extends javax.swing.JPanel {
         jLabel_Alerta_Producto.setForeground(new java.awt.Color(255, 0, 0));
         jLabel_Alerta_Producto.setText("*");
 
-        jLabel_Alerta_Cantidad.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel_Alerta_Cantidad.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel_Alerta_Cantidad.setText("*");
-
         jLabel_Alerta_Precio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel_Alerta_Precio.setForeground(new java.awt.Color(255, 0, 0));
         jLabel_Alerta_Precio.setText("*");
@@ -143,7 +138,6 @@ public class PanelCompras extends javax.swing.JPanel {
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_Alerta_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel_Alerta_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_Alerta_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
             .addGroup(layout.createSequentialGroup()
@@ -171,8 +165,7 @@ public class PanelCompras extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel_Alerta_Cantidad))
+                    .addComponent(jSpinner_Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTxtField_Precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,7 +190,6 @@ public class PanelCompras extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel_Alerta_Cantidad;
     private javax.swing.JLabel jLabel_Alerta_Codigo_Provedor;
     private javax.swing.JLabel jLabel_Alerta_Precio;
     private javax.swing.JLabel jLabel_Alerta_Producto;
@@ -265,9 +257,6 @@ public class PanelCompras extends javax.swing.JPanel {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////
-    public void setjLabel_Alerta_Cantidad(String jLabel_Alerta_Cantidad) {
-        this.jLabel_Alerta_Cantidad.setText(jLabel_Alerta_Cantidad);
-    }
 
     public void setjLabel_Alerta_Codigo_Provedor(String jLabel_Alerta_Codigo_Provedor) {
         this.jLabel_Alerta_Codigo_Provedor.setText(jLabel_Alerta_Codigo_Provedor);
@@ -281,9 +270,6 @@ public class PanelCompras extends javax.swing.JPanel {
         this.jLabel_Alerta_Producto.setText(jLabel_Alerta_Producto);
     }
 
-    public String getjLabel_Alerta_Cantidad() {
-        return jLabel_Alerta_Cantidad.getText();
-    }
 
     public String getjLabel_Alerta_Codigo_Provedor() {
         return jLabel_Alerta_Codigo_Provedor.getText();
