@@ -31,9 +31,6 @@ public class ControlLogin implements ActionListener {
         this.guiLogin = aThis;
         this.panelLogin = panelLogin1;
 
-        this.guiMenu = new GUIMenu();///////////////////eliminar
-        this.guiMenu.setVisible(true); ////////////eliminar
-
         File file = new File("usuarios.xml");
         if (file.exists()) {
             registroUsuarios = RegistroUsuarios.abrirDocumento("usuarios.xml");

@@ -23,7 +23,7 @@ import vista.modulos.PanelVentas;
  * @author vini
  */
 public class HiloValidador extends Thread {
-
+    
     private Proveedor proveedor;
     private PanelProducto panelProducto;
     private RegistroProveedor registroProveedor;
@@ -38,24 +38,23 @@ public class HiloValidador extends Thread {
     private RegistroInventario registroInventario;
     //>>>>>>>>>>>>>>>>>>>>>>>>
     private int valor = 0;
-
-
+    
     public HiloValidador(PanelProducto panelProducto, RegistroProveedor registroProveedor, GUIProducto gUIProducto) {
         this.panelProducto = panelProducto;
         this.registroProveedor = registroProveedor;
         this.gUIProducto = gUIProducto;
     }
-
+    
     public HiloValidador(PanelProveedor panelProveedor, GUIProveedor guiProveedor) {
         this.gUIProveedor = guiProveedor;
         this.panelProveedor = panelProveedor;
     }
-
+    
     public HiloValidador(PanelCompras panelCompras, GUICompras guiCompras) {
         this.gUICompras = guiCompras;
         this.panelCompras = panelCompras;
     }
-
+    
     public HiloValidador(PanelVentas panelVentas, GUIVentas gUIVentas) {
         this.panelVentas = panelVentas;
         this.gUIVentas = gUIVentas;
@@ -70,7 +69,7 @@ public class HiloValidador extends Thread {
         while (true) {
             System.err.println(c++);
             try {
-
+                
                 sleep(200);
                 //------------------------------------------------------
                 revisarPanelProducto();
@@ -86,7 +85,7 @@ public class HiloValidador extends Thread {
             } catch (SQLException ex) {
                 Logger.getLogger(HiloValidador.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
         }
     }
 
@@ -97,39 +96,44 @@ public class HiloValidador extends Thread {
         if (panelVentas != null) {
             System.err.println("PanelVentas");
             if (Validador.validadorCodigoProducto(panelVentas.getJTxtField_Codigo())) {
-
+                
                 ResultSet resultado = this.bD.realizarConsulta("SELECT * FROM Producto where idProducto = '" + panelVentas.getJTxtField_Codigo() + "';");
                 Producto producto = new Producto();
-
+                
                 while (resultado.next()) {
                     producto.setIdProducto(resultado.getString("idProducto"));
+                    producto.setNombre(resultado.getString("nombre"));
                 }
-
+                
                 if (producto.getIdProducto() != null) {
-
+                    
+                    panelVentas.setJTxtField_Producto(producto.getNombre());
+                    
                     setModelSpinerPanelVentas(producto);
                     
                     panelVentas.setjLabel_Alerta_Codigo("");
                     panelVentas.activarAgregar(true);
                 } else {
+                    panelVentas.setJTxtField_Producto("");
                     panelVentas.setjLabel_Alerta_Codigo("*");
                     panelVentas.activarAgregar(false);
                 }
-
+                
             } else {
+                panelVentas.setJTxtField_Producto("");
                 panelVentas.setjLabel_Alerta_Codigo("*");
                 panelVentas.activarAgregar(false);
             }
             comprbarGuiVentas();
         }
     }
-
+    
     private void comprbarGuiVentas() {
         if (gUIVentas.isVisible() == false) {
             this.stop();
         }
     }
-
+    
     private void setModelSpinerPanelVentas(Producto producto) throws SQLException {
         int cantidadRestante = 0;
         ResultSet resultadoConsulta = registroInventario.consultarExistencia(producto.getIdProducto());
@@ -137,9 +141,9 @@ public class HiloValidador extends Thread {
         while (resultadoConsulta.next()) {
             cantidadRestante = Integer.parseInt(resultadoConsulta.getString("cantidad"));
         }
-        if (cantidadRestante > 0 && valor != cantidadRestante){
+        if (cantidadRestante > 0 && valor != cantidadRestante) {
             this.valor = cantidadRestante;
-        panelVentas.setMaximiunJSpinner(cantidadRestante);
+            panelVentas.setMaximiunJSpinner(cantidadRestante);
         }
     }
 
@@ -173,12 +177,12 @@ public class HiloValidador extends Thread {
             comprobarDatosCorrectosPanelCompras();
         }
     }
-
+    
     private void comprobarDatosCorrectosPanelCompras() {
         if (panelCompras.getjLabel_Alerta_Codigo_Provedor().equalsIgnoreCase("")) {
             if (panelCompras.getjLabel_Alerta_Producto().equalsIgnoreCase("")) {
                 if (panelCompras.getjLabel_Alerta_Precio().equalsIgnoreCase("")) {
-
+                    
                     panelCompras.activarBotonAgregar(true);
                 } else {
                     panelCompras.activarBotonAgregar(false);
@@ -190,7 +194,7 @@ public class HiloValidador extends Thread {
             panelCompras.activarBotonAgregar(false);
         }
     }
-
+    
     private void comprobarGuiCompras() {
         if (gUICompras.isVisible() == false) {
             panelCompras = null;
@@ -223,12 +227,12 @@ public class HiloValidador extends Thread {
             comprobarDatosCorrectosPanelProveedor();
         }
     }
-
+    
     private void comprobarDatosCorrectosPanelProveedor() {
         if (panelProveedor.getjLabel_Alerta_Codigo().equalsIgnoreCase("")) {
             if (panelProveedor.getjLabel_Alerta_Nombre().equalsIgnoreCase("")) {
                 if (panelProveedor.getjLabel_Alerta_Telefono().equalsIgnoreCase("")) {
-
+                    
                     if (panelProveedor.getEstadoModificar()) {
                         panelProveedor.activarBontonAgregar(false);
                     } else {
@@ -244,7 +248,7 @@ public class HiloValidador extends Thread {
             panelProveedor.activarBontonAgregar(false);
         }
     }
-
+    
     private void comprobarGuiProveedor() {
         if (gUIProveedor.isVisible() == false) {
             panelProveedor = null;
@@ -258,7 +262,7 @@ public class HiloValidador extends Thread {
     private void revisarPanelProducto() {
         if (panelProducto != null) {
             System.err.println("panelProducto");
-
+            
             if (Validador.validadorCodigoProducto(panelProducto.getJTxtField_Codigo())) {
                 panelProducto.setjLabel_Alerta_Codigo("");
             } else {
@@ -293,13 +297,13 @@ public class HiloValidador extends Thread {
             comprobarDatosCorrectosPanelProductos();
         } // fin de if principal
     }
-
+    
     private void comprobarDatosCorrectosPanelProductos() {
         if (panelProducto.getjLabel_Alerta_Codigo().equalsIgnoreCase("")) {
             if (panelProducto.getjLabel_Alerta_Nombre().equalsIgnoreCase("")) {
                 if (panelProducto.getjLabel_Alerta_Codigo_Provedor().equalsIgnoreCase("")) {
                     if (panelProducto.getjLabel_Alerta_Precio_Unitario().equalsIgnoreCase("")) {
-
+                        
                         if (panelProducto.getEstadoModificar()) {
                             panelProducto.activarAgregar(false);
                             panelProducto.setEditableCodigoProducto(false);
@@ -319,11 +323,11 @@ public class HiloValidador extends Thread {
             panelProducto.activarAgregar(false);
         }
     }
-
+    
     public Proveedor getProveedor() {
         return proveedor;
     }
-
+    
     private void comprobarGuiProductos() {
         if (gUIProducto.isVisible() == false) {
             panelProducto = null;
