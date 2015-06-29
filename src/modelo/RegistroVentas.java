@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import vista.GUILogin;
@@ -17,6 +18,7 @@ public class RegistroVentas {
 
     private RegistroBD registroBD;
     private RegistroInventario registroInventario;
+    private BigDecimal redondeo;
 
     public RegistroVentas(RegistroBD registroBD, RegistroInventario registroInventario) {
         this.registroBD = registroBD;
@@ -97,6 +99,10 @@ public class RegistroVentas {
             totalMes += Double.parseDouble(ventasMes[f][2]);
             totalUtilidades += Double.parseDouble(ventasMes[f][3]);
         }
+        redondeo = new BigDecimal(totalMes);
+        totalMes = redondeo.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        redondeo = new BigDecimal(totalUtilidades);
+        totalUtilidades = redondeo.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
         informe += "\nTotal Ventas: " + ventasMes.length + "\nTotal mes: " + totalMes + "\nTotal utilidades: " + totalUtilidades;
         return informe;
     }
