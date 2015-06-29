@@ -35,7 +35,7 @@ public class PanelInventario extends javax.swing.JPanel {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_Agotados = new javax.swing.JLabel();
         jScrollPane_Tabla = new javax.swing.JScrollPane();
         jTable_Productos = new javax.swing.JTable();
         jButton_Cerrar = new javax.swing.JButton();
@@ -49,8 +49,8 @@ public class PanelInventario extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel4.setText("Filtrar por:");
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jLabel1.setText("<HTML>\nAqui va el mensaje\n<BR>\nde que los productos\n<BR>\nse agotaron!\n</HTML>");
+        jLabel_Agotados.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        jLabel_Agotados.setText("<HTML>\nAqui va el mensaje\n<BR>\nde que los productos\n<BR>\nse agotaron!\n</HTML>");
 
         jTable_Productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -68,11 +68,6 @@ public class PanelInventario extends javax.swing.JPanel {
 
         jComboBox_Filtro.setBackground(new java.awt.Color(254, 254, 254));
         jComboBox_Filtro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todo", "Disponibles", "Agotados" }));
-        jComboBox_Filtro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_FiltroActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -89,7 +84,7 @@ public class PanelInventario extends javax.swing.JPanel {
                             .addComponent(jScrollPane_Tabla, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_Agotados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
@@ -108,7 +103,7 @@ public class PanelInventario extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(jComboBox_Filtro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_Agotados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane_Tabla, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
@@ -117,17 +112,12 @@ public class PanelInventario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox_FiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_FiltroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox_FiltroActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_Cerrar;
     private javax.swing.JComboBox jComboBox_Filtro;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel_Agotados;
     private javax.swing.JScrollPane jScrollPane_Tabla;
     private javax.swing.JTable jTable_Productos;
     // End of variables declaration//GEN-END:variables
@@ -141,6 +131,21 @@ public class PanelInventario extends javax.swing.JPanel {
 
     public String getJComboBox_Filtro() {
         return jComboBox_Filtro.getSelectedItem().toString();
+    }
+
+    public void setJLabel_Agotados(ResultSet rsTabla) {
+        String mensaje = "<HTML><FONT COLOR=\"red\">Productos Agotados:</FONT><BR>";
+        try {
+            while (rsTabla.next()) {
+                if (rsTabla.getInt("cantidad") < 2) {
+                    mensaje += rsTabla.getString("idProducto") + ", ";
+                }
+            }
+        } catch (SQLException ex) {
+        }
+        mensaje = mensaje.substring(0, mensaje.length() - 2);
+        mensaje += "</HTML>";
+        this.jLabel_Agotados.setText(mensaje);
     }
 
     public void setjTable_Productos(ResultSet rsTabla) {

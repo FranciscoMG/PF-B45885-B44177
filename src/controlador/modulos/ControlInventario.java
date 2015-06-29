@@ -28,6 +28,7 @@ public class ControlInventario implements ActionListener, ItemListener {
         this.guiInventario = aThis;
         this.panelInventario = panelInventario;
         this.panelInventario.setjTable_Productos(registroInventario.consultarInventario(0));
+        this.panelInventario.setJLabel_Agotados(registroInventario.consultarInventario(2));
     }
 
     public void actionPerformed(ActionEvent e) {
